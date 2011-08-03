@@ -1,15 +1,21 @@
-==python through pipes...==
+==p is key==
 pyp is a python-centric command line text manipulation tool.  It allows you to format, replace, augment                                                                            
 and otherwise mangle text using standard python syntax with a few golden-oldie tricks from unix commands                                                                           
-of the past. You can pipe data into pyp or cut and paste text, and then hit ctrl-D to get your input into pyp.
+of the past. You can pipe data into pyp just like any other unix command line tool.
                                                                  
                                                                                  
-
-
 After it's in, you can use the standard repertoire of python commands to modify the text. The key variables                                                                         
-are "p", which represents EACH LINE of the input as a PYTHON STRING.  and "pp", which represents ALL of the                                                                        
-inputs as a PYTHON ARRAY.                                                                                                                                                          
-                                                                                                                                                                                   
+are "p", which represents EACH LINE of the input as a PYTHON STRING.  So to replace FOO with GOO in every line of the input you can use this:
+
+pyp "p.replace('FOO','GOO')"
+
+The other key variable is  "pp", which represents ALL of the                  inputs as a PYTHON LIST...allowing you to, for example sort the input like this:
+
+pyp "pp.sort()"                              
+
+
+==python through pipes...==                                                                            
+                                                                                                                                                                         
 You can pipe data WITHIN a pyp statement using standard unix style pipes ("|"), where "p" now represents the                                                                       
 evaluation of the python statement before the "|".                                                                      
                                                                                                                                                                                    
