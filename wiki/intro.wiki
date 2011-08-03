@@ -22,9 +22,9 @@ The other key variable is  "pp", which represents ALL of the                  in
 ==piping python through pipes==                                                                            
                                                                                                                                                                          
 You can pipe data WITHIN a pyp statement using standard unix style pipes ("|"), where "p" now represents the                                                                       
-evaluation of the python statement before the "|".                                                                      
+evaluation of the python statement before the "|".  This allows you to write commands in a human readable linear fashion without nested parentheses or temporary variables, with the added bonus that all interpipe subresults are available with the "history" variable.                                                                      
                                                                                                                                                                                                                                                                                                                                                            
-     *echo 'FOO IS AN ' | pyp "p.replace('FOO','THIS') | p + 'EXAMPLE'"*                                                                                                             
+     *echo 'FOO IS AN ' | pyp "p.replace('FOO','THIS') | p+'EXAMPLE'"*                                                                                                             
        *>THIS IS AN EXAMPLE*
 ==splitting up is easy to do==                                                                                    
 Splitting text on metacharacters is often critical for picking out particular fields of interest,                                                                                   
