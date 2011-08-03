@@ -48,7 +48,8 @@ First of all, using the split() string method will generate a numbered output, c
 
 which allows you to easily select whatever field you want using python list methods:
 
-*echo /this/is/a/splitting/example | pyp "p.split('/')[3]"*
+*echo /this/is/a/splitting/example | pyp "`p.split('/')[3]`"*
+
 *>splitting*
 
 
