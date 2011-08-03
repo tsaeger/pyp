@@ -1,4 +1,4 @@
-=enter the pyed piper=
+=Enter the Pyed Piper=
 ----
 pyp is a python-centric command line text manipulation tool.  It allows you to format, replace, augment                                                                            
 and otherwise mangle text using standard python syntax with a few golden-oldie tricks from unix commands                                                                           
@@ -24,6 +24,7 @@ The other key variable is  "pp", which represents ALL of the                  in
 All pyp statements should be enclosed in double quotes, with single quotes being used to enclose any strings. 
 
 =piping python through pipes=
+
 ----                                                                           
                                                                                                                                                                          
 You can pipe data WITHIN a pyp statement using standard unix style pipes ("|"), where "p" now represents the                                                                       
@@ -40,7 +41,8 @@ evaluation of the python statement before the "|".  This allows you to write com
 This has the added bonus that all interpipe subresults are available with the "history" variable.
 
 =splitting up is easy to do=
-----                   
+
+----             
                                                                  
 pyed piper knows that splitting up text on particular characters is critical and constant, so it has several built in features to make this easier.
 
