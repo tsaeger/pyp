@@ -60,6 +60,7 @@ so common SPLITS and JOINS have been assigned variables. For example, the variab
 *>`[[0]this[1]is[2]a[3]splitting[4]example]`*
 
 to join this array back together, but this time with `underscores`, pipe to u:
+
 *echo /this/is/a/splitting/example | pyp "s|u"*
 *>this_is_a_splitting_example*
 
