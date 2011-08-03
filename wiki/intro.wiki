@@ -77,7 +77,7 @@ to join this array back together, but this time with `underscores`, pipe to u:
 
 ----
 =a patchwork of pyp methods=
-----
+
 
                       
                                                                                     
@@ -140,7 +140,7 @@ select 1st field split up by '/'             ==> pyp  "slash[0]"
 select fields 3 through 5 split up by '/'    ==> pyp  "s[2:6]"                                                                                                                     
 
 above joined together with '/'               ==> pyp  "s[2:6] | s"                                                                                                                 
-                                                                                                                                                                      ----                    
+----                                                                                                  
 ==Logic Filters==                  
 
 keep all lines with GOO and FOO              ==> pyp  "'GOO' in p and 'FOO' in p"                                                                                                  
