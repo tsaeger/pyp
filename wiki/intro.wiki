@@ -1,8 +1,9 @@
 pyp is a python-centric command line text manipulation tool.  It allows you to format, replace, augment                                                                            
 and otherwise mangle text using standard python syntax with a few golden-oldie tricks from unix commands                                                                           
-of the past. You can pipe data into pyp or cut and paste text, and then hit ctrl-D to get your input into pyp.                                                                     
+of the past. You can pipe data into pyp or cut and paste text, and then hit ctrl-D to get your input into pyp.
+---                                                                     
                                                                                                                                                                                    
-After it's in, you can use the standard repetoire of python commands to modify the text. The key variables                                                                         
+After it's in, you can use the standard repertoire of python commands to modify the text. The key variables                                                                         
 are "p", which represents EACH LINE of the input as a PYTHON STRING.  and "pp", which represents ALL of the                                                                        
 inputs as a PYTHON ARRAY.                                                                                                                                                          
                                                                                                                                                                                    
