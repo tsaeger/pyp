@@ -6,7 +6,7 @@ of the past. You can pipe data into pyp just like any other unix command line to
                                                                                  
 After it's in, you can use the standard repertoire of python string and list methods to modify the text. 
 
-All pyp statements should be enclosed in double quotes, with single quotes being used to enclose any strings.          
+         
 
 ==p is key==
 The key variables                                                                         
@@ -15,19 +15,23 @@ are "p", which represents EACH LINE of the input as a PYTHON STRING.  So to repl
 
 *pyp "p.replace('FOO','GOO')"*
 
-The other key variable is  "pp", which represents ALL of the                  inputs as a PYTHON LIST...allowing you to, for example sort the input like this:
+The other key variable is  "pp", which represents ALL of the                  inputs as a PYTHON LIST...allowing you to, for example, sort the entire input like this:
 
 *pyp "pp.sort()"*                             
 
+All pyp statements should be enclosed in double quotes, with single quotes being used to enclose any strings. 
 
 ==piping python through pipes==                                                                            
                                                                                                                                                                          
 You can pipe data WITHIN a pyp statement using standard unix style pipes ("|"), where "p" now represents the                                                                       
-evaluation of the python statement before the "|".  This allows you to write commands in a human readable linear fashion without nested parentheses or temporary variables, with the added bonus that all interpipe subresults are available with the "history" variable.
+evaluation of the python statement before the "|".  This allows you to write commands in a human readable, linear fashion without nested parentheses or temporary variables. 
             
 
                                                           
 *echo 'FOO IS AN ' | pyp "p.replace('FOO','THIS')|p+'EXAMPLE'"*  
+
+
+This has the added bonus that all interpipe subresults are available with the "history" variable.
 
 *>THIS IS AN EXAMPLE*
 ==splitting up is easy to do==                                                                                    
@@ -35,16 +39,11 @@ Splitting text on metacharacters is often critical for picking out particular fi
 so common SPLITS and JOINS have been assigned variables. For example, "underscore" or "u" will split a string                                                                      
 to an array based on undercores ("_"), while "underscore" or "u" will ALSO join an array with underscores ("_")                                                                    
 back to a string.                                                                                                                                                                  
+                                                                                   Here are a few key split/join variables:                                                          
                                                                                                                                                                                    
-Here are a few key split/join variables; run with --manual for all variable and see examples below in the string section.                                                          
-                                                                                                                                                                                   
-    s OR slash           splits AND joins on "/"                                                                               
-
-                                                   
+    s OR slash           splits AND joins on "/"                                                                                                                                  
     u OR underscore      splits AND joins on "_"                                                                                                                                   
-
     w OR whitespace      splits on whitespace (spaces,tabs,etc) AND joins with spaces                                                                             
-
                  
     a OR all             splits on ALL metacharacters [!@#$%^&()...] AND joins with spaces                                                                                        
                                                                                                                                                                                   
