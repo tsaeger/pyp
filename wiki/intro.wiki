@@ -86,7 +86,7 @@ to join this array back together, but this time with `underscores`, pipe to u:
              
 ==list operations== 
              
-*print all lines                              ==> pyp  "pp"                                                                               
+print all lines                              ==> pyp  "pp"                                                                               
 
                                           
 sort all input lines                         ==> pyp  "pp.sort()"                                                                        
