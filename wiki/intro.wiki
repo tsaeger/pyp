@@ -1,4 +1,4 @@
-{{{
+
 
 pyp is a python-centric command line text manipulation tool.  It allows you to format, replace, augment                                                                            
 and otherwise mangle text using standard python syntax with a few golden-oldie tricks from unix commands                                                                           
@@ -28,4 +28,4 @@ Here are a few key split/join variables; run with --manual for all variable and 
     s OR slash           splits AND joins on "/"                                                                                                                                   
     u OR underscore      splits AND joins on "_"                                                                                                                                   
     w OR whitespace      splits on whitespace (spaces,tabs,etc) AND joins with spaces                                                                                              
-    a OR all             splits on ALL metacharacters [!@#$%^&*()...] AND joins with spaces                }}}
+    a OR all             splits on ALL metacharacters [!@#$%^&*()...] AND joins with spaces                
