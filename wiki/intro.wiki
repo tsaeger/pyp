@@ -84,7 +84,7 @@ to join this array back together, but this time with `underscores`, pipe to u:
                                                                                         
 
              
-==List Operations== 
+==list operations== 
              
 print all lines                              ==> pyp  "pp"                                                                               
 
@@ -101,7 +101,7 @@ combine all lines to one line                ==> pyp  "pp.oneline"
 print line after FOO                         ==> pyp  "pp.after('FOO')"                                                                  
 
                                           
-list comprehenision                          ==> pyp  "[x for x in pp]"                                                                               
+list comprehenision                          ==> pyp  `"[x for x in pp]"`                                                                               
 
                              
 return to string context after sort          ==> pyp  "pp.sort() | p"                                                                                 
@@ -109,7 +109,7 @@ return to string context after sort          ==> pyp  "pp.sort() | p"
                              
                                                                                                                                                                       
 ----
-==String Operations==              
+==string operations==              
                                                                                    
 
              
@@ -139,10 +139,10 @@ select 1st field split up by '/'             ==> pyp  "slash[0]"
 
 select fields 3 through 5 split up by '/'    ==> pyp  "s[2:6]"                                                                                                                     
 
-above joined together with '/'               ==> pyp  "s[2:6] | s"                                                                                 
+above joined together with '/'               ==> pyp  "`s[2:6]` | s"                                                                                 
 
 ----
-==Logic Filters==                  
+==logic filters==                  
 
 keep all lines with GOO and FOO              ==> pyp  "'GOO' in p and 'FOO' in p"                                                                                                  
 
@@ -153,6 +153,11 @@ keep all lines that are numbers              ==> pyp  "p.isdigit()"
 
              
 lose all lines with GOO and FOO              ==> pyp  "'GOO' not in p and 'FOO' not in p"                                                                                          
-lose all lines with GOO or FOO               ==> pyp  "lose('GOO','FOO')"                                                                                                          
+
+
+lose all lines with GOO or FOO               ==> pyp  "lose('GOO','FOO')"                                                                
+
+
+                                          
 lose all lines that are numbers              ==> pyp  "not p.isdigit()"                                                                                                            
                                                                                                      
