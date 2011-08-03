@@ -76,12 +76,15 @@ to join this array back together, but this time with `underscores`, pipe to u:
 
 
 ----
-=a patchwork of pyp methods=                      
+=a patchwork of pyp methods=
+----
+
+                      
                                                                                     
                                                                                         
 
              
-==List Operations              # all python list methods==
+==List Operations==               all python list methods==
              
 print all lines                              ==> pyp  "pp"                                                                               
 
