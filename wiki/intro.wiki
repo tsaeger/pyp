@@ -56,8 +56,8 @@ which allows you to easily select whatever field you want using python list meth
 
 *>splitting*
 
-
-=autosplitter!=
+----
+=why not autosplit?=
 splitting text on metacharacters is often critical for picking out particular fields of interest,                                                                          
 so common SPLITS and JOINS have been assigned variables. For example, the variable 
 "slash" or "s" will split up the line based on "/", while "slash" or "s" will join ALSO join a split up string with "/"                                                                                
@@ -66,7 +66,7 @@ so common SPLITS and JOINS have been assigned variables. For example, the variab
 
 *>`[[0]this[1]is[2]a[3]splitting[4]example]`*
 ----
-=autojoining after you autosplit=
+=autojoining post autosplit=
 
 to join this array back together, but this time with `underscores`, pipe to u:
 
