@@ -1,10 +1,13 @@
-==p is key==
+==...enter the Pyed Piper==
 pyp is a python-centric command line text manipulation tool.  It allows you to format, replace, augment                                                                            
 and otherwise mangle text using standard python syntax with a few golden-oldie tricks from unix commands                                                                           
 of the past. You can pipe data into pyp just like any other unix command line tool.
                                                                  
                                                                                  
-After it's in, you can use the standard repertoire of python commands to modify the text. The key variables                                                                         
+After it's in, you can use the standard repertoire of python string and list methods to modify the text. 
+
+==p is key==
+The key variables                                                                         
 are "p", which represents EACH LINE of the input as a PYTHON STRING.  So to replace FOO with GOO in every line of the input you can use this:
 
 pyp "p.replace('FOO','GOO')"
