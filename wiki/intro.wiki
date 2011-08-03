@@ -10,9 +10,7 @@ are "p", which represents EACH LINE of the input as a PYTHON STRING.  and "pp", 
 inputs as a PYTHON ARRAY.                                                                                                                                                          
                                                                                                                                                                                    
 You can pipe data WITHIN a pyp statement using standard unix style pipes ("|"), where "p" now represents the                                                                       
-evaluation of the python statement before the "|". You can also refer back to the ORIGINAL, unadulterated                                                                          
-input using the variable "o" or "original" at any time...and the variable "h" or "history" allows you                                                                              
-to refer back to ANY subresult generated between pipes ("|").                                                                                                                      
+evaluation of the python statement before the "|".                                                                      
                                                                                                                                                                                    
 All pyp statements should be enclosed in double quotes, with single quotes being used to enclose any strings.                                                                      
                                                                                                                                                                                    
@@ -29,7 +27,7 @@ Here are a few key split/join variables; run with --manual for all variable and 
     s OR slash           splits AND joins on "/"                                                                                                                                   
     u OR underscore      splits AND joins on "_"                                                                                                                                   
     w OR whitespace      splits on whitespace (spaces,tabs,etc) AND joins with spaces                                                                                              
-    a OR all             splits on ALL metacharacters [!@#$%^&*()...] AND joins with spaces                                                                                        
+    a OR all             splits on ALL metacharacters [!@#$%^&()...] AND joins with spaces                                                                                        
                                                                                                                                                                                    
 EXAMPLES:                                                                                                                                                                          
 ------------------------------------------------------------------------------                                                                                                     
