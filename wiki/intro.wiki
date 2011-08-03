@@ -16,7 +16,8 @@ evaluation of the python statement before the "|".
 All pyp statements should be enclosed in double quotes, with single quotes being used to enclose any strings.                                                                      
                                                                                                                                                                                    
      echo 'FOO IS AN ' | pyp "p.replace('FOO','THIS') | p + 'EXAMPLE'"                                                                                                             
-       ==> THIS IS AN EXAMPLE                                                                                                                                                      ==splitting up is easy to do==                                                                                    
+       THIS IS AN EXAMPLE
+==splitting up is easy to do==                                                                                    
 Splitting text on metacharacters is often critical for picking out particular fields of interest,                                                                                   
 so common SPLITS and JOINS have been assigned variables. For example, "underscore" or "u" will split a string                                                                      
 to an array based on undercores ("_"), while "underscore" or "u" will ALSO join an array with underscores ("_")                                                                    
