@@ -75,19 +75,13 @@ to join this array back together, but this time with `underscores`, pipe to u:
 *>this_is_a_splitting_example*
 
 
----
+----
 =a patchwork of pyp methods=                      
                                                                                     
                                                                                         
 
              
-              List Operations              # all python list methods==
-==work
-                                                                               
-
-                           
-                                                                                        
-
+==List Operations              # all python list methods==
              
 print all lines                              ==> pyp  "pp"                                                                               
 
