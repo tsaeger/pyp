@@ -10,6 +10,7 @@ After it's in, you can use the standard repertoire of python string and list met
          
 
 =p is key=
+----
 The key variables                                                                         
 are "p", which represents EACH LINE of the input as a PYTHON STRING.  So to replace FOO with GOO in every line of the input you can use this:
 
@@ -22,7 +23,8 @@ The other key variable is  "pp", which represents ALL of the                  in
 
 All pyp statements should be enclosed in double quotes, with single quotes being used to enclose any strings. 
 
-=piping python through pipes=                                                                            
+=piping python through pipes=
+----                                                                           
                                                                                                                                                                          
 You can pipe data WITHIN a pyp statement using standard unix style pipes ("|"), where "p" now represents the                                                                       
 evaluation of the python statement before the "|".  This allows you to write commands in a human readable, linear fashion without nested parentheses or temporary variables. 
@@ -37,7 +39,8 @@ evaluation of the python statement before the "|".  This allows you to write com
 
 This has the added bonus that all interpipe subresults are available with the "history" variable.
 
-=splitting up is easy to do=                   
+=splitting up is easy to do=
+----                   
                                                                  
 pyed piper knows that splitting up text on particular characters is critical and constant, so it has several built in features to make this easier.
 
