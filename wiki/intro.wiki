@@ -35,17 +35,18 @@ This has the added bonus that all interpipe subresults are available with the "h
 
 *>THIS IS AN EXAMPLE*
 ==splitting up is easy to do==                                                                                    
-Splitting text on metacharacters is often critical for picking out particular fields of interest,                                                                                   
-so common SPLITS and JOINS have been assigned variables. For example, "underscore" or "u" will split a string                                                                      
-to an array based on undercores ("_"), while "underscore" or "u" will ALSO join an array with underscores ("_")                                                                    
-back to a string.                                                                                                                                                                  
-                                                                                   Here are a few key split/join variables:                                                          
-                                                                                                                                                                                   
-    s OR slash           splits AND joins on "/"                                                                                                                                  
-    u OR underscore      splits AND joins on "_"                                                                                                                                   
-    w OR whitespace      splits on whitespace (spaces,tabs,etc) AND joins with spaces                                                                             
-                 
-    a OR all             splits on ALL metacharacters [!@#$%^&()...] AND joins with spaces                                                                                        
+pyed piper knows that splitting up text on particular characters is critical and constant, so it has several built in features to make this easier.
+
+First of all, using the split() string method will generate a numbered output, clearly showing how to access your fields of interest.
+
+*echo /this/is/a/splitting/example | pyp "p.split('/')"*
+
+*>`[[0]this[1]is[2]a[3]splitting[4]example]`*
+
+Second, splitting text on metacharacters is often critical for picking out particular fields of interest,                                                                          
+so common SPLITS and JOINS have been assigned variables. For example, the variable 
+"slash" or "s" will split up the line based on "/", while "slash" or "s" will join ALSO join a split up string with "/"                                                                                                                  
+                                                                                                                                 
                                                                                                                                                                                   
 EXAMPLES:                                                                                                                                                                  
 
