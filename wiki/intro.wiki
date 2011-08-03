@@ -84,7 +84,7 @@ to join this array back together, but this time with `underscores`, pipe to u:
                                                                                         
 
              
-==List Operations==               all python list methods==
+==List Operations== 
              
 print all lines                              ==> pyp  "pp"                                                                               
 
@@ -107,14 +107,10 @@ list comprehenision                          ==> pyp  "[x for x in pp]"
 return to string context after sort          ==> pyp  "pp.sort() | p"                                                                                 
 
                              
-                                                                                                                                                                                   
--------------------------------------------------------------------------------                                                                                       
-
-             
-            String Operations               # all python str methods work                                                                               
-
-                           
--------------------------------------------------------------------------------                                                                                       
+                                                                                                                                                                      
+----
+==String Operations==              
+                                                                                   
 
              
 print line                                   ==> pyp  "p"                                                                                                                          
@@ -144,14 +140,8 @@ select 1st field split up by '/'             ==> pyp  "slash[0]"
 select fields 3 through 5 split up by '/'    ==> pyp  "s[2:6]"                                                                                                                     
 
 above joined together with '/'               ==> pyp  "s[2:6] | s"                                                                                                                 
-                                                                                                                                                                                   
--------------------------------------------------------------------------------                                                                                       
-
-             
-            Logic Filters                   # all python Booleon methods work                                                                                                      
--------------------------------------------------------------------------------                                                                                       
-
-             
+                                                                                                                                                                      ----                    
+==Logic Filters==                  
 
 keep all lines with GOO and FOO              ==> pyp  "'GOO' in p and 'FOO' in p"                                                                                                  
 
