@@ -31,10 +31,13 @@ evaluation of the python statement before the "|".  This allows you to write com
 *echo 'FOO IS AN ' | pyp "p.replace('FOO','THIS')|p+'EXAMPLE'"*  
 
 
-This has the added bonus that all interpipe subresults are available with the "history" variable.
 
 *>THIS IS AN EXAMPLE*
-==splitting up is easy to do==                                                                                    
+
+This has the added bonus that all interpipe subresults are available with the "history" variable.
+
+==splitting up is easy to do==                   
+                                                                 
 pyed piper knows that splitting up text on particular characters is critical and constant, so it has several built in features to make this easier.
 
 First of all, using the split() string method will generate a numbered output, clearly showing how to access your fields of interest.
