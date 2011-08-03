@@ -135,9 +135,9 @@ split up line by FOO                         ==> pyp  "p.split('FOO')"
                                           
 split up line by '/'                         ==> pyp  "slash"                                                                                                                      
 
-select 1st field split up by '/'             ==> pyp  "slash[0]"                                                                                                                   
+select 1st field split up by '/'             ==> pyp  "`slash[0]`"                                                                                                                   
 
-select fields 3 through 5 split up by '/'    ==> pyp  "s[2:6]"                                                                                                                     
+select fields 3 through 5 split up by '/'    ==> pyp  "`s[2:6]`"                                                                                                                     
 
 above joined together with '/'               ==> pyp  "`s[2:6]` | s"                                                                                 
 
