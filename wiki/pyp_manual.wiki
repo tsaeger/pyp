@@ -180,9 +180,9 @@ are at a large facility.
 
 =HERE ARE THE BUILT IN VARIABLES:=
     
-p   ==>     python string of python input line by line
+*p   ==>     python string of python input line by line
     
-pp  ==>     python list of ALL pyped in inputs
+*pp  ==>     python list of ALL pyped in inputs
     
 original ==> original line by line input to pyp    
     
