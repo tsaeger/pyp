@@ -1,4 +1,4 @@
-#the full pyp manual
+#summary the full pyp manual
 
 =AN INTRODUCTION TO PYED PIPER=
 
