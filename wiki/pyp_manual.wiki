@@ -284,6 +284,23 @@ Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
 ||`glob(PATH)`       ||     returns globed files/directories at PATH. Make sure to use `'*'` wildcard||
 
 ----
+==CUSTOM METHODS==
+
+pyed pyper relies on overloading the standard python string and list objects
+with it's own custom methods.  If you'd like to try writing your own methods
+either to simplify a common task or integrate custom functions using a 
+propietary API, it's straightforward to do. You'll have to setup a config
+file first:
+    
+    pyp --unmodified_config > PypCustom.py
+    sudo chmod 666 PypCustom.py
+
+There are example functions for string, list, powerpipe, and generic methods.
+to get you started. When pyp runs, it looks for this text file and automatically
+loads any found functions, overloading them into the appropriate objects. You
+can then using your custom methods just like any other pyp function.
+
+----
 ==SIMPLE EXAMPLES:==
 ||`pyp "'foo ' + p"`          ||       ==>  "foo" + current line||
 ||`pyp "p.replace('x','y') | p + o"` ||==>  current line w/replacement + original line ||
