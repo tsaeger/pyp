@@ -182,57 +182,54 @@ are at a large facility.
     
 ||`p` ||      python string of python input line by line ||
 
-`pp`  ==>     python list of ALL pyped in inputs
+||`pp`  ||     python list of ALL pyped in inputs||
 
-`original` ==> original line by line input to pyp    
+||`original` || original line by line input to pyp    ||
     
-`o` ==>       same as original    
+||`o` ||      same as original||    
     
-`sp` ==>      second steam line input, just like p, but from all non-flag arguments AFTER pyp
+||`sp` ||     second steam line input, just like p, but from all non-flag arguments AFTER pyp||
     
-`quote` ==>  a literal "      (double quotes can't be used in a pyp expression)
+||`quote` ||  a literal "      (double quotes can't be used in a pyp expression)||
     
-`paran` ==>   a literal '
+||`paran` ||   a literal '||
     
-`dollar` ==>  a literal $
+||`dollar` || a literal $||
 
-`n`   ==>     line counter (1st line is 1, 2nd line is 2,...use the form "(n+3)"
-             to modify this value. 
+||`n`  ||     line counter (1st line is 1, 2nd line is 2,...use the form "(n+3)" to modify this value. ||
 
-`nk`   ==>    n + 1000
+||`nk`   ||   n + 1000||
     
-`date` ==>     date and time. Returns the current datetime.datetime.now() object.
+||`date` ||     date and time. Returns the current datetime.datetime.now() object.||
     
-`f`  ==>      list based on file input using --file $file
+||`f`||    list based on file input using --textfile $file||
     
-`fp`  ==>     line from file input; fp for FIRST st-in line is the FIRST text file
-             line, and so on
+||`fp`  ||     line from file input; fp for FIRST st-in line is the FIRST text file line, and so on ||
     
-`pwd` ==>     present working directory
+|| `pwd` ||      present working directory ||
     
-`history` ==>  history array of all previous results:
-               so pyp "a|u|s|i|`h[-3]`" shows eval of s
+|| `history` ||  history array of all previous results: so pyp "a|u|s|i|`h[-3]`" shows eval of s ||
                
-`h`  ==>      same as history
+|| `h`  ||      same as history|| 
     
 ----
 ==THE FOLLOWING ARE SPLIT OR JOINED BASED ON p BEING A STRING OR AN ARRAY:==
     
-    `s`  OR `slash`          p split/joined on "/" 
+    ||`s`  OR `slash`||          p split/joined on "/" ||
        
-    `d`  OR `dot`            p split/joined on "."        
+   || `d`  OR `dot`  ||          p split/joined on "."    ||    
 
-    `w`  OR `whitespace`     p split/joined on whitespace (on spaces,tabs,etc)
+    ||`w`  OR `whitespace`  ||   p split/joined on whitespace (on spaces,tabs,etc)||
 
-    `u`  OR `underscore`     p split/joined on '_'       
+    ||`u`  OR `underscore` ||    p split/joined on '_'   ||    
 
-    `c`  OR `colon`          p split/joined on ':'  
+    ||`c`  OR `colon`     ||     p split/joined on ':'  ||
      
-    `mm` OR `comma`          p split/joined on ',' 
+    ||`mm` OR `comma`    ||      p split/joined on ',' ||
        
-    `m`  OR `minus`          p split/joined on '-'   
+    ||`m`  OR `minus`   ||       p split/joined on '-'   ||
      
-    `a`  OR `all`            p split on `[' '-_=$...]` (on "All" metacharacters)
+    ||`a`  OR `all`       ||     p split on `[' '-_=$...]` (on "All" metacharacters)||
 
 
 Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
@@ -244,33 +241,30 @@ os,od,oa,ou,ol,om and oe
 ----         
 p STRING (all python STRING methods like p.replace(STRING1,STRING2) work
 ----
-    p.trim()             removes last file or directory from path from p
-    p.dir                path  DIRECTORY
-    p.file               path  FILE
+    ||p.trim() ||            removes last file or directory from path from p||
+   || p.dir    ||            path  DIRECTORY||
+    ||p.file    ||           path  FILE||
    
 ----
 pp LIST (all LIST methods like pp.sort(), pp[-1], and pp.reverse() work
 ----
-   pp.delimit(DELIM)     split input on delimiter instead of newlines
+   ||pp.delimit(DELIM) ||    split input on delimiter instead of newlines||
 
-   pp.divide(N)          consolidates N consecutive lines to 1 line. 
+  || pp.divide(N)    ||      consolidates N consecutive lines to 1 line. ||
 
-   pp.before(STRING, N)  searches for STRING, colsolidates N lines BEFORE it to
-                         the same line. Default is 1. 
+   ||pp.before(STRING, N)  ||searches for STRING, colsolidates N lines BEFORE it to the same line. Default is 1. ||
 
-   pp.after(STRING, N)   searches for STRING, colsolidates N lines AFTER  it to
-                         same line. Default is 1.
+   ||pp.after(STRING, N)  || searches for STRING, colsolidates N lines AFTER  it to same line. Default is 1.||
 
-   pp.matrix(STRING, N)  returns pp.before(STRING, N) and pp.after(STRING, N).
-                         Default is 1.
+   ||pp.matrix(STRING, N)  ||returns pp.before(STRING, N) and pp.after(STRING, N). Default is 1. ||
 
-   pp.oneliner(DELIM)    combines all list elements to one line with delimiter
+   ||pp.oneliner(DELIM) ||   combines all list elements to one line with delimiter||
 
-   pp.uniq               returns only unique elements
+   ||pp.uniq    ||           returns only unique elements||
 
-   pp.unlist             breaks up ALL arrays up into seperate single lines
+   ||pp.unlist   ||          breaks up ALL arrays up into seperate single lines||
 
-   pp.oneline            combines all list elements to one line with spaces
+   ||pp.oneline   ||         combines all list elements to one line with spaces||
    ----
    ==native pyp functions== 
    keep(STR1,STR2,...)   keep all lines that have at least one STRING in them
