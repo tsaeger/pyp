@@ -57,7 +57,7 @@ variables that make this simpler, for example the variable "d" or "dot" is the
 same as `p.split('.')`:
     
     `ls random_frame.jpg | pyp "d"  `
-        ==>` [[0] random_frame[1]jpg]
+        ==>` [[0] random_frame[1]jpg]`
     
     `ls random_frame.jpg | pyp "d[0]"`
         ==>   `random_frame`
