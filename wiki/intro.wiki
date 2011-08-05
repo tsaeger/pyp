@@ -1,4 +1,4 @@
-#summary A Brief Introduction to Pyed Piper
+#summary a brief intro to pyed piper
 
 ----
 =Enter the Pyed Piper=
