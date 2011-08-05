@@ -1,7 +1,6 @@
 #the full pyp manual
 
-===================================================================================
-AN INTRODUCTION TO PYED PIPER
+=AN INTRODUCTION TO PYED PIPER=
 
 pyp is a command line utility for parsing text output and generating complex
 unix commands using standard python methods. pyp is powered by python, so any
@@ -43,9 +42,9 @@ execute them.  Also, an additional text file (PypCustom.py) can be set up that
 allows additional methods to be added to the pyp str and list methods, allowing
 tight integration with larger facilities data structures or custom tool sets.
 
------------------------------------------------------------------------------------
-                              STRING OPERATIONS
------------------------------------------------------------------------------------
+
+==                              STRING OPERATIONS==
+
 Here is a simple example for splitting the output of "ls" (*nix file list) on '.':''' + Colors.YELLOW + '''
 
     ls random_frame.jpg | pyp "p.split('.')"  
