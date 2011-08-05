@@ -224,11 +224,17 @@ os,od,oa,ou,ol,om and oe
 ----
 ===p STRING (all python STRING methods like p.replace(STRING1,STRING2) work===
 ||`p.trim()` ||            removes last file or directory from path from p||
-|| `p.dir`    ||            path  DIRECTORY||
-||`p.file`    ||           path  FILE||
-   
+|| `p.dir`    ||            path  DIRECTORY ||
+||`p.file`    ||           path  FILE ||
+
+
+
+
 ----
-===pp LIST (all LIST methods like pp.sort(), pp[-1], and pp.reverse() work===
+
+
+
+===pp LIST (all LIST methods like `pp.sort(), pp[-1]`, and `pp.reverse()` work===
 ||pp.delimit(DELIM) ||    split input on delimiter instead of newlines||
 || pp.divide(N)    ||      consolidates N consecutive lines to 1 line. ||
 ||pp.before(STRING, N)  ||searches for STRING, colsolidates N lines BEFORE it to the same line. Default is 1||
@@ -238,7 +244,9 @@ os,od,oa,ou,ol,om and oe
 ||pp.uniq    ||           returns only unique elements||
 ||pp.unlist   ||          breaks up ALL arrays up into seperate single lines||
 ||pp.oneline   ||         combines all list elements to one line with spaces||
- ----
+ 
+
+----
  ==native pyp functions== 
  ||`keep(STR1,STR2,...)`||   keep all lines that have at least one STRING in them||
 ||   `k(STR1,STR2,...)` ||     shortcut for keep(STR1,STR2,...)||
