@@ -43,8 +43,8 @@ allows additional methods to be added to the pyp str and list methods, allowing
 tight integration with larger facilities data structures or custom tool sets.
 
 
-==                              STRING OPERATIONS==
-
+==STRING OPERATIONS==
+----
 Here is a simple example for splitting the output of "ls" (*nix file list) on '.'
 
     ls random_frame.jpg | pyp "p.split('.')"  
@@ -128,13 +128,12 @@ by using the variable 'sp'
 
 To input a second stream of data, just tack on strings or execute (use backticks)
 a command to the end of the pyp command, and then access this array using the
-variable 'sp'  ''' + Colors.YELLOW + '''
+variable 'sp' 
 
     echo random_frame.jpg | pyp "p, sp" `echo "random_string"`
-       ===> random_frame.jpg random_string''' + Colors.GREEN + '''
------------------------------------------------------------------------------------
-                              MACRO USAGE
------------------------------------------------------------------------------------
+       ===> random_frame.jpg random_string
+----
+==MACRO USAGE==
 Macros are a way to permently store useful commands for future recall. They are
 stored in your home directory by default. Facilites are provided to store public
 macros as well, which is useful for sharing complex commands within your work group.
@@ -143,19 +142,18 @@ PypCustom.py config file.  Macros can become quite complex, and provide
 a useful intermediate between shell commands and scripts, especially for solving
 one-off problems.
 
-you can pyp to and from macros just like any normal pyp command. ''' + Colors.YELLOW + '''
-    pyp "a[0]| my_favorite_macros | 'ls', p" ''' + Colors.GREEN + '''
+you can pyp to and from macros just like any normal pyp command. 
+    pyp "a[0]| my_favorite_macros | 'ls', p" 
 
 Note, if the macro returns a list, you can access individual elements using
-[n] syntax:''' + Colors.YELLOW + '''
-    pyp "my_list_macro[2]" ''' + Colors.GREEN + '''
+[n] syntax:''' 
+    pyp "my_list_macro[2]" 
 
 Also, if the macro uses %s, you can append a %(string,..) to then end to string
-substitute: ''' + Colors.YELLOW + '''
-    pyp "my_string_substitution_macro%('test','case')" ''' + Colors.GREEN + '''
------------------------------------------------------------------------------------
-                              TIPS AND TRICKS
------------------------------------------------------------------------------------
+substitute:
+    pyp "my_string_substitution_macro%('test','case')" 
+----
+==TIPS AND TRICKS==
 If you have to cut and paste data (from an email for example), execute pyp, paste
 in your data, then hit CTRL-D...this will put the data into the disk buffer. Then,
 just rerun pyp with --rerun, and you'll be able to access this data for further
@@ -176,8 +174,8 @@ If you find yourself shelling out constantly to particular commands, it might
 be worth adding python methods to the PypCustom.py config, especially if you
 are at a large facility.
 
-===================================================================================
-HERE ARE THE BUILT IN VARIABLES:
+
+=HERE ARE THE BUILT IN VARIABLES:=
     
     p        python string of python input line by line
     pp       python list of ALL pyped in inputs
@@ -208,8 +206,8 @@ HERE ARE THE BUILT IN VARIABLES:
                
     h        same as history
     
-===================================================================================
-THE FOLLOWING ARE SPLIT OR JOINED BASED ON p BEING A STRING OR AN ARRAY:
+----
+==THE FOLLOWING ARE SPLIT OR JOINED BASED ON p BEING A STRING OR AN ARRAY:==
     
     s  OR slash          p split/joined on "/"        
     d  OR dot            p split/joined on "."        
@@ -221,10 +219,9 @@ THE FOLLOWING ARE SPLIT OR JOINED BASED ON p BEING A STRING OR AN ARRAY:
     a  OR all            p split on [' '-_=$...] (on "All" metacharacters)
 
 Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
-os,od,oa,ou,ol,om and oe''' + Colors.GREEN + '''
+os,od,oa,ou,ol,om and oe
 
-===================================================================================
-HERE ARE THE BUILT IN FUNCTIONS AND ATTRIBUTES: 
+==HERE ARE THE BUILT IN FUNCTIONS AND ATTRIBUTES: ==
 
    Function                Notes
    --------------------------------------------------------------------------------
@@ -249,10 +246,8 @@ HERE ARE THE BUILT IN FUNCTIONS AND ATTRIBUTES:
    pp.uniq               returns only unique elements
    pp.unlist             breaks up ALL arrays up into seperate single lines
    pp.oneline            combines all list elements to one line with spaces
-   
-   --------------------------------------------------------------------------------                                                    
-        native pyp functions 
-   --------------------------------------------------------------------------------
+   ----
+   ==native pyp functions== 
    keep(STR1,STR2,...)   keep all lines that have at least one STRING in them
    k(STR1,STR2,...)      shortcut for keep(STR1,STR2,...)
    lose(STR1,STR2,...)   lose all lines that have at least one STRING in them
@@ -265,8 +260,8 @@ HERE ARE THE BUILT IN FUNCTIONS AND ATTRIBUTES:
    glob(PATH)            returns globed files/directories at PATH. Make sure to use
                          '*' wildcard
 
-HERE ARE SOME SIMPLE EXAMPLES:
-===================================================================================
+=HERE ARE SOME SIMPLE EXAMPLES:=
+
    pyp "'foo ' + p"                 ==>  "foo" + current line
    pyp "p.replace('x','y') | p + o" ==>  current line w/replacement + original line 
    pyp "p.split(':')[0]"            ==>  first field of string split on ':'
