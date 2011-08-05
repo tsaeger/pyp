@@ -178,6 +178,11 @@ Also, if the macro uses %s, you can append a %(string,..) to then end to string
 substitute:
     `pyp "my_string_substitution_macro%('test','case')" `
 
+By default, macros are saved in your home directory. This can be modifed to any 
+directory by modifying the user_macro_path attribute in your PypCustom.py. If
+your work in a group, you can also save macros for use by others in a specific
+location by modifying group_macro_path. See the below section on custom 
+methods about how to set up this file.
 
 ----
 ==TIPS AND TRICKS==
@@ -198,7 +203,7 @@ break out complex intermediate steps into macros. macros can be run at point in 
 pyp command.
 
 If you find yourself shelling out constantly to particular commands, it might 
-be worth adding python methods to the PypCustom.py config, especially if you
+be worth adding python methods to the `PypCustom.py` config, especially if you
 are at a large facility.
 
 ----
@@ -292,8 +297,9 @@ either to simplify a common task or integrate custom functions using a
 propietary API, it's straightforward to do. You'll have to setup a config
 file first:
     
-    pyp --unmodified_config > PypCustom.py
-    sudo chmod 666 PypCustom.py
+    `pyp --unmodified_config > PypCustom.py`
+
+    `sudo chmod 666 PypCustom.py`
 
 There are example functions for string, list, powerpipe, and generic methods.
 to get you started. When pyp runs, it looks for this text file and automatically
