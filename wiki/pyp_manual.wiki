@@ -199,6 +199,8 @@ are at a large facility.
 || `history` ||  history array of all previous results: so pyp "a|u|s|i|`h[-3]`" shows eval of s ||              
 || `h`  ||      same as history|| 
     
+
+
 ----
 
 ==SPLIT OR JOIN VARIABLES BASED ON `p` BEING A STRING OR AN ARRAY==
@@ -218,59 +220,41 @@ os,od,oa,ou,ol,om and oe
 
 ==HERE ARE THE BUILT IN FUNCTIONS AND ATTRIBUTES: ==
 
-   Function                Notes
-----         
-p STRING (all python STRING methods like p.replace(STRING1,STRING2) work
-----
-    ||p.trim() ||            removes last file or directory from path from p||
-   || p.dir    ||            path  DIRECTORY||
-    ||p.file    ||           path  FILE||
    
 ----
-pp LIST (all LIST methods like pp.sort(), pp[-1], and pp.reverse() work
-----
-   ||pp.delimit(DELIM) ||    split input on delimiter instead of newlines||
-
-  || pp.divide(N)    ||      consolidates N consecutive lines to 1 line. ||
-
-   ||pp.before(STRING, N)  ||searches for STRING, colsolidates N lines BEFORE it to the same line. Default is 1. ||
-
-   ||pp.after(STRING, N)  || searches for STRING, colsolidates N lines AFTER  it to same line. Default is 1.||
-
-   ||pp.matrix(STRING, N)  ||returns pp.before(STRING, N) and pp.after(STRING, N). Default is 1. ||
-
-   ||pp.oneliner(DELIM) ||   combines all list elements to one line with delimiter||
-
-   ||pp.uniq    ||           returns only unique elements||
-
-   ||pp.unlist   ||          breaks up ALL arrays up into seperate single lines||
-
-   ||pp.oneline   ||         combines all list elements to one line with spaces||
-   ----
-   ==native pyp functions== 
-   keep(STR1,STR2,...)   keep all lines that have at least one STRING in them
-
-   k(STR1,STR2,...)      shortcut for keep(STR1,STR2,...)
-
-   lose(STR1,STR2,...)   lose all lines that have at least one STRING in them
-
-   l(STR1,STR2,...)      shortcut for lose(STR1,STR2,...)
+===p STRING (all python STRING methods like p.replace(STRING1,STRING2) work===
+||`p.trim()` ||            removes last file or directory from path from p||
+|| `p.dir`    ||            path  DIRECTORY||
+||`p.file`    ||           path  FILE||
    
-   shell(SCRIPT)         shell('stat '+p) ==>  returns output of $script
-
-   shelld(SCRIPT,DELIM)  shelld('stat '+p)==>  returns output of $script in
-                         dictionary key/value seperated on ':' or delimeter
-
-   env(ENVIROMENT_VAR)   returns value of evironment variable using os.environ.get()
-
-   glob(PATH)            returns globed files/directories at PATH. Make sure to use
-                         `'*'` wildcard
+----
+===pp LIST (all LIST methods like pp.sort(), pp[-1], and pp.reverse() work===
+||pp.delimit(DELIM) ||    split input on delimiter instead of newlines||
+|| pp.divide(N)    ||      consolidates N consecutive lines to 1 line. ||
+||pp.before(STRING, N)  ||searches for STRING, colsolidates N lines BEFORE it to the same line. Default is 1||
+||pp.after(STRING, N)  || searches for STRING, colsolidates N lines AFTER  it to same line. Default is 1.||
+||pp.matrix(STRING, N)  ||returns pp.before(STRING, N) and pp.after(STRING, N). Default is 1. ||
+||pp.oneliner(DELIM) ||   combines all list elements to one line with delimiter||
+||pp.uniq    ||           returns only unique elements||
+||pp.unlist   ||          breaks up ALL arrays up into seperate single lines||
+||pp.oneline   ||         combines all list elements to one line with spaces||
+ ----
+ ==native pyp functions== 
+ ||`keep(STR1,STR2,...)`||   keep all lines that have at least one STRING in them||
+||   `k(STR1,STR2,...)` ||     shortcut for keep(STR1,STR2,...)||
+||  `lose(STR1,STR2,...) `||  lose all lines that have at least one STRING in them||
+||`l(STR1,STR2,...) `  ||   shortcut for lose(STR1,STR2,...)|| 
+|| `shell(SCRIPT)`    ||     shell('stat '+p)   returns output of $script||
+|| `shelld(SCRIPT,DELIM)`  shelld('stat '+p)||  returns output of $script in
+                         dictionary key/value seperated on ':' or delimeter||
+||`env(ENVIROMENT_VAR)`  || returns value of evironment variable using os.environ.get()||
+||`glob(PATH)`       ||     returns globed files/directories at PATH. Make sure to use
+                         `'*'` wildcard||
 
 =HERE ARE SOME SIMPLE EXAMPLES:=
-
-   pyp "'foo ' + p"                 ==>  "foo" + current line
-   pyp "p.replace('x','y') | p + o" ==>  current line w/replacement + original line 
-   pyp "p.split(':')[0]"            ==>  first field of string split on ':'
-   pyp "slash[1:3]"                 ==>  array of fields 1 and 2 of string split on '/'
-   pyp "s[1:3]|s"                   ==>  string of above joined with '/'
+||`pyp "'foo ' + p"`          ||       ==>  "foo" + current line||
+||`pyp "p.replace('x','y') | p + o"` ||==>  current line w/replacement + original line ||
+|| `pyp "p.split(':')[0]" `      ||     ==>  first field of string split on ':'||
+||`pyp "slash[1:3]"`     ||            ==>  array of fields 1 and 2 of string split on '/'||
+||` pyp "s[1:3]|s"`     ||              ==>  string of above joined with '/'||
     
