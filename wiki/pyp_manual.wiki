@@ -48,7 +48,7 @@ tight integration with larger facilities data structures or custom tool sets.
 Here is a simple example for splitting the output of "ls" (unix file list) on '.'
 
     `ls random_frame.jpg | pyp "p.split('.')"  `
-        ==>  `[[0] random_frame[1]jpg]      `      
+        ==>   `[[0] random_frame[1]jpg]`      
 
 The variable "p" represents each line piped in from "ls".  Notice the output has
 index numbers, so it's trivial to pick a particular field or range of fields,
@@ -180,7 +180,7 @@ are at a large facility.
 
 =HERE ARE THE BUILT IN VARIABLES:=
     
-`p`   ==>     python string of python input line by line
+||`p` ||      python string of python input line by line ||
 
 `pp`  ==>     python list of ALL pyped in inputs
 
