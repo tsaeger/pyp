@@ -180,59 +180,59 @@ are at a large facility.
 
 =HERE ARE THE BUILT IN VARIABLES:=
     
-*p   ==>     python string of python input line by line
-    
-*pp  ==>     python list of ALL pyped in inputs
-    
-original ==> original line by line input to pyp    
-    
-o ==>       same as original    
-    
-sp ==>      second steam line input, just like p, but from all non-flag arguments AFTER pyp
-    
-quote ==>  a literal "      (double quotes can't be used in a pyp expression)
-    
-paran ==>   a literal '
-    
-dollar ==>  a literal $
+`p`   ==>     python string of python input line by line
 
-n   ==>     line counter (1st line is 1, 2nd line is 2,...use the form "(n+3)"
+`pp`  ==>     python list of ALL pyped in inputs
+
+`original` ==> original line by line input to pyp    
+    
+`o` ==>       same as original    
+    
+`sp` ==>      second steam line input, just like p, but from all non-flag arguments AFTER pyp
+    
+`quote` ==>  a literal "      (double quotes can't be used in a pyp expression)
+    
+`paran` ==>   a literal '
+    
+`dollar` ==>  a literal $
+
+`n`   ==>     line counter (1st line is 1, 2nd line is 2,...use the form "(n+3)"
              to modify this value. 
 
-nk   ==>    n + 1000
+`nk`   ==>    n + 1000
     
-date ==>     date and time. Returns the current datetime.datetime.now() object.
+`date` ==>     date and time. Returns the current datetime.datetime.now() object.
     
-f  ==>      list based on file input using --file $file
+`f`  ==>      list based on file input using --file $file
     
-fp  ==>     line from file input; fp for FIRST st-in line is the FIRST text file
+`fp`  ==>     line from file input; fp for FIRST st-in line is the FIRST text file
              line, and so on
     
-pwd ==>     present working directory
+`pwd` ==>     present working directory
     
-history ==>  history array of all previous results:
+`history` ==>  history array of all previous results:
                so pyp "a|u|s|i|`h[-3]`" shows eval of s
                
-h  ==>      same as history
+`h`  ==>      same as history
     
 ----
 ==THE FOLLOWING ARE SPLIT OR JOINED BASED ON p BEING A STRING OR AN ARRAY:==
     
-    s  OR slash          p split/joined on "/" 
+    `s`  OR `slash`          p split/joined on "/" 
        
-    d  OR dot            p split/joined on "."        
+    `d`  OR `dot`            p split/joined on "."        
 
-    w  OR whitespace     p split/joined on whitespace (on spaces,tabs,etc)
+    `w`  OR `whitespace`     p split/joined on whitespace (on spaces,tabs,etc)
 
-    u  OR underscore     p split/joined on '_'       
+    `u`  OR `underscore`     p split/joined on '_'       
 
-    c  OR colon          p split/joined on ':'  
+    `c`  OR `colon`          p split/joined on ':'  
      
-    mm OR comma          p split/joined on ',' 
+    `mm` OR `comma`          p split/joined on ',' 
        
-    m  OR minus          p split/joined on '-'   
+    `m`  OR `minus`          p split/joined on '-'   
      
-    a  OR all            p split on [' '-_=$...] (on "All" metacharacters)
+    `a`  OR `all`            p split on `[' '-_=$...]` (on "All" metacharacters)
 
 
 Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
