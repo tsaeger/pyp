@@ -260,7 +260,7 @@ Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
 ||`glob(PATH)`       ||     returns globed files/directories at PATH. Make sure to use `'*'` wildcard||
 
 ----
-==HERE ARE SOME SIMPLE EXAMPLES:==
+==SIMPLE EXAMPLES:==
 ||`pyp "'foo ' + p"`          ||       ==>  "foo" + current line||
 ||`pyp "p.replace('x','y') | p + o"` ||==>  current line w/replacement + original line ||
 || `pyp "p.split(':')[0]" `      ||     ==>  first field of string split on ':'||
