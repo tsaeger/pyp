@@ -120,7 +120,10 @@ filtering. See Below.
 
 ----
 
-==SECOND STREAM INPUT==
+
+
+==SECOND STREAM, TEXT FILE, AND BLANK INPUT==
+
 Normally, pyp receives it's input by piping into it like a standard unix shell
 command...sometimes it's necessary to combinetwo streams of inputs, such as
 consolidating the output of two shell commands line by line.  pyp provides
@@ -133,8 +136,25 @@ To input a second stream of data, just tack on strings or execute (use backticks
 a command to the end of the pyp command, and then access this array using the
 variable 'sp' 
 
-    `echo random_frame.jpg | pyp "p, sp" random_string`
-       ===> `random_frame.jpg random_string`
+    echo random_frame.jpg | pyp "p, sp" `echo "random_string"`
+       ===> random_frame.jpg random_string
+       
+In a similar way, text input can be read in from a text file using the 
+--text_file flag. You can access the entire file as a list using the variable
+'f', while the variable 'fp' reads in one line at a time. This text file
+capability is very useful for lining up info piped into pyp normally with
+data in a text file like this:
+
+    echo normal_input | pyp -text_file example.txt "p, fp" 
+
+This setup is geared mostly towards combining data from std-in with that in
+a text file...if the text file is your only data, you should cat it, and pipe
+this into pyp.
+
+If you need to generate output from pyp with no input, use --blank_inputs.
+This is useful for generating text based on line number using the 'n'
+variable.
+
 ----
 ==MACRO USAGE==
 Macros are a way to permently store useful commands for future recall. They are
@@ -143,7 +163,9 @@ macros as well, which is useful for sharing complex commands within your work gr
 Paths to these text files can be reset to anything you choose my modifying the
 PypCustom.py config file.  Macros can become quite complex, and provide
 a useful intermediate between shell commands and scripts, especially for solving
-one-off problems.
+one-off problems.  Macro listing, saving, deleting, and searching capabilities are
+accessible using --macrolist, --macro_save, --macro_delete, --macro_find flags.
+Run pyp --help for more details.
 
 you can pyp to and from macros just like any normal pyp command. 
     `pyp "a[0]| my_favorite_macros | 'ls', p"` 
@@ -155,6 +177,8 @@ Note, if the macro returns a list, you can access individual elements using
 Also, if the macro uses %s, you can append a %(string,..) to then end to string
 substitute:
     `pyp "my_string_substitution_macro%('test','case')" `
+
+
 ----
 ==TIPS AND TRICKS==
 If you have to cut and paste data (from an email for example), execute pyp, paste
