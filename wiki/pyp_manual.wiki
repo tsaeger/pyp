@@ -177,7 +177,7 @@ If you find yourself shelling out constantly to particular commands, it might
 be worth adding python methods to the PypCustom.py config, especially if you
 are at a large facility.
 
-
+----
 ==HERE ARE THE BUILT IN VARIABLES:==
     
 ||`p` ||      python string of python input line by line ||
@@ -203,7 +203,7 @@ are at a large facility.
 
 ----
 
-==SPLIT OR JOIN VARIABLES BASED ON `p` BEING A STRING OR AN ARRAY==
+==`SPLIT` OR `JOIN` VARIABLES BASED ON `p` BEING A `STRING` OR `LIST`==
 
 ||`s`  OR `slash`||          p split/joined on "/" || 
 || `d`  OR `dot`  ||          p split/joined on "."    ||    
@@ -216,13 +216,15 @@ are at a large facility.
 
 
 Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
-os,od,oa,ou,ol,om and oe
+`os,od,oa,ou,ol,om` and `oe`
+
+
+----
 
 ==HERE ARE THE BUILT IN FUNCTIONS AND ATTRIBUTES: ==
 
    
-----
-===p STRING (all python STRING methods like `p.replace(STRING1,STRING2)` work===
+===p STRING (all `STRING` methods like `p.replace(STRING1,STRING2)` work===
 ||`p.trim()` ||            removes last file or directory from path from p||
 || `p.dir`    ||            path  DIRECTORY ||
 ||`p.file`    ||           path  FILE ||
@@ -234,7 +236,7 @@ os,od,oa,ou,ol,om and oe
 
 
 
-===pp LIST (all LIST methods like `pp.sort(), pp[-1]`, and `pp.reverse()` work===
+===pp LIST (all `LIST` methods like `pp.sort(), pp[-1]`, and `pp.reverse()` work===
 ||`pp.delimit(DELIM) `||    split input on delimiter instead of newlines||
 || `pp.divide(N)  `  ||      consolidates N consecutive lines to 1 line. ||
 ||`pp.before(STRING, N) ` ||searches for STRING, colsolidates N lines BEFORE it to the same line. Default is 1||
@@ -257,7 +259,8 @@ os,od,oa,ou,ol,om and oe
 ||`env(ENVIROMENT_VAR)`  || returns value of evironment variable using os.environ.get()||
 ||`glob(PATH)`       ||     returns globed files/directories at PATH. Make sure to use `'*'` wildcard||
 
-=HERE ARE SOME SIMPLE EXAMPLES:=
+----
+==HERE ARE SOME SIMPLE EXAMPLES:==
 ||`pyp "'foo ' + p"`          ||       ==>  "foo" + current line||
 ||`pyp "p.replace('x','y') | p + o"` ||==>  current line w/replacement + original line ||
 || `pyp "p.split(':')[0]" `      ||     ==>  first field of string split on ':'||
