@@ -189,9 +189,7 @@ are at a large facility.
 ||`quote` ||  a literal "      (double quotes can't be used in a pyp expression)||
     
 ||`paran` ||   a literal '||
-    
 ||`dollar` || a literal $||
-
 ||`n`  ||     line counter (1st line is 1, 2nd line is 2,...use the form "(n+3)" to modify this value. ||
 ||`nk`   ||   n + 1000|| 
 ||`date` ||     date and time. Returns the current datetime.datetime.now() object.||  
