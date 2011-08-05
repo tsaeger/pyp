@@ -208,7 +208,7 @@ are at a large facility.
 ||`s`  OR `slash`||          p split/joined on "/" || 
 || `d`  OR `dot`  ||          p split/joined on "."    ||    
 ||`w`  OR `whitespace`  ||   p split/joined on whitespace (on spaces,tabs,etc)||
-||`u`  OR `underscore` ||    p split/joined on '_'   ||    
+||`u`  OR `underscore` ||    p split/joined on '*_'   ||    
 ||`c`  OR `colon`     ||     p split/joined on ':'  ||
 ||`mm` OR `comma`    ||      p split/joined on ',' || 
 ||`m`  OR `minus`   ||       p split/joined on '-'   ||
