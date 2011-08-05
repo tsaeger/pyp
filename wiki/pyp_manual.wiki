@@ -45,39 +45,38 @@ tight integration with larger facilities data structures or custom tool sets.
 
 ==                              STRING OPERATIONS==
 
-Here is a simple example for splitting the output of "ls" (*nix file list) on '.':''' + Colors.YELLOW + '''
+Here is a simple example for splitting the output of "ls" (*nix file list) on '.'
 
     ls random_frame.jpg | pyp "p.split('.')"  
-        ==>  [''' + Colors.BLUE + '[0]' + Colors.YELLOW + 'random_frame' + Colors.BLUE + '[1]' + Colors.YELLOW + 'jpg] ''' + Colors.GREEN + '''             
+        ==>  [[0] random_frame[1]jpg]            
 
 The variable "p" represents each line piped in from "ls".  Notice the output has
 index numbers, so it's trivial to pick a particular field or range of fields,
 i.e. pyp "p.split('.')[0]"  is the FIRST field.  There are some pyp generated
 variables that make this simpler, for example the variable "d" or "dot" is the
-same as p.split('.'):''' + Colors.YELLOW + '''
+same as p.split('.'):
     
     ls random_frame.jpg | pyp "d"  
-        ==> [''' + Colors.BLUE + '[0]' + Colors.YELLOW + 'random_frame' + Colors.BLUE + '[1]' + Colors.YELLOW + '''jpg]
+        ==> [[0] random_frame[1]jpg]
     
     ls random_frame.jpg | pyp "d[0]"
-        ==>   random_frame''' + Colors.GREEN + '''
+        ==>   random_frame
 
 To Join lists back together, just pipe them to the same or another built in
-variable(in this case "u", or "underscore"):''' + Colors.YELLOW + '''
+variable(in this case "u", or "underscore"):
 
     ls random_frame.jpg | pyp "d"  
-        ==> [''' + Colors.BLUE + '[0]' + Colors.YELLOW + 'random_frame' + Colors.BLUE + '[1]' + Colors.YELLOW + '''jpg]
+        ==> [[0]random_frame[1]jpg]
     
     ls random_frame.jpg | pyp "d|underscore"   
-        ==> random_frame_jpg ''' + Colors.OFF + '''
+        ==> random_frame_jpg 
 
-To add text, just enclose it in quotes, and use "+" or "," just like python: ''' + Colors.YELLOW + '''
+To add text, just enclose it in quotes, and use "+" or "," just like python: 
 
-    ls random_frame.jpg | pyp "'mkdir seq.tp_' , d[0]+ '_v1/misc_vd8'"  
-        ==> mkdir seq.tp_random_frame_v1/misc_vd8'" ''' + Colors.GREEN + '''
------------------------------------------------------------------------------------
-                              LIST OPERATIONS
------------------------------------------------------------------------------------
+    ls random_frame.jpg | pyp "'mkdir seq.tp_' , d[0]+ '_v1/misc_vd8'
+        ==> mkdir seq.tp_random_frame_v1/misc_vd8
+----                              
+==LIST OPERATIONS==
 To perform operations that operate on the ENTIRE array of inputs, Use the variable
 "pp", which you can manipulate using any standard python list methods. For example,
 to sort the input, use "pp.sort()". When in array context, each line will be
@@ -86,23 +85,21 @@ line of input by using "pp[5]". You can pipe this back to p to continue modifyin
 this input. There are several methods that have been added to facilitate complex
 operations for these inputs such as keeping unique members or compressing the
 entire list to one line (pp.uniq, and pp.oneline ...see below).  
------------------------------------------------------------------------------------
-                              MATH OPERATIONS
------------------------------------------------------------------------------------
+----
+==MATH OPERATIONS==
 To perform simple math, use the integer or float functions  (int() or float())
-and put the math in "()" + ''' + Colors.YELLOW + '''
+and put the math in "()" 
 
     echo 665 | pyp "(int(p) + 1)"
-       ==> 666 ''' + Colors.GREEN + '''
------------------------------------------------------------------------------------
-                              LOGIC FILTERS
------------------------------------------------------------------------------------
+       ==> 666 
+----
+==LOGIC FILTERS==
 To filter output based on a python function that returns a Booleon (True or False)
 ..,just pipe the input to this function, and all lines that return True will keep
-their current value, while all lines that return False will be eliminated. ''' + Colors.YELLOW + '''
+their current value, while all lines that return False will be eliminated. '
 
     echo 666 | pyp  "p.isdigit()"
-       ==> 666''' + Colors.GREEN + '''
+       ==> 666
        
 Keep in mind, that if the Boolean is True, the entire value of p is returned.
 This comes in handy when you want to test on one field, but use something else.
@@ -110,10 +107,10 @@ For Example, a[2].isdigit() will return p, not a[2] if a[2] is a digit.
 
 Standard python logic operators such as "and","or","not", and 'in' work as well.
 
-For example to filter output based on the presence of "GOO" in the line, use this:''' + Colors.YELLOW + '''
+For example to filter output based on the presence of "GOO" in the line, use this:
 
     echo GOO | pyp "'G' in p"
-       ==> GOO'''+ Colors.GREEN + '''
+       ==> GOO
 
 The pyp functions "keep(STR)" and "lose(STR)", and their respective shortcuts,
 "k(STR)" and "i(STR)", are very useful for proving simple OR style string
