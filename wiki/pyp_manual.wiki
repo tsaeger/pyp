@@ -7,9 +7,9 @@ unix commands using standard python methods. pyp is powered by python, so any
 standard python string or list operation is available.  
 
 The variable "p" represents EACH line of the input as a python string, so for
-example, you can replace all "FOO" with "GOO" using "p.replace('FOO','GOO')".
+example, you can replace all "FOO" with "GOO" using "`p.replace('FOO','GOO')"`.
 Likewise, the variable "pp" represents the ENTIRE input as a python array, so
-to sort the input alphabetically line-by-line, use "pp.sort()"
+to sort the input alphabetically line-by-line, use "`pp.sort()`"
 
 Standard python relies on whitespace formating such as indentions. Since this 
 is not convenient with command line operations, pyp employs an internal piping
@@ -20,18 +20,18 @@ variables (see below).  An added bonus is that any subresult between pipes
 is available, making it easy to refer to the original input if needed.
 
 Filtering output is straight forward using python Logic operations. Any output
-that is "True" is kept while anything "False" is eliminated. So "p.isdigit()"
+that is "True" is kept while anything "False" is eliminated. So "`p.isdigit()`"
 will keep all lines that are completely numbers. 
 
 The output of pyp has been optimized for typical command line scenarios. For
-example, if text is broken up into an array using the "split()" method, the
+example, if text is broken up into an array using the `"split()"` method, the
 output will be conveniently numbered by field because a field selection is
 anticipated.  If the variable  "pp" is employed, the output will be numbered
 line-by-line to facilate picking any particular line or range of lines. In
-both cases, standard python methods (list[start:end]) can be used to select
+both cases, standard python methods `(list[start:end])` can be used to select
 fields or lines of interest. Also, the standard python string and list objects
 have been overloaded with commonly used methods and attributes. For example,
-"pp.uniq" returns all unique members in an array, will p.kill('foo') will
+"pp.uniq" returns all unique members in an array, will `p.kill('foo')` will
 eliminate all  "foo" in the input.
 
 pyp commands can be easily saved to disk and recalled using user-defined macros,
@@ -47,41 +47,41 @@ tight integration with larger facilities data structures or custom tool sets.
 ----
 Here is a simple example for splitting the output of "ls" (unix file list) on '.'
 
-    `ls random_frame.jpg | pyp "p.split('.')"  
-        ==>  [[0] random_frame[1]jpg]      `      
+    `ls random_frame.jpg | pyp "p.split('.')"  `
+        ==>  `[[0] random_frame[1]jpg]      `      
 
 The variable "p" represents each line piped in from "ls".  Notice the output has
 index numbers, so it's trivial to pick a particular field or range of fields,
-i.e. pyp "p.split('.')[0]"  is the FIRST field.  There are some pyp generated
+i.e. pyp "`p.split('.')[0]`"  is the FIRST field.  There are some pyp generated
 variables that make this simpler, for example the variable "d" or "dot" is the
-same as p.split('.'):
+same as `p.split('.')`:
     
-    ls random_frame.jpg | pyp "d"  
-        ==>` [[0] random_frame[1]jpg]`
+    `ls random_frame.jpg | pyp "d"  `
+        ==>` [[0] random_frame[1]jpg]
     
-    ls random_frame.jpg | pyp "`d[0]`"
-        ==>   random_frame
+    `ls random_frame.jpg | pyp "d[0]"`
+        ==>   `random_frame`
 
 To Join lists back together, just pipe them to the same or another built in
 variable(in this case "u", or "underscore"):
 
-    ls random_frame.jpg | pyp "d"  
+    `ls random_frame.jpg | pyp "d" ` 
         ==> `[[0]random_frame[1]jpg]`
     
-    ls random_frame.jpg | pyp "d|underscore"   
-        ==> random_frame_jpg 
+    `ls random_frame.jpg | pyp "d|underscore" `  
+        ==> `random_frame_jpg `
 
 To add text, just enclose it in quotes, and use "+" or "," just like python: 
 
-    ls random_frame.jpg | pyp "'mkdir seq.tp_' , `d[0]`+ '_v1/misc_vd8'
-        ==> mkdir seq.tp_random_frame_v1/misc_vd8
+    `ls random_frame.jpg | pyp "'mkdir seq.tp_' , d[0]+ '_v1/misc_vd8'`
+        ==> `mkdir seq.tp_random_frame_v1/misc_vd8`
 
 ----
                        
 ==LIST OPERATIONS==
 To perform operations that operate on the ENTIRE array of inputs, Use the variable
 "pp", which you can manipulate using any standard python list methods. For example,
-to sort the input, use "pp.sort()". When in array context, each line will be
+to sort the input, use "`pp.sort()`". When in array context, each line will be
 numbered with it's index in the array, so it's easy to, for example select the 6th
 line of input by using "`pp[5]`". You can pipe this back to p to continue modifying
 this input. There are several methods that have been added to facilitate complex
@@ -89,33 +89,33 @@ operations for these inputs such as keeping unique members or compressing the
 entire list to one line (pp.uniq, and pp.oneline ...see below).  
 ----
 ==MATH OPERATIONS==
-To perform simple math, use the integer or float functions  (int() or float())
+To perform simple math, use the integer or float functions  (`int()` or `float()`)
 and put the math in "()" 
 
-    echo 665 | pyp "(int(p) + 1)"
-       ==> 666 
+    `echo 665 | pyp "(int(p) + 1)"`
+       ==> `666 `
 ----
 ==LOGIC FILTERS==
 To filter output based on a python function that returns a Booleon (True or False)
 ..,just pipe the input to this function, and all lines that return True will keep
 their current value, while all lines that return False will be eliminated. '
 
-    echo 666 | pyp  "p.isdigit()"
-       ==> 666
+    `echo 666 | pyp  "p.isdigit()"`
+       ==> `666`
        
 Keep in mind, that if the Boolean is True, the entire value of p is returned.
 This comes in handy when you want to test on one field, but use something else.
-For Example, `a[2].isdigit(`) will return p, not `a[2] if a[2]` is a digit.
+For Example, `a[2].isdigit()` will return p, not `a[2] if a[2]` is a digit.
 
 Standard python logic operators such as "and","or","not", and 'in' work as well.
 
 For example to filter output based on the presence of "GOO" in the line, use this:
 
-    echo GOO | pyp "'G' in p"
-       ==> GOO
+    `echo GOO | pyp "'G' in p"`
+       ==> `GOO`
 
-The pyp functions "keep(STR)" and "lose(STR)", and their respective shortcuts,
-"k(STR)" and "i(STR)", are very useful for proving simple OR style string
+The pyp functions "`keep(STR)`" and "`lose(STR)`", and their respective shortcuts,
+"`k(STR)`" and "`i(STR)`", are very useful for proving simple OR style string
 filtering. See Below.
 
 ----
@@ -133,8 +133,8 @@ To input a second stream of data, just tack on strings or execute (use backticks
 a command to the end of the pyp command, and then access this array using the
 variable 'sp' 
 
-    echo random_frame.jpg | pyp "p, sp" random_string
-       ===> random_frame.jpg random_string
+    `echo random_frame.jpg | pyp "p, sp" random_string`
+       ===> `random_frame.jpg random_string`
 ----
 ==MACRO USAGE==
 Macros are a way to permently store useful commands for future recall. They are
@@ -146,15 +146,15 @@ a useful intermediate between shell commands and scripts, especially for solving
 one-off problems.
 
 you can pyp to and from macros just like any normal pyp command. 
-    pyp "`a[0]| my_favorite_macros | 'ls', p"` 
+    `pyp "a[0]| my_favorite_macros | 'ls', p"` 
 
 Note, if the macro returns a list, you can access individual elements using
-[n] syntax:''' 
-    pyp "`my_list_macro[2]" `
+`[n]` syntax:''' 
+    `pyp "my_list_macro[2]" `
 
 Also, if the macro uses %s, you can append a %(string,..) to then end to string
 substitute:
-    pyp "my_string_substitution_macro%('test','case')" 
+    `pyp "my_string_substitution_macro%('test','case')" `
 ----
 ==TIPS AND TRICKS==
 If you have to cut and paste data (from an email for example), execute pyp, paste
@@ -180,33 +180,40 @@ are at a large facility.
 
 =HERE ARE THE BUILT IN VARIABLES:=
     
-    p   ==>     python string of python input line by line
-    pp  ==>     python list of ALL pyped in inputs
+p   ==>     python string of python input line by line
     
-    original ==> original line by line input to pyp    
-    o ==>       same as original    
-    sp ==>      second steam line input, just like p, but from all non-flag arguments AFTER pyp
+pp  ==>     python list of ALL pyped in inputs
     
-    quote ==>  a literal "      (double quotes can't be used in a pyp expression)
-    paran ==>   a literal '
-    dollar ==>  a literal $
+original ==> original line by line input to pyp    
+    
+o ==>       same as original    
+    
+sp ==>      second steam line input, just like p, but from all non-flag arguments AFTER pyp
+    
+quote ==>  a literal "      (double quotes can't be used in a pyp expression)
+    
+paran ==>   a literal '
+    
+dollar ==>  a literal $
 
-    n   ==>     line counter (1st line is 1, 2nd line is 2,...use the form "(n+3)"
+n   ==>     line counter (1st line is 1, 2nd line is 2,...use the form "(n+3)"
              to modify this value. 
-    nk   ==>    n + 1000
+
+nk   ==>    n + 1000
     
-    date ==>     date and time. Returns the current datetime.datetime.now() object.
+date ==>     date and time. Returns the current datetime.datetime.now() object.
     
-    f  ==>      list based on file input using --file $file
-    fp  ==>     line from file input; fp for FIRST st-in line is the FIRST text file
+f  ==>      list based on file input using --file $file
+    
+fp  ==>     line from file input; fp for FIRST st-in line is the FIRST text file
              line, and so on
     
-    pwd ==>     present working directory
+pwd ==>     present working directory
     
-    history ==>  history array of all previous results:
+history ==>  history array of all previous results:
                so pyp "a|u|s|i|`h[-3]`" shows eval of s
                
-    h  ==>      same as history
+h  ==>      same as history
     
 ----
 ==THE FOLLOWING ARE SPLIT OR JOINED BASED ON p BEING A STRING OR AN ARRAY:==
