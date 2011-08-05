@@ -1,5 +1,5 @@
 #summary the full pyp manual
-
+----
 =AN INTRODUCTION TO PYED PIPER=
 
 pyp is a command line utility for parsing text output and generating complex
