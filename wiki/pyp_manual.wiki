@@ -200,16 +200,17 @@ are at a large facility.
 || `h`  ||      same as history|| 
     
 ----
-==SPLIT OR JOIN VARIABLES BASED ON `p` BEING A STRING OR AN ARRAY:==
-    
-    ||`s`  OR `slash`||          p split/joined on "/" || 
-    || `d`  OR `dot`  ||          p split/joined on "."    ||    
-    ||`w`  OR `whitespace`  ||   p split/joined on whitespace (on spaces,tabs,etc)||
-    ||`u`  OR `underscore` ||    p split/joined on '_'   ||    
-    ||`c`  OR `colon`     ||     p split/joined on ':'  ||
-    ||`mm` OR `comma`    ||      p split/joined on ',' || 
-    ||`m`  OR `minus`   ||       p split/joined on '-'   ||
-    ||`a`  OR `all`       ||     p split on `[' '-_=$...]` (on "All" metacharacters)||
+
+==SPLIT OR JOIN VARIABLES BASED ON `p` BEING A STRING OR AN ARRAY==
+
+||`s`  OR `slash`||          p split/joined on "/" || 
+|| `d`  OR `dot`  ||          p split/joined on "."    ||    
+||`w`  OR `whitespace`  ||   p split/joined on whitespace (on spaces,tabs,etc)||
+||`u`  OR `underscore` ||    p split/joined on '_'   ||    
+||`c`  OR `colon`     ||     p split/joined on ':'  ||
+||`mm` OR `comma`    ||      p split/joined on ',' || 
+||`m`  OR `minus`   ||       p split/joined on '-'   ||
+||`a`  OR `all`       ||     p split on `[' '-_=$...]` (on "All" metacharacters)||
 
 
 Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
