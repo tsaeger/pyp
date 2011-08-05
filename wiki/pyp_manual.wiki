@@ -178,7 +178,7 @@ be worth adding python methods to the PypCustom.py config, especially if you
 are at a large facility.
 
 
-=HERE ARE THE BUILT IN VARIABLES:=
+==HERE ARE THE BUILT IN VARIABLES:==
     
 ||`p` ||      python string of python input line by line ||
 ||`pp`  ||     python list of ALL pyped in inputs||
@@ -205,7 +205,7 @@ are at a large facility.
 ==SPLIT OR JOIN VARIABLES BASED ON `p` BEING A STRING OR AN ARRAY:==
     
     ||`s`  OR `slash`||          p split/joined on "/" || 
-   || `d`  OR `dot`  ||          p split/joined on "."    ||    
+    || `d`  OR `dot`  ||          p split/joined on "."    ||    
     ||`w`  OR `whitespace`  ||   p split/joined on whitespace (on spaces,tabs,etc)||
     ||`u`  OR `underscore` ||    p split/joined on '_'   ||    
     ||`c`  OR `colon`     ||     p split/joined on ':'  ||
