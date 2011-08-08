@@ -88,25 +88,25 @@ to join this array back together, but this time with `underscores`, pipe to u:
              
 ==list operations== 
              
-print all lines                              ==> `pyp  "pp"`                                                                               
+| print all lines  |`pyp "pp"`|                                                                               
 
                                           
-sort all input lines                         ==> `pyp  "pp.sort()"  `                                                                      
+|sort all input lines | `pyp  "pp.sort()" |  `                                                                      
 
                                           
-eliminate duplicates                         ==> `pyp  "pp.uniq" `                                                                         
+| eliminate duplicates |`pyp  "pp.uniq" `                       |                                                  
 
                                           
-combine all lines to one line                ==> `pyp  "pp.oneline"        `                                                               
+| combine all lines to one line |`pyp  "pp.oneline"  |      `                                                               
 
                                           
-print line after FOO                         ==> `pyp  "pp.after('FOO')"  `                                                                
+|print line after FOO| `pyp  "pp.after('FOO')"` |                                                                
 
                                           
-list comprehenision                          ==> pyp  `"[x for x in pp]"`                                                                               
+| list comprehension|pyp  `"[x for x in pp]"` |                                                                               
 
                              
-return to string context after sort          ==> `pyp  "pp.sort() | p"       `                                                                          
+|return to string context after sort  | `pyp  "pp.sort() *| p"       ` |                                                                          
 
                              
                                                                                                                                                                       
