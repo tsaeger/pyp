@@ -18,11 +18,11 @@ The key variables
 are "p", which represents EACH LINE of the input as a PYTHON STRING.  So to replace FOO with GOO in every line of the input you can use this:
 
 
-*pyp "p.replace('FOO','GOO')"*
+*`pyp "p.replace('FOO','GOO')"`*
 
 The other key variable is  "pp", which represents ALL of the                  inputs as a PYTHON LIST...allowing you to, for example, sort the entire input like this:
 
-*pyp "pp.sort()"*                             
+*`pyp "pp.sort()"`*                             
 
 All pyp statements should be enclosed in double quotes, with single quotes being used to enclose any strings. 
 ----
@@ -34,11 +34,11 @@ evaluation of the python statement before the "|".  This allows you to write com
             
 
                                                           
-*echo 'FOO IS AN ' | pyp "p.replace('FOO','THIS')|p+'EXAMPLE'"*  
+*`echo 'FOO IS AN ' | pyp "p.replace('FOO','THIS')|p+'EXAMPLE'"`*  
 
 
 
-*>THIS IS AN EXAMPLE*
+*`>THIS IS AN EXAMPLE`*
 
 This has the added bonus that all interpipe subresults are available with the "history" variable.
 ----
@@ -48,15 +48,15 @@ pyed piper knows that splitting up text on particular characters is critical and
 
 First of all, using the split() string method will generate a numbered output, clearly showing how to access your fields of interest.
 
-*echo /this/is/a/splitting/example | pyp "p.split('/')"*
+*`echo /this/is/a/splitting/example | pyp "p.split('/')"`*
 
 *>`[[0]this[1]is[2]a[3]splitting[4]example]`*
 
 which allows you to easily select whatever field you want using python list methods:
 
-*echo /this/is/a/splitting/example | pyp "`p.split('/')[3]`"*
+*`echo /this/is/a/splitting/example | pyp "p.split('/')[3]`"*
 
-*>splitting*
+*`>splitting`*
 
 ----
 =why not auto-split?=
@@ -64,7 +64,7 @@ splitting text on metacharacters is often critical for picking out particular fi
 so common SPLITS and JOINS have been assigned variables. For example, the variable 
 "slash" or "s" will split up the line based on "/", while "slash" or "s" will join ALSO join a split up string with "/"                                                                                
 
-*echo /this/is/a/splitting/example | pyp "s"*
+*`echo /this/is/a/splitting/example | pyp "s"`*
 
 *>`[[0]this[1]is[2]a[3]splitting[4]example]`*
 ----
@@ -72,9 +72,9 @@ so common SPLITS and JOINS have been assigned variables. For example, the variab
 
 to join this array back together, but this time with `underscores`, pipe to u:
 
-*echo /this/is/a/splitting/example | pyp "s|u"*
+*`echo /this/is/a/splitting/example | pyp "s|u"`*
 
-*>this_is_a_splitting_example*
+*`>this_is_a_splitting_example`*
 
 
 ----
@@ -88,25 +88,25 @@ to join this array back together, but this time with `underscores`, pipe to u:
              
 ==list operations== 
              
-print all lines                              ==> pyp  "pp"                                                                               
+print all lines                              ==> `pyp  "pp"`                                                                               
 
                                           
-sort all input lines                         ==> pyp  "pp.sort()"                                                                        
+sort all input lines                         ==> `pyp  "pp.sort()"  `                                                                      
 
                                           
-eliminate duplicates                         ==> pyp  "pp.uniq"                                                                          
+eliminate duplicates                         ==> `pyp  "pp.uniq" `                                                                         
 
                                           
-combine all lines to one line                ==> pyp  "pp.oneline"                                                                       
+combine all lines to one line                ==> `pyp  "pp.oneline"        `                                                               
 
                                           
-print line after FOO                         ==> pyp  "pp.after('FOO')"                                                                  
+print line after FOO                         ==> `pyp  "pp.after('FOO')"  `                                                                
 
                                           
 list comprehenision                          ==> pyp  `"[x for x in pp]"`                                                                               
 
                              
-return to string context after sort          ==> pyp  "pp.sort() | p"                                                                                 
+return to string context after sort          ==> `pyp  "pp.sort() | p"       `                                                                          
 
                              
                                                                                                                                                                       
@@ -115,51 +115,51 @@ return to string context after sort          ==> pyp  "pp.sort() | p"
                                                                                    
 
              
-print line                                   ==> pyp  "p"                                                                                                                          
+print line                                   ==> `pyp  "p"  `                                                                                                                        
 
 
-combine line with FOO                        ==> pyp  "p +'FOO'"                                                                                                                   
+combine line with FOO                        ==> `pyp  "p +'FOO'"         `                                                                                                          
 
-above, but combine with original input       ==> pyp  "p +'FOO'| p + o"                                                                                                            
+above, but combine with original input       ==> `pyp  "p +'FOO'| p + o"         `                                                                                                   
                                                                                                                                                                       
 
              
-replace FOO with GOO                         ==> pyp  "p.replace('FOO','GOO')"                                                                                                     
+replace FOO with GOO                         ==> `pyp  "p.replace('FOO','GOO')"   `                                                                                                  
 
-remove all GOO                               ==> pyp  "p.kill('GOO')"                                                                                                              
+remove all GOO                               ==> `pyp  "p.kill('GOO')"        `                                                                                                      
 
                                                                                                                                                                                    
 
-string substitution                          ==> pyp  "'%s FOO %s %s GOO'%(p,p,5)"                                                                                                 
+string substitution                          ==> `pyp  "'%s FOO %s %s GOO'%(p,p,5)"`                                                                                                 
                                                                                                                                                                                    
-split up line by FOO                         ==> pyp  "p.split('FOO')"                                                                   
+split up line by FOO                         ==> `pyp  "p.split('FOO')"   `                                                                
 
                                           
-split up line by '/'                         ==> pyp  "slash"                                                                                                                      
+split up line by '/'                         ==> `pyp  "slash"                     `                                                                                                 
 
-select 1st field split up by '/'             ==> pyp  "`slash[0]`"                                                                                                                   
+select 1st field split up by '/'             ==> `pyp  "`slash[0]`"                     `                                                                                              
 
-select fields 3 through 5 split up by '/'    ==> pyp  "`s[2:6]`"                                                                                                                     
+select fields 3 through 5 split up by '/'    ==>` pyp  "`s[2:6]`"                           `                                                                                          
 
-above joined together with '/'               ==> pyp  "`s[2:6]` | s"                                                                                 
+above joined together with '/'               ==> `pyp  "`s[2:6]` | s"                                       `                                          
 
 ----
 ==logic filters==                  
 
-keep all lines with GOO and FOO              ==> pyp  "'GOO' in p and 'FOO' in p"                                                                                                  
+keep all lines with GOO and FOO              ==> `pyp  "'GOO' in p and 'FOO' in p"`                                                                         
 
-keep all lines with GOO or FOO               ==> pyp  "keep('GOO','FOO')"                                                                                                          
+keep all lines with GOO or FOO               ==> `pyp  "keep('GOO','FOO')"     `                                                                                                     
 
-keep all lines that are numbers              ==> pyp  "p.isdigit()"                                                                                                                
+keep all lines that are numbers              ==> `pyp  "p.isdigit()"`                                                                                          
                                                                                                                                                                       
 
              
-lose all lines with GOO and FOO              ==> pyp  "'GOO' not in p and 'FOO' not in p"                                                                                          
+lose all lines with GOO and FOO              ==> `pyp  "'GOO' not in p and 'FOO' not in p"       `                                                                                   
 
 
-lose all lines with GOO or FOO               ==> pyp  "lose('GOO','FOO')"                                                                
+lose all lines with GOO or FOO               ==> `pyp  "lose('GOO','FOO')"                        `                                        
 
 
                                           
-lose all lines that are numbers              ==> pyp  "not p.isdigit()"                                                                                                            
+lose all lines that are numbers              ==> `pyp  "not p.isdigit()"                                   `                                                                         
                                                                                                      
