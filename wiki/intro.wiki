@@ -94,7 +94,7 @@ to join this array back together, but this time with `underscores`, pipe to u:
 ||combine all lines to one line||pyp  "pp.oneline" ||                                                                      
 ||print line after FOO|| `pyp  "pp.after('FOO')"` ||                                                                
 || list comprehension||pyp  `"[x for x in pp]"` ||                                                                               
-||return to string context after sort  || `pyp  "pp.sort() *| p"       ` ||                                                                          
+||return to string context after sort  || `pyp  "pp.sort() | p"       ` ||                                                                          
 
                              
                                                                                                                                                                       
@@ -103,51 +103,24 @@ to join this array back together, but this time with `underscores`, pipe to u:
                                                                                    
 
              
-print line                                   ==> `pyp  "p"  `                                                                                                                        
-
-
-combine line with FOO                        ==> `pyp  "p +'FOO'"         `                                                                                                          
-
-above, but combine with original input       ==> `pyp  "p +'FOO'| p + o"         `                                                                                                   
-                                                                                                                                                                      
-
-             
-replace FOO with GOO                         ==> `pyp  "p.replace('FOO','GOO')"   `                                                                                                  
-
-remove all GOO                               ==> `pyp  "p.kill('GOO')"        `                                                                                                      
-
-                                                                                                                                                                                   
-
-string substitution                          ==> `pyp  "'%s FOO %s %s GOO'%(p,p,5)"`                                                                                                 
-                                                                                                                                                                                   
-split up line by FOO                         ==> `pyp  "p.split('FOO')"   `                                                                
-
-                                          
-split up line by '/'                         ==> `pyp  "slash"                     `                                                                                                 
-
-select 1st field split up by '/'             ==> `pyp  "slash[0]"`                                                                                                                 
-
-select fields 3 through 5 split up by '/'    ==>` pyp  "s[2:6]"                           `                                                                                          
-
-above joined together with '/'               ==> `pyp  "s[2:6] | s"                                       `                                          
+||print line|| `pyp  "p"  `||                                                                                
+||combine line with FOO||`pyp  "p +'FOO'"         `||                                                                                
+||above, but combine with original input|| `pyp  "p +'FOO'| p + o"         `||                                                                               
+|| replace FOO with GOO || `pyp  "p.replace('FOO','GOO')"`||                                                        
+||remove all GOO||`pyp  "p.kill('GOO')"        `||                                                                                
+||string substitution ||`pyp  "'%s FOO %s %s GOO'%(p,p,5)"`||                                      
+||split up line by FOO||`pyp  "p.split('FOO')"   ` `||                                                                        
+||split up line by '/' ||`pyp  "slash`" ||                                                                             
+||select 1st field split up by '/'|| `pyp  "slash[0]"`||                                                                      
+||select fields 3 through 5 split up by '/'||` pyp  "s[2:6]"                           `||                                                                                
+||above joined together with '/'||`pyp  "s[2:6] | s"`||                                                                                 
 
 ----
 ==logic filters==                  
 
-keep all lines with GOO and FOO              ==> `pyp  "'GOO' in p and 'FOO' in p"`                                                                         
+||keep all lines with GOO and FOO|| `pyp  "'GOO' in p and 'FOO' in p"`||                                                                         
 
-keep all lines with GOO or FOO               ==> `pyp  "keep('GOO','FOO')"     `                                                                                                     
-
-keep all lines that are numbers              ==> `pyp  "p.isdigit()"`                                                                                          
-                                                                                                                                                                      
-
-             
-lose all lines with GOO and FOO              ==> `pyp  "'GOO' not in p and 'FOO' not in p"       `                                                                                   
-
-
-lose all lines with GOO or FOO   `pyp  "lose('GOO','FOO')"                        `                                        
-
-
-                                          
-lose all lines that are numbers              ==> `pyp  "not p.isdigit()"                                   `                                                                         
+||keep all lines with GOO or FOO||`pyp  "keep('GOO','FOO')"     `||                                                                                
+||keep all lines that are numbers||`pyp  "p.isdigit()"`||                                                                   ||lose all lines with GOO and FOO ||`pyp  "'GOO' not in p and 'FOO' not in p"     `||                                                                                ||lose all lines with GOO or FOO ||  `pyp  "lose('GOO','FOO')" ||                        `                                                                                
+||lose all lines that are numbers||`pyp  "not p.isdigit()"||                                   `                                                                         
                                                                                                      
