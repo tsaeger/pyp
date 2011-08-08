@@ -3,7 +3,7 @@
 ----
 =Enter the Pyed Piper=
 
-pyp is a python-centric command line text manipulation tool.  It allows you to format, replace, augment                                                                            
+The pyed piper, or pyp, is a python-centric command line text manipulation tool.  It allows you to format, replace, augment                                                                            
 and otherwise mangle text using standard python syntax with a few golden-oldie tricks from unix commands                                                                           
 of the past. You can pipe data into pyp just like any other unix command line tool.
                                                                  
