@@ -119,8 +119,7 @@ to join this array back together, but this time with `underscores`, pipe to u:
 ==logic filters==                  
 
 ||keep all lines with GOO and FOO|| `pyp  "'GOO' in p and 'FOO' in p"`||                                                                         
-
 ||keep all lines with GOO or FOO||`pyp  "keep('GOO','FOO')"     `||                                                                                
-||keep all lines that are numbers||`pyp  "p.isdigit()"`||                                                                   ||lose all lines with GOO and FOO ||`pyp  "'GOO' not in p and 'FOO' not in p"     `||                                                                                ||lose all lines with GOO or FOO ||  `pyp  "lose('GOO','FOO')" ||                        `                                                                                
-||lose all lines that are numbers||`pyp  "not p.isdigit()"||                                   `                                                                         
+||keep all lines that are numbers||`pyp  "p.isdigit()"`||                                                                   ||lose all lines with GOO and FOO ||`pyp  "'GOO' not in p and 'FOO' not in p"     `||                                                                                ||lose all lines with GOO or FOO ||  `pyp  "lose('GOO','FOO')"`||                                                       
+||lose all lines that are numbers||`pyp  "not p.isdigit()"`||                                                                                                           
                                                                                                      
