@@ -157,7 +157,7 @@ keep all lines that are numbers              ==> `pyp  "p.isdigit()"`
 lose all lines with GOO and FOO              ==> `pyp  "'GOO' not in p and 'FOO' not in p"       `                                                                                   
 
 
-lose all lines with GOO or FOO               ==> `pyp  "lose('GOO','FOO')"                        `                                        
+lose all lines with GOO or FOO   `pyp  "lose('GOO','FOO')"                        `                                        
 
 
                                           
