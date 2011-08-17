@@ -42,6 +42,10 @@ execute them.  Also, an additional text file (`PypCustom.py`) can be set up that
 allows additional methods to be added to the pyp str and list methods, allowing
 tight integration with larger facilities data structures or custom tool sets.
 
+==SYSTEM REQUIREMENTS==
+----
+Pyp needs a copy of python to work. Any recent (version 2+) should work. We have purposefully only imported commonly distributed modules to maximize compatibility. Pyp has been successfully tested on fedora, centOS, and Mac OSX systems. 
+
 
 ==STRING OPERATIONS==
 ----
