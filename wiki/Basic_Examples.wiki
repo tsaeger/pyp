@@ -12,4 +12,24 @@ Below are some basic examples for using Pyed Piper (a.k.a. - pyp)
 There are three ways that you can bring in strings 
 
 
-*`pyp "p.replace('FOO','GOO')"`*
+*Example 1 * - Using Echo
+   *$ echo 'hello world' | pyp*
+         hello world
+
+*Example 2 * - Using Files
+   *$ cat /location/to/file/exercise_1.txt | pyp*
+         hello world
+         world hello
+   *$ pyp -r "p"*
+         hello world
+         world hello
+
+*PYP NOTE:* In this example you don't have to use "p" but its important to show that "p" represents the line in which it is working on. So pyp is doing a recursive Read for p (or reading each line). This is extremely important when you need to specify the variable from other variables.
+
+*Example 3 * - Using pyp manually by typing/pasting text
+   *$ pyp*
+         hello world
+   *$ pyp -r *
+         hello world
+
+*NOTE: *  All three examples can accomplish the exact same thing. Most times its easier to do pyp manually so you don't have to create a text file.
