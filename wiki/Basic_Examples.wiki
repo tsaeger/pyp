@@ -14,26 +14,26 @@ There are three ways that you can bring in strings
 
 *Example 1 * - Using Echo
 {{{
-   *$ echo 'hello world' | pyp*
-         hello world
+$ echo 'hello world' | pyp
+   hello world
 }}}
 
 *Example 2 * - Using Files
 {{{   
-   *$ cat /location/to/file/exercise_1.txt | pyp*
-         hello world
-         world hello
-   *$ pyp --rerun "p"*
-         hello world
-         world hello
+$ cat /location/to/file/exercise_1.txt | pyp
+   hello world
+   world hello
+$ pyp --rerun "p"
+   hello world
+   world hello
 }}}
 *PYP NOTE:* "p" represents each line of the input as a python string.  Every time pyp runs, it buffers it's input to disk, so if you want to run it again with the same input, just use the *--rerun* flag. This is handy when the commands fed into pyp take a while to run, or if you are cutting and pasting input as shown below.
 
 *Example 3 * - Using pyp manually by cutting/pasting text
 {{{
-   *$ pyp*
-         hello world 
-   *$ pyp --rerun *
-         hello world
+$ pyp
+   hello world 
+$ pyp --rerun 
+   hello world
 }}}
 *NOTE: *  All three examples can accomplish the exact same thing. Most times its easier to do pyp manually so you don't have to create a text file.
