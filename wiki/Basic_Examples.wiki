@@ -1,4 +1,4 @@
-#Set of examples to demonstrate the power of pyp
+#summary Set of examples to demonstrate the power of pyp
 
 = Introduction =
 
