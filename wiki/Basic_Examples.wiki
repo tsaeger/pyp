@@ -33,7 +33,10 @@ $ pyp --rerun "p"
 {{{
 $ pyp
    hello world 
+}}}
+*NOTE:* 'hello world' was copied and pasted and executed by using CTRL-D
+{{{
 $ pyp --rerun 
    hello world
 }}}
-*NOTE: *  All three examples can accomplish the exact same thing. Most times its easier to do pyp manually so you don't have to create a text file.
+*NOTE: *  All three examples can accomplish the exact same thing.
