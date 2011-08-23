@@ -32,10 +32,7 @@ $ pyp --rerun "p"
 *Example 3 * - Using pyp manually by cutting/pasting text
 {{{
 $ pyp
-   hello world 
-}}}
-*NOTE:* 'hello world' was copied and pasted and executed by using CTRL-D
-{{{
+   hello world #'hello world' was copied/pasted and executed by using CTRL-D
 $ pyp --rerun 
    hello world
 }}}
