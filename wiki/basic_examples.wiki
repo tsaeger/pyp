@@ -1,0 +1,39 @@
+#summary Set of examples to demonstrate the power of pyp
+
+= Introduction =
+
+Below are some basic examples for using Pyed Piper (a.k.a. - pyp) 
+
+= Details =
+
+----
+=Displaying Strings Using pyp =
+
+There are three ways that you can bring in strings 
+
+
+*Example 1 * - Using Echo
+{{{
+$ echo 'hello world' | pyp
+   hello world
+}}}
+
+*Example 2 * - Using Files
+{{{   
+$ cat /location/to/file/exercise_1.txt | pyp
+   hello world
+   world hello
+$ pyp --rerun "p"
+   hello world
+   world hello
+}}}
+*PYP NOTE:* "p" represents each line of the input as a python string.  Every time pyp runs, it buffers it's input to disk, so if you want to run it again with the same input, just use the *--rerun* flag. This is handy when the commands fed into pyp take a while to run, or if you are cutting and pasting input as shown below.
+
+*Example 3 * - Using pyp manually by cutting/pasting text
+{{{
+$ pyp
+   hello world #'hello world' was copied/pasted and executed by using CTRL-D
+$ pyp --rerun 
+   hello world
+}}}
+*NOTE: *  All three examples can accomplish the exact same thing.
