@@ -83,7 +83,7 @@ $ pyp --rerun "s[2:4] | s"
 {{{
 <"tcsh shell" - text file can be found on downloads page >
 
-$ cat /location/to/file/exercise_2.txt | pyp --rerun "w"   
+$ cat /location/to/file/exercise_2.txt | pyp "w"   
    [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.1000_1180.mov]
    [[0]/MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
    [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/Cool[1]Movie:swin-flight.mov]
@@ -95,7 +95,15 @@ $ pyp --rerun "w[1]"
 
 In Pyed Piper, there are several built-in functions that we can split with.  Here is the list of those other functions:
 
-
+||`s`  OR `slash`||          p split/joined on "/" || 
+|| `d`  OR `dot`  ||          p split/joined on "."    ||    
+||`w`  OR `whitespace`  ||   p split/joined on whitespace (on spaces,tabs,etc)||
+||`u`  OR `underscore` ||    p split/joined on '*_'   ||    
+||`c`  OR `colon`     ||     p split/joined on ':'  ||
+||`mm` OR `comma`    ||      p split/joined on ',' || 
+||`m`  OR `minus`   ||       p split/joined on '-'   ||
+||`a`  OR `all`       ||     p split on `[' '-_=$...]` (on "All" metacharacters)||
+[SPLIT_OR_JOIN_VARIABLES_BASED_ON_p_BEING_A_STRING_OR_LIST TableLink]
 
 
 
@@ -114,12 +122,12 @@ $ cat /location/to/file/exercise_2.txt | pyp --rerun "a"
 {{{
 <"tcsh shell" - text file can be found on downloads page >
 
-$ cat /location/to/file/exercise_2.txt | pyp --rerun "p.split('examples')" 
+$ cat /location/to/file/exercise_2.txt | pyp "p.split('examples')" 
    [[0]/MyDocuments/[1]/movie_directory/movie/2011_05_20/mymovie_frames.180.mov]
    [[0]/MyDocuments/[1]/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
    [[0]/MyDocuments/[1]/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov]
 
-$ cat /location/to/file/exercise_2.txt | pyp --rerun "p.split('/')" 
+$ pyp --rerun "p.split('/')" 
    [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]mymovie_frames.180.mov]
    [[0][1]MyDocuments[2]examples[3]movie_directry[4]frames[5]swin_is_the_man[6]tiff[7]swin@work.tiff]
    [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]Cool Movie:swin-flight.mov]
