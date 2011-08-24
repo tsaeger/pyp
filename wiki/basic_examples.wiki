@@ -44,7 +44,8 @@ Pyed Piper has built-in functions that are designed to easily split on specific 
 *Example 1 * - Splitting on slashes
 {{{
 <"tcsh shell" - text file can be found on downloads page >
-$ cat /location/to/file/exercise_2.txt | pyp   #file can be found on downloads page
+
+$ cat /location/to/file/exercise_2.txt | pyp   
    /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
    /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
    /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
@@ -95,7 +96,8 @@ $ pyp --rerun "w[1]"
 *Example 3 * - Splitting on EVERY meta-characters 
 {{{
 <"tcsh shell" - text file can be found on downloads page >
-$ cat /location/to/file/exercise_2.txt | pyp --rerun "a" #file can be found on downloads page
+
+$ cat /location/to/file/exercise_2.txt | pyp --rerun "a" 
    [[0]MyDocuments[1]examples[2]movie[3]directory[4]movie[5]2011[6]05[7]20[8]mymovie[9]frames[10]180[11]mov]
    [[0]MyDocuments[1]examples[2]movie[3]directry[4]frames[5]swin[6]is[7]the[8]man[9]tiff[10]swin[11]work[12]tiff]
    [[0]MyDocuments[1]examples[2]movie[3]directory[4]movie[5]2011[6]05[7]20[8]Cool[9]Movie[10]swin[11]flight[12]mov]
@@ -105,12 +107,13 @@ $ cat /location/to/file/exercise_2.txt | pyp --rerun "a" #file can be found on d
 *Example 4 * - Splitting manually 
 {{{
 <"tcsh shell" - text file can be found on downloads page >
-$ cat /location/to/file/exercise_2.txt | pyp --rerun "p.split('examples')" #file can be found on downloads page
+
+$ cat /location/to/file/exercise_2.txt | pyp --rerun "p.split('examples')" 
    [[0]/MyDocuments/[1]/movie_directory/movie/2011_05_20/mymovie_frames.180.mov]
    [[0]/MyDocuments/[1]/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
    [[0]/MyDocuments/[1]/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov]
 
-$ cat /location/to/file/exercise_2.txt | pyp --rerun "p.split('/')" #file can be found on downloads page
+$ cat /location/to/file/exercise_2.txt | pyp --rerun "p.split('/')" 
    [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]mymovie_frames.180.mov]
    [[0][1]MyDocuments[2]examples[3]movie_directry[4]frames[5]swin_is_the_man[6]tiff[7]swin@work.tiff]
    [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]Cool Movie:swin-flight.mov]
@@ -124,9 +127,11 @@ With Pyed Piper you have the ability to split and join a number of ways.
 *Example 1 *- Splitting and Joining using variables 
 {{{
 <"tcsh shell" - text file can be found on downloads page >
-$ cat /location/to/file/exercise_3.txt | pyp "s" #file can be found on downloads page
+
+$ cat /location/to/file/exercise_3.txt | pyp "s"
    [[0]MyDocuments[1]swin[2]pyp[3]examples[4]tutorial_for_pyp.jpg]
    [[0]MyDocuments[1]swin[2]pyp[3]examples[4]pyp_is_awesome.jpg]
+
 $ cat /location/to/file/exercise_3.txt | pyp "s | u"
    MyDocuments_swin_pyp_examples_tutorial_for_pyp.jpg
    MyDocuments_swin_pyp_examples_pyp_is_awesome.jpg
