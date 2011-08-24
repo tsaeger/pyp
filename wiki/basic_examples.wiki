@@ -43,7 +43,7 @@ Pyed Piper has built-in functions that are designed to easily split on specific 
 
 *Example 1 * - Splitting on slashes
 {{{
-<code language="tcsh">
+<code language="shell">
 $ cat /location/to/file/exercise_2.txt | pyp   #file can be found on downloads page
    /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
    /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
@@ -80,6 +80,7 @@ $ pyp --rerun "s[2:4] | s"
 
 *Example 2 * - Splitting on white-spaces
 {{{
+<code language="shell">
 $ cat /location/to/file/exercise_2.txt | pyp --rerun "w[:]"   #file can be found on downloads page
    [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.1000_1180.mov]
    [[0]/MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
@@ -90,49 +91,61 @@ $ pyp --rerun "w[:] | u"
    /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
    /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
    /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool_Movie:swin-flight.mov
+</code>
 }}}
 *PYP NOTE:* Because only one path had a whitespace, when we specified [1], the path that had the whitespace was the only one returned. We also have the ability to pipe the list back in with another variable (We piped the last one demonstration back but replaced the whitespace with underscores.  We could have used whitespaces by giving it a 'w' instead of 'u'). 
 
 *Example 3 * - Splitting on dot
 {{{
+<code language="shell">
 $ cat /location/to/file/exercise_2.txt | pyp --rerun "d"   #file can be found on downloads page
    [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames[1]1000_1180[2]mov]
    [[0]/MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work[1]tiff]
    [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight[1]mov]
+</code>
 }}}
 
 *PYP NOTE:* In the last example we changed the whitespaces to underscores but in this example the underscores are no longer there. The reason this happens is because pyp only keeps what is in the buffer. Also, with pyp you don't always have to use "[:]" to get a list of splits. In this example we just put "d" to automatically split out all dots.
 
 *Example 4 * - Splitting on underscores
 {{{
+<code language="shell">
 $ cat /location/to/file/exercise_2.txt | pyp --rerun "u" #file can be found on downloads page
    [[0]/MyDocuments/examples/movie[1]directory/movie/2011[2]05[3]20/mymovie[4]frames.180.mov]
    [[0]/MyDocuments/examples/movie[1]directry/frames/swin[2]is[3]the[4]man/tiff/swin@work.tiff]
    [[0]/MyDocuments/examples/movie[1]directory/movie/2011[2]05[3]20/Cool Movie:swin-flight.mov]
+</code>
 }}}
 *Example 5 * - Splitting on colons 
 {{{
+<code language="shell">
 $ cat /location/to/file/exercise_2.txt | pyp --rerun "c" #file can be found on downloads page
    [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov]
    [[0]/MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
    [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie[1]swin-flight.mov]
+</code>
 }}}
 *Example 6 * - Splitting on dashes 
 {{{
+<code language="shell">
 $ cat /location/to/file/exercise_2.txt | pyp --rerun "m" #file can be found on downloads page
    [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov]
    [[0]/MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
    [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin[1]flight.mov]
+</code>
 }}}
 *Example 7 * - Splitting on meta-characters 
 {{{
+<code language="shell">
 $ cat /location/to/file/exercise_2.txt | pyp --rerun "a" #file can be found on downloads page
    [[0]MyDocuments[1]examples[2]movie[3]directory[4]movie[5]2011[6]05[7]20[8]mymovie[9]frames[10]180[11]mov]
    [[0]MyDocuments[1]examples[2]movie[3]directry[4]frames[5]swin[6]is[7]the[8]man[9]tiff[10]swin[11]work[12]tiff]
    [[0]MyDocuments[1]examples[2]movie[3]directory[4]movie[5]2011[6]05[7]20[8]Cool[9]Movie[10]swin[11]flight[12]mov]
+</code>
 }}}
 *Example 8 * - Splitting manually 
 {{{
+<code language="shell">
 $ cat /location/to/file/exercise_2.txt | pyp --rerun "p.split('examples')" #file can be found on downloads page
    [[0]/MyDocuments/[1]/movie_directory/movie/2011_05_20/mymovie_frames.180.mov]
    [[0]/MyDocuments/[1]/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
@@ -141,6 +154,7 @@ $ cat /location/to/file/exercise_2.txt | pyp --rerun "p.split('/')" #file can be
    [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]mymovie_frames.180.mov]
    [[0][1]MyDocuments[2]examples[3]movie_directry[4]frames[5]swin_is_the_man[6]tiff[7]swin@work.tiff]
    [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]Cool Movie:swin-flight.mov]
+</code>
 }}}
 *PYP NOTE:* Splitting manually takes a string; however, we will need to use single quotes *(double quotes will not work in this case)*. "p" represents each line of the input as a python string.  When we type p.split('$STRING') you are saying for that line split on this string. 
 
@@ -149,22 +163,26 @@ $ cat /location/to/file/exercise_2.txt | pyp --rerun "p.split('/')" #file can be
 With Pyed Piper you have the ability to split and join a number of ways. 
 *Example 1 *- Splitting and Joining using variables 
 {{{
+<code language="shell">
 $ cat /location/to/file/exercise_3.txt | pyp "s" #file can be found on downloads page
    [[0]MyDocuments[1]swin[2]pyp[3]examples[4]tutorial_for_pyp.jpg]
    [[0]MyDocuments[1]swin[2]pyp[3]examples[4]pyp_is_awesome.jpg]
 $ cat /location/to/file/exercise_3.txt | pyp "s | u"
    MyDocuments_swin_pyp_examples_tutorial_for_pyp.jpg
    MyDocuments_swin_pyp_examples_pyp_is_awesome.jpg
+</code>
 }}}
 *PYP NOTE:* In this example we used two variables (slashes and underscores) to signify what we want to split and join on.  By piping into a different variable, we are telling pyp that we want to split on slashes and pipe the list back in but add underscores for each list item.
 *Example 2 *- Specific Splitting/Joining
 {{{
+<code language="shell">
 $ cat /location/to/file/exercise_3.txt | pyp "'_'.join(p.split('/'))" #file can be found on downloads 
    _MyDocuments_swin_pyp_examples_tutorial_for_pyp.jpg
    _MyDocuments_swin_pyp_examples_pyp_is_awesome.jpg
 $ pyp --rerun "'HELLO'.join(p.split('examples'))"
    /MyDocuments/swin/pyp/HELLO/tutorial_for_pyp.jpg
    /MyDocuments/swin/pyp/HELLO/pyp_is_awesome.jpg
+</code>
 }}}
 *PYP NOTE:* In this example we specifically told pyp that we wanted to split/join together.  We are being very specific in what we want to split on and join in back.  The first part, we just split and joined like example 1; however, in second part, we specified that we wanted to split on the string `'examples'` and join the list with a string `'HELLO'`. For more examples please see the *String Replacements* section.
 
