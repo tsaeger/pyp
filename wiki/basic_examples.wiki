@@ -7,10 +7,9 @@ Below are some basic examples for using Pyed Piper (a.k.a. - pyp)
 = Details =
 
 ----
-=Displaying Strings Using pyp =
+==Displaying Strings Using pyp==
 
 There are three ways that you can bring in strings 
-
 
 *Example 1 * - Using Echo
 {{{
@@ -20,14 +19,14 @@ $ echo 'hello world' | pyp
 
 *Example 2 * - Using Files
 {{{   
-$ cat /location/to/file/exercise_1.txt | pyp
+$ cat /location/to/file/exercise_1.txt | pyp #file can be found on downloads page
    hello world
    world hello
 $ pyp --rerun "p"
    hello world
    world hello
 }}}
-*PYP NOTE:* "p" represents each line of the input as a python string.  Every time pyp runs, it buffers it's input to disk, so if you want to run it again with the same input, just use the *--rerun* flag. This is handy when the commands fed into pyp take a while to run, or if you are cutting and pasting input as shown below.
+*PYP NOTE:* "p" represents each line of the input as a python string.  Every time pyp runs, it buffers it's input to disk, so if we want to run it again with the same input, just use the *--rerun* flag. This is handy when the commands fed into pyp take a while to run, or if we are cutting and pasting input as shown below.
 
 *Example 3 * - Using pyp manually by cutting/pasting text
 {{{
@@ -36,4 +35,110 @@ $ pyp
 $ pyp --rerun 
    hello world
 }}}
-*NOTE: *  All three examples can accomplish the exact same thing.
+*NOTE: *  All three examples will accomplish the exact same thing.
+
+----
+==Splitting with pyp==
+Pyed Piper has built-in functions that are designed to easily split on specific characters (ie - slashes, dashes, spaces) or can manually be given strings to split on.
+
+*Example 1 * - Splitting on slashes
+{{{
+$ cat /location/to/file/exercise_2.txt | pyp   #file can be found on downloads page
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
+   /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
+
+$ pyp --rerun "s[:]"
+   [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]mymovie_frames.180.mov]
+   [[0]MyDocuments[1]examples[2]movie_directry[3]frames[4]swin_is_the_man[5]tiff[6]swin@work.tiff]
+   [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]Cool Movie:swin-flight.mov]
+
+$ pyp --rerun "s[1]"
+   examples
+   examples
+   examples
+
+$ pyp --rerun "s[-1]"
+   mymovie_frames.180.mov
+   swin@work.tiff
+   Cool Movie:swin-flight.mov
+
+$ pyp --rerun "s[2:4]"
+   [[0]movie_directory[1]movie]
+   [[0]movie_directry[1]frames]
+   [[0]movie_directory[1]movie]
+
+$ pyp --rerun "s[2:4] | s"
+   movie_directory/movie
+   movie_directry/frames
+   movie_directory/movie
+
+}}}
+*PYP NOTE:* With Pyed Piper we can split just like python's interpreter. For this example the "s" variable is splitting on all slashes and putting them into a python list. For more information feel free to go to python's documentation: [http://docs.python.org/release/2.5.2/lib/string-methods.html python-docs_string-methods]
+
+*Example 2 * - Splitting on white-spaces
+{{{
+$ cat /location/to/file/exercise_2.txt | pyp -r "w[:]"   #file can be found on downloads page
+   [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.1000_1180.mov]
+   [[0]/MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
+   [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/Cool[1]Movie:swin-flight.mov]
+$ pyp -r "w[1]"
+   Movie:swin-flight.mov
+$ pyp -r "w[:] | u"
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
+   /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool_Movie:swin-flight.mov
+}}}
+*PYP NOTE:* Because only one path had a whitespace, when we specified [1], the path that had the whitespace was the only one returned. We also have the ability to pipe the list back in with another variable (We piped the last one demonstration back but replaced the whitespace with underscores.  We could have used whitespaces by giving it a 'w' instead of 'u'). 
+
+*Example 3 * - Splitting on dot
+{{{
+$ cat /location/to/file/exercise_2.txt | pyp -r "d"   #file can be found on downloads page
+   [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames[1]1000_1180[2]mov]
+   [[0]/MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work[1]tiff]
+   [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight[1]mov]
+}}}
+
+*PYP NOTE:* In the last example we changed the whitespaces to underscores but in this example the underscores are no longer there. The reason this happens is because pyp only keeps what is in the buffer. Also, with pyp you don't always have to use "[:]" to get a list of splits. In this example we just put "d" to automatically split out all dots.
+
+*Example 4 * - Splitting on underscores
+{{{
+$ cat /location/to/file/exercise_2.txt | pyp -r "u" #file can be found on downloads page
+   [[0]/MyDocuments/examples/movie[1]directory/movie/2011[2]05[3]20/mymovie[4]frames.180.mov]
+   [[0]/MyDocuments/examples/movie[1]directry/frames/swin[2]is[3]the[4]man/tiff/swin@work.tiff]
+   [[0]/MyDocuments/examples/movie[1]directory/movie/2011[2]05[3]20/Cool Movie:swin-flight.mov]
+}}}
+*Example 5 * - Splitting on colons #file can be found on downloads page
+{{{
+$ cat /location/to/file/exercise_2.txt | pyp -r "c"
+   [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov]
+   [[0]/MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
+   [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie[1]swin-flight.mov]
+}}}
+*Example 6 * - Splitting on dashes #file can be found on downloads page
+{{{
+$ cat /location/to/file/exercise_2.txt | pyp -r "m"
+   [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov]
+   [[0]/MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
+   [[0]/MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin[1]flight.mov]
+}}}
+*Example 7 * - Splitting on meta-characters #file can be found on downloads page
+{{{
+$ cat /location/to/file/exercise_2.txt | pyp -r "a"
+   [[0]MyDocuments[1]examples[2]movie[3]directory[4]movie[5]2011[6]05[7]20[8]mymovie[9]frames[10]180[11]mov]
+   [[0]MyDocuments[1]examples[2]movie[3]directry[4]frames[5]swin[6]is[7]the[8]man[9]tiff[10]swin[11]work[12]tiff]
+   [[0]MyDocuments[1]examples[2]movie[3]directory[4]movie[5]2011[6]05[7]20[8]Cool[9]Movie[10]swin[11]flight[12]mov]
+}}}
+*Example 8 * - Splitting manually #file can be found on downloads page
+{{{
+$ cat /location/to/file/exercise_2.txt | pyp -r "p.split('examples')"
+   [[0]/MyDocuments/[1]/movie_directory/movie/2011_05_20/mymovie_frames.180.mov]
+   [[0]/MyDocuments/[1]/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff]
+   [[0]/MyDocuments/[1]/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov]
+$ cat /location/to/file/exercise_2.txt | pyp -r "p.split('/')"
+   [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]mymovie_frames.180.mov]
+   [[0][1]MyDocuments[2]examples[3]movie_directry[4]frames[5]swin_is_the_man[6]tiff[7]swin@work.tiff]
+   [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]Cool Movie:swin-flight.mov]
+}}}
+*PYP NOTE:* Splitting manually takes a string; however, we will need to use single quotes *(double quotes will not work in this case)*. "p" represents each line of the input as a python string.  When we type p.split('$STRING') you are saying for that line split on this string. 
+
