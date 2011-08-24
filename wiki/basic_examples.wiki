@@ -103,10 +103,8 @@ In Pyed Piper, there are several built-in functions that we can split with.  Her
 ||`mm` OR `comma`    ||      p split/joined on ',' || 
 ||`m`  OR `minus`   ||       p split/joined on '-'   ||
 ||`a`  OR `all`       ||     p split on `[' '-_=$...]` (on "All" metacharacters)||
-[SPLIT_OR_JOIN_VARIABLES_BASED_ON_p_BEING_A_STRING_OR_LIST TableLink]
 
-
-
+[http://code.google.com/p/pyp/wiki/pyp_manual#SPLIT_OR_JOIN_VARIABLES_BASED_ON_p_BEING_A_STRING_OR_LIST TableLink]
 
 *Example 3 * - Splitting on EVERY meta-characters 
 {{{
