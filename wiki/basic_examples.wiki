@@ -42,9 +42,8 @@ $ pyp --rerun
 Pyed Piper has built-in functions that are designed to easily split on specific characters (ie - slashes, dashes, spaces) or can manually be given strings to split on.
 
 *Example 1 * - Splitting on slashes
-{{{
 <code language="tcsh">
-
+{{{
 $ cat /location/to/file/exercise_2.txt | pyp   #file can be found on downloads page
    /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
    /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
@@ -69,8 +68,8 @@ $ pyp --rerun "s[2:4] | s"
    movie_directory/movie
    movie_directry/frames
    movie_directory/movie
-</code>
 }}}
+</code>
 *PYP NOTE:* With Pyed Piper we can split just like python's interpreter. For this example the "s" variable is splitting on all slashes and putting them into a python list. For more information feel free to go to python's documentation: [http://docs.python.org/release/2.5.2/lib/string-methods.html python-docs_string-methods]
 
 *Example 2 * - Splitting on white-spaces
