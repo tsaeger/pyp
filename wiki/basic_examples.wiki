@@ -44,9 +44,9 @@ Pyed Piper has built-in functions that are designed to easily split on specific 
 *Example 1 * - Splitting on slashes
 {{{
 $ cat /location/to/file/exercise_2.txt | pyp   #file can be found on downloads page
-   /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.a180.mov
-   /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
-   /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
+   /Documents/examples/movie_directory/movie/2011_05_20/mymovie_frames.a180.mov
+   /Documents/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
+   /Documents/examples/movie_directory/movie/2011_05_20/Cool_Movie:swin-flight.mov
 
 $ pyp --rerun "s[:]"
    [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]mymovie_frames.180.mov]
