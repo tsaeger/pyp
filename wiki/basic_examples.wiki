@@ -42,38 +42,37 @@ $ pyp --rerun
 Pyed Piper has built-in functions that are designed to easily split on specific characters (ie - slashes, dashes, spaces) or can manually be given strings to split on.
 
 *Example 1 * - Splitting on slashes
-{{{
-$ cat /location/to/file/exercise_2.txt | pyp   #file can be found on downloads page
+
+`$ cat /location/to/file/exercise_2.txt | pyp`   #file can be found on downloads page
    /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
    /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
    /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
 
-$ pyp --rerun "s[:]"
+$ `pyp --rerun "s"`
    [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]mymovie_frames.180.mov]
    [[0]MyDocuments[1]examples[2]movie_directry[3]frames[4]swin_is_the_man[5]tiff[6]swin@work.tiff]
    [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]Cool Movie:swin-flight.mov]
 
-$ pyp --rerun "s[1]"
+`$ pyp --rerun "s[1]"`
    examples
    examples
    examples
 
-$ pyp --rerun "s[-1]"
+`$ pyp --rerun "s[-1]"`
    mymovie_frames.180.mov
    swin@work.tiff
    Cool Movie:swin-flight.mov
 
-$ pyp --rerun "s[2:4]"
+`$ pyp --rerun "s[2:4]"`
    [[0]movie_directory[1]movie]
    [[0]movie_directry[1]frames]
    [[0]movie_directory[1]movie]
 
-$ pyp --rerun "s[2:4] | s"
+`$ pyp --rerun "s[2:4] | s"`
    movie_directory/movie
    movie_directry/frames
    movie_directory/movie
 
-}}}
 *PYP NOTE:* With Pyed Piper we can split just like python's interpreter. For this example the "s" variable is splitting on all slashes and putting them into a python list. For more information feel free to go to python's documentation: [http://docs.python.org/release/2.5.2/lib/string-methods.html python-docs_string-methods]
 
 *Example 2 * - Splitting on white-spaces
