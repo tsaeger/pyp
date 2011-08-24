@@ -68,8 +68,9 @@ $ pyp --rerun "s[2:4] | s"
    movie_directory/movie
    movie_directry/frames
    movie_directory/movie
-}}}
 </code>
+}}}
+
 *PYP NOTE:* With Pyed Piper we can split just like python's interpreter. For this example the "s" variable is splitting on all slashes and putting them into a python list. For more information feel free to go to python's documentation: [http://docs.python.org/release/2.5.2/lib/string-methods.html python-docs_string-methods]
 
 *Example 2 * - Splitting on white-spaces
