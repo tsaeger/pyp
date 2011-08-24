@@ -44,7 +44,7 @@ Pyed Piper has built-in functions that are designed to easily split on specific 
 *Example 1 * - Splitting on slashes
 {{{
 $ cat /location/to/file/exercise_2.txt | pyp   #file can be found on downloads page
-   /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.a180.mov
    /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
    /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
 
@@ -141,4 +141,3 @@ $ cat /location/to/file/exercise_2.txt | pyp -r "p.split('/')"
    [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]Cool Movie:swin-flight.mov]
 }}}
 *PYP NOTE:* Splitting manually takes a string; however, we will need to use single quotes *(double quotes will not work in this case)*. "p" represents each line of the input as a python string.  When we type p.split('$STRING') you are saying for that line split on this string. 
-
