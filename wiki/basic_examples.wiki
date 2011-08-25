@@ -133,7 +133,7 @@ $ pyp --rerun "p.split('/')"
 
 ----
 ==Splitting and Joining with pyp==
-With Pyed Piper you have the ability to split and join a number of ways. 
+With Pyed Piper you have the ability to split and join a number of ways.
 *Example 1 *- Splitting and Joining using variables 
 {{{
 <"tcsh shell" - text file can be found on downloads page >
