@@ -172,8 +172,26 @@ $ pyp --rerun "'HELLO'.join(p.split('examples'))"
 
 ----
 ==String Replacements==
+String replacements allows you to replace one string that is on the line and replace it with something else: 
 
+*Example 1 *- String Replacement
+{{{
+<"tcsh shell" - text file can be found on downloads page >
 
+$ cat /location/to/file/exercise_3.txt | pyp "p"
+   /MyDocuments/swin/pyp/examples/tutorial_for_pyp.jpg
+   /MyDocuments/swin/pyp/examples/pyp_is_awesome.jpg
+
+$ pyp --rerun "p.replace('swin','tobyrosen')"
+   /MyDocuments/tobyrosen/pyp/examples/tutorial_for_pyp.jpg
+   /MyDocuments/tobyrosen/pyp/examples/pyp_is_awesome.jpg
+
+$ pyp --rerun "p.replace('tutorial_','')"
+   /MyDocuments/swin/pyp/examples/for_pyp.jpg
+   /MyDocuments/swin/pyp/examples/pyp_is_awesome.jpg
+}}}
+
+*PYP NOTE: * String replacements allow for strings to be manipulated. Be careful what string you want to replace because it is very specific with its arguments. When using string replacements, empty strings can be given (ie- demonstration 3 - See *[http://code.google.com/p/pyp/wiki/basic_examples?ts=1314289680&updated=basic_examples#Using_Kill Using Kill]* as another alternative)
 ----
 ==Using %s==
 
