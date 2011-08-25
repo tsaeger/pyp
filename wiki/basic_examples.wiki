@@ -50,12 +50,14 @@ $ cat /location/to/file/exercise_2.txt | pyp
    /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
    /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
 
-         ####### this cats a file and loads it into pyp. ###########
-
 $ pyp --rerun "s"
    [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]mymovie_frames.180.mov]
    [[0]MyDocuments[1]examples[2]movie_directry[3]frames[4]swin_is_the_man[5]tiff[6]swin@work.tiff]
    [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]Cool Movie:swin-flight.mov]
+}}}
+*PYP NOTE: * With Pyed Piper we can split just like python's interpreter. For this example the "s" variable is splitting on all slashes and putting them into a python list. For more information feel free to go to python's documentation: [http://docs.python.org/release/2.5.2/lib/string-methods.html python-docs_string-methods]
+{{{
+<"tcsh shell" - text file can be found on downloads page >
 
 $ pyp --rerun "s[1]"
    examples
@@ -71,15 +73,9 @@ $ pyp --rerun "s[2:4]"
    [[0]movie_directory[1]movie]
    [[0]movie_directry[1]frames]
    [[0]movie_directory[1]movie]
-
-$ pyp --rerun "s[2:4] | s"
-   movie_directory/movie
-   movie_directry/frames
-   movie_directory/movie
-
 }}}
 
-*PYP NOTE:* With Pyed Piper we can split just like python's interpreter. For this example the "s" variable is splitting on all slashes and putting them into a python list. For more information feel free to go to python's documentation: [http://docs.python.org/release/2.5.2/lib/string-methods.html python-docs_string-methods]
+*PYP NOTE:* In these last three demonstrations we are taking the list and specifing what we want to print from the list.  In the third demonstration, we  printed the second list item.  For the forth demonstration, we printed the last list item, and finally, the last one  we specified a range in the list to print.  
 
 *Example 2 * - Splitting on white-spaces
 {{{
@@ -133,7 +129,7 @@ $ pyp --rerun "p.split('/')"
    [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]Cool Movie:swin-flight.mov]
 
 }}}
-*PYP NOTE:* Splitting manually will only take a string; however, its important that we use single quotes *(double quotes will not work in this case)*. In the second demonstration, "p" represents each line of the input as a python string.  When we type p.split('$STRING') you are saying for that line split on this string. 
+*PYP NOTE:* Splitting manually will only take a string and, its important that we use single quotes *(double quotes will not work in this case)*. In the second demonstration, "p" represents each line of the input as a python string.  When we type p.split('$STRING') you are saying for that line split on this string. 
 
 ----
 ==Splitting and Joining with pyp==
@@ -146,27 +142,32 @@ $ cat /location/to/file/exercise_3.txt | pyp "s"
    [[0]MyDocuments[1]swin[2]pyp[3]examples[4]tutorial_for_pyp.jpg]
    [[0]MyDocuments[1]swin[2]pyp[3]examples[4]pyp_is_awesome.jpg]
 
+$ cat /location/to/file/exercise_3.txt | pyp "s | s"
+   /MyDocuments/swin/pyp/examples/tutorial_for_pyp.jpg
+   /MyDocuments/swin/pyp/examples/pyp_is_awesome.jpg
+
 $ cat /location/to/file/exercise_3.txt | pyp "s | u"
-   MyDocuments_swin_pyp_examples_tutorial_for_pyp.jpg
-   MyDocuments_swin_pyp_examples_pyp_is_awesome.jpg
+   _MyDocuments_swin_pyp_examples_tutorial_for_pyp.jpg
+   _MyDocuments_swin_pyp_examples_pyp_is_awesome.jpg
 
 }}}
-*PYP NOTE:* In this example we used two variables (slashes and underscores) to signify what we want to split and join on.  By piping into a different variable, we are telling pyp that we want to split on slashes and pipe the list back in but add underscores for each list item.
+*PYP NOTE:* In this example we used two variables (slashes and underscores) to signify what we want to split and join together.  In the second demonstration, we are spliting on slashes while piping the list back into a new sting joined by slashes.  However, in the third demonstration we are joining the list with underscores.  By using different variables, we can quickly and explicitly tell pyp what we want to split and join back together.
 
-It is also important to note that switching all slashes with underscores will not take the place of whats in the buffer.  If you were to type `pyp --rerun` the slashes would return.  If we wanted to put the put the new underscore string version in the buffer please check out *Pyed Piper and Pipes* 
+It is also important to note that switching all slashes with underscores will not take the place of whats in the buffer.  If you were to type `pyp --rerun` the slashes would return.  If we wanted to put the new underscored version in the buffer please check out *Pyed Piper and Pipes* 
 
 *Example 2 *- Specific Splitting/Joining
 {{{
 <"tcsh shell" - text file can be found on downloads page >
-$ cat /location/to/file/exercise_3.txt | pyp "'_'.join(p.split('/'))" #file can be found on downloads 
+
+$ cat /location/to/file/exercise_3.txt | pyp "'_'.join(p.split('/'))" 
    _MyDocuments_swin_pyp_examples_tutorial_for_pyp.jpg
    _MyDocuments_swin_pyp_examples_pyp_is_awesome.jpg
+
 $ pyp --rerun "'HELLO'.join(p.split('examples'))"
    /MyDocuments/swin/pyp/HELLO/tutorial_for_pyp.jpg
    /MyDocuments/swin/pyp/HELLO/pyp_is_awesome.jpg
-
 }}}
-*PYP NOTE:* In this example we specifically told pyp that we wanted to split/join together.  We are being very specific in what we want to split on and join in back.  The first part, we just split and joined like example 1; however, in second part, we specified that we wanted to split on the string `'examples'` and join the list with a string `'HELLO'`. For more examples please see the *String Replacements* section.
+*PYP NOTE:* In this example, we can manually give Pyed Piper specific string inputs to split/join together.  The first demonstration, we just split on `'/'` and joined on `'_'` (exactly like the example 1:demonstration 3).  In second demonstration, we specified that we wanted to split on the string `'examples'` and join the list with the string `'HELLO'`. For more examples please see the *String Replacements* section.
 
 ----
 ==String Replacements==
