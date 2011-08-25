@@ -191,7 +191,7 @@ $ pyp --rerun "p.replace('tutorial_','')"
    /MyDocuments/swin/pyp/examples/pyp_is_awesome.jpg
 }}}
 
-*PYP NOTE: * String replacements allow for strings to be manipulated. Be careful what string you want to replace because it is very specific with its arguments. When using string replacements, empty strings can be given (ie- demonstration 3 - See *[http://code.google.com/p/pyp/wiki/basic_examples?ts=1314289680&updated=basic_examples#Using_Kill Using Kill]* as another alternative)
+*PYP NOTE: * String replacements allow for strings from the buffer to be manipulated. In demonstration 2 pyp replaced every string `'swin'` with `'tobyrosen'`.  *(Be careful what string you want to replace because it is very specific with its arguments.)*  When using string replacements, empty strings can also be given.  In demonstration 3, pyp replaced the string `'tutorial_'` with nothing.  See *[http://code.google.com/p/pyp/wiki/basic_examples?ts=1314289680&updated=basic_examples#Using_Kill Using Kill]* as another alternative for this demonstration.
 ----
 ==Using %s==
 
