@@ -153,7 +153,7 @@ $ cat /location/to/file/exercise_3.txt | pyp "s | u"
 }}}
 *PYP NOTE:* In this example we used two variables (slashes and underscores) to signify what we want to split and join together.  In the second demonstration, we are spliting on slashes while piping the list back into a new sting joined by slashes.  However, in the third demonstration we are joining the list with underscores.  By using different variables, we can quickly and explicitly tell pyp what we want to split and join back together.
 
-It is also important to note that switching all slashes with underscores will not take the place of whats in the buffer.  If you were to type `pyp --rerun` the slashes would return.  If we wanted to put the new underscored version in the buffer please check out *Pyed Piper and Pipes* 
+It is also important to note that switching all slashes with underscores will not take the place of whats in the buffer.  If you were to type `pyp --rerun` the slashes would return.  If we wanted to put the new underscored version in the buffer please check out *[http://code.google.com/p/pyp/wiki/basic_examples?ts=1314289680&updated=basic_examples#Pyed_Piper_and_Pipes Pyed Piper and Pipes]* 
 
 *Example 2 *- Specific Splitting/Joining
 {{{
@@ -167,7 +167,7 @@ $ pyp --rerun "'HELLO'.join(p.split('examples'))"
    /MyDocuments/swin/pyp/HELLO/tutorial_for_pyp.jpg
    /MyDocuments/swin/pyp/HELLO/pyp_is_awesome.jpg
 }}}
-*PYP NOTE:* In this example, we can manually give Pyed Piper specific string inputs to split/join together.  The first demonstration, we just split on `'/'` and joined on `'_'` (exactly like the example 1:demonstration 3).  In second demonstration, we specified that we wanted to split on the string `'examples'` and join the list with the string `'HELLO'`. For more examples please see the *String Replacements* section.
+*PYP NOTE:* In this example, we can manually give Pyed Piper specific string inputs to split/join together.  The first demonstration, we just split on `'/'` and joined on `'_'` (exactly like the example 1:demonstration 3).  In second demonstration, we specified that we wanted to split on the string `'examples'` and join the list with the string `'HELLO'`. For more examples please see the *[http://code.google.com/p/pyp/wiki/basic_examples?ts=1314289680&updated=basic_examples#String_Replacements String Replacements]* section.
 
 ----
 ==String Replacements==
