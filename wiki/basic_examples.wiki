@@ -50,6 +50,8 @@ $ cat /location/to/file/exercise_2.txt | pyp
    /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
    /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
 
+# this cats a file and loads it into pyp.
+
 $ pyp --rerun "s"
    [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]mymovie_frames.180.mov]
    [[0]MyDocuments[1]examples[2]movie_directry[3]frames[4]swin_is_the_man[5]tiff[6]swin@work.tiff]
