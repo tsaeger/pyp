@@ -195,6 +195,7 @@ $ pyp --rerun "p.replace('tutorial_','')"
 ----
 ==Using %s==
 Pyed Piper has the ability to use `'%s'` as a representation for strings that will be used to add to the buffer.
+
 *Example 1 *- String Addition
 {{{
 <"tcsh shell" - text file can be found on downloads page >
