@@ -194,7 +194,45 @@ $ pyp --rerun "p.replace('tutorial_','')"
 *PYP NOTE: * String replacements allow for strings from the buffer to be manipulated. In demonstration 2 pyp replaced every string `'swin'` with `'tobyrosen'`.  *(Be careful what string you want to replace because it is very specific with its arguments.)*  When using string replacements, empty strings can also be given.  In demonstration 3, pyp replaced the string `'tutorial_'` with nothing.  See *[http://code.google.com/p/pyp/wiki/basic_examples?ts=1314289680&updated=basic_examples#Using_Kill Using Kill]* as another alternative for this demonstration.
 ----
 ==Using %s==
+Pyed Piper has the ability to use `'%s'` as a representation for strings that will be used to add to the buffer.
+*Example 1 *- String Addition
+{{{
+<"tcsh shell" - text file can be found on downloads page >
 
+$ echo 'Hello' | pyp; pyp --rerun "'%s World'%p"
+   Hello
+   Hello World
+
+}}}
+*PYP NOTE: * In this example, we added `'World'` to `'p'` to get `'Hello World'`. The reason why it printed out 'Hello' first and then 'Hello World' is because we setup two commands.  The first command was putting `'Hello'` in the buffer.  We then joined the first and second command with a semi-colon. 
+
+Using `'%s'` is important when you are needing to specify a string variable in an already established string.  Single quotes in pyp are always used to identify a string and so by using `'%s'`, pyp acknowledges that an argument will be used later outside the single-quotes.  When you want to specify what the `'%s'` will become, you will need to use a '%' out side of the single-quoted string.   
+
+*Example 2 *- Multiple String Additions
+{{{
+<"tcsh shell" - text file can be found on downloads page >
+
+$ echo 'Computer' | pyp
+   Computer
+
+$ pyp --rerun "'Mr. %s, Do you want to see my %s '%(p,p)"
+   Mr. Computer, Do you want to see my Computer
+   
+$ pyp --rerun "'Mr. %s, Do you want to see my %s '%('Mac ' + p,p)"
+   Mr. Mac Computer, Do you want to see my Computer
+}}}
+*PYP NOTE: * If you are going to use multiple string variable, the arguments will need to be surrounded by `()`. The number of arguments used must equal the number of variables used in your string.  In our example we had two `'%s'` variables and two correlating arguments (*ie -`%(p,p)`*) to identify what the two variables will represent. 
+
+{{{
+<"tcsh shell" - text file can be found on downloads page >
+
+$  echo 'Mac Computer' | pyp
+   Mac Computer
+
+$ pyp --rerun "'Mr. %s, Do you want to see my %s '%(p,p.replace('Mac ',''))" 
+   Mr. Mac Computer, Do you want to see my Computer
+}}}
+*PYP NOTE: *We don't have to always use 'p' everytime.  Several methods can be used to create a string argument. You can use variable like `s[2]` or `$string + p` or `$string` or pyp built-in functions (ie - replace, kill, split, join). In our demonstrations, we added a string to 'p' and we did a 'p.replace'. 
 
 ----
 ==Using Kill==
