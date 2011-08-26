@@ -227,7 +227,7 @@ $ pyp --rerun "'Mr. %s, Do you want to see my %s '%('Mac ' + p,p)"
 {{{
 <"tcsh shell" - text file can be found on downloads page >
 
-$  echo 'Mac Computer' | pyp
+$ echo 'Mac Computer' | pyp
    Mac Computer
 
 $ pyp --rerun "'Mr. %s, Do you want to see my %s '%(p,p.replace('Mac ',''))" 
