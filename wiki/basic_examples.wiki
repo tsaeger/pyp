@@ -198,7 +198,7 @@ Pyed Piper has the ability to use `'%s'` as a representation for strings that wi
 
 *Example 1 *- String Addition
 {{{
-<"tcsh shell" - text file can be found on downloads page >
+<"tcsh shell">
 
 $ echo 'Hello' | pyp; pyp --rerun "'%s World'%p"
    Hello
@@ -211,7 +211,7 @@ Using `'%s'` is important when you are needing to specify a string variable in a
 
 *Example 2 *- Multiple String Additions
 {{{
-<"tcsh shell" - text file can be found on downloads page >
+<"tcsh shell">
 
 $ echo 'Computer' | pyp
    Computer
@@ -225,7 +225,7 @@ $ pyp --rerun "'Mr. %s, Do you want to see my %s '%('Mac ' + p,p)"
 *PYP NOTE: * If you are going to use multiple string variable, the arguments will need to be surrounded by `()`. The number of arguments used must equal the number of variables used in your string.  In our example we had two `'%s'` variables and two correlating arguments (*ie -`%(p,p)`*) to identify what the two variables will represent. 
 
 {{{
-<"tcsh shell" - text file can be found on downloads page >
+<"tcsh shell">
 
 $ echo 'Mac Computer' | pyp
    Mac Computer
@@ -237,7 +237,52 @@ $ pyp --rerun "'Mr. %s, Do you want to see my %s '%(p,p.replace('Mac ',''))"
 
 ----
 ==Using Kill==
+Pyed Piper has the ability to take out parts of a string.  This is another built-in function called `kill`.  This function is handy when you need to strip out something specific in your buffer.
 
+*Example 1 *- Killing Within a String
+{{{
+<"tcsh shell">
+
+$ echo 'Do you like pyp so far? yes/no' | pyp
+   Do you like pyp so far? yes/no
+
+$ pyp --rerun "p.kill('/no')" 
+   Do you like pyp so far? yes
+}}}
+
+*PYP NOTE: * In this example, we tell each line that has `/no` to be taken out of the string.
+
+*Example 2 *- Killing Multiple Lines
+{{{
+<"tcsh shell" - text file can be found on downloads page >
+
+$ cat /location/to/file/exercise_4.txt | pyp
+   In a far far world and very distant land.
+   In a land far far away.
+   In a world that was distant.   
+
+$ pyp --rerun "p.kill('far')"
+   In a   world and very distant land.
+   In a land   away.
+   In a world that was distant. 
+
+$ pyp --rerun "p.kill('far ')"
+   In a world and very distant land.
+   In a land away.
+   In a world that was distant.
+}}}
+*PYP NOTE:*
+
+*Example 3 *- String Specific Killing
+{{{
+<"tcsh shell" - Buffer comes from the last example >
+
+$ pyp --rerun "p.kill('distant ')"
+   In a far far world and very land.
+   In a land far far away.
+   In a world that was distant.
+}}}
+*PYP NOTE: *
 
 ----
 ==Using Uppercase and Lowercase==
