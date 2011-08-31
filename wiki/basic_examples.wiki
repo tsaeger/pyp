@@ -59,7 +59,7 @@ $ pyp --rerun "s"
 {{{
 <"tcsh shell" - text file can be found on downloads page >
 
-$ pyp --rerun "s[1]"
+$ pyp --rerun "slash[1]"
    examples
    examples
    examples
@@ -75,7 +75,7 @@ $ pyp --rerun "s[2:4]"
    [[0]movie_directory[1]movie]
 }}}
 
-*PYP NOTE:* In these last three demonstrations we are taking the list and specifing what we want to print from the list.  In the third demonstration, we  printed the second list item.  For the forth demonstration, we printed the last list item, and finally, the last one  we specified a range in the list to print.  
+*PYP NOTE:* In these three demonstrations we are taking the list and specifying what we want to print from the list.  In the first demonstration, we  printed the second list item.  For the forth demonstration, we printed the last list item, and finally, the last one  we specified a range in the list to print.  
 
 *Example 2 * - Splitting on white-spaces
 {{{
@@ -93,18 +93,18 @@ $ pyp --rerun "w[1]"
 
 In Pyed Piper, there are several built-in functions that we can split with.  Here is the list of those other functions:
 
-||`s`  OR `slash`||          p split/joined on "/" || 
-|| `d`  OR `dot`  ||          p split/joined on "."    ||    
-||`w`  OR `whitespace`  ||   p split/joined on whitespace (on spaces,tabs,etc)||
-||`u`  OR `underscore` ||    p split/joined on '*_'   ||    
-||`c`  OR `colon`     ||     p split/joined on ':'  ||
-||`mm` OR `comma`    ||      p split/joined on ',' || 
-||`m`  OR `minus`   ||       p split/joined on '-'   ||
-||`a`  OR `all`       ||     p split on `[' '-_=$...]` (on "All" metacharacters)||
+||` s`  OR  `slash` ||          p split on "/" || 
+|| `d`  OR  `dot`   ||          p split on "."    ||    
+|| `w`  OR  ||   p split on whitespace (on spaces,tabs,etc)||
+|| `u`  OR  ||    p split on '*_'   ||    
+|| `c`  OR  ||     p split on ':'  ||
+|| `mm` OR  ||      p split on ',' || 
+|| `m`  OR  ||       p split on '-'   ||
+|| `a`  OR  ||     p split on `[' '-_=$...]` (on "All" metacharacters)||
 
 [http://code.google.com/p/pyp/wiki/pyp_manual#SPLIT_OR_JOIN_VARIABLES_BASED_ON_p_BEING_A_STRING_OR_LIST TableLink]
 
-*Example 3 * - Splitting on EVERY meta-characters 
+*Example 3 * - Splitting on EVERY meta-characters (ie - /,.#@%^&)
 {{{
 <"tcsh shell" - text file can be found on downloads page >
 
@@ -114,7 +114,9 @@ $ cat /location/to/file/exercise_2.txt | pyp --rerun "a"
    [[0]MyDocuments[1]examples[2]movie[3]directory[4]movie[5]2011[6]05[7]20[8]Cool[9]Movie[10]swin[11]flight[12]mov]
 }}}
 
-*Example 4 * - Splitting manually 
+*PYP NOTE: * In this example pyp is taking each line and looking for any meta-character that may exist and spliting on it.  *IMPORTANT:* It will takes EVERY meta-character and if we want to be specific on the a specific type of meta-character, we will need to split manually. 
+
+*Example 4 * - Splitting manually - p.split()
 {{{
 <"tcsh shell" - text file can be found on downloads page >
 
@@ -147,7 +149,7 @@ $ cat /location/to/file/exercise_3.txt | pyp "s | s"
    /MyDocuments/swin/pyp/examples/tutorial_for_pyp.jpg
    /MyDocuments/swin/pyp/examples/pyp_is_awesome.jpg
 
-$ cat /location/to/file/exercise_3.txt | pyp "s | u"
+$ cat /location/to/file/exercise_3.txt | pyp "slash | underscore"
    _MyDocuments_swin_pyp_examples_tutorial_for_pyp.jpg
    _MyDocuments_swin_pyp_examples_pyp_is_awesome.jpg
 
