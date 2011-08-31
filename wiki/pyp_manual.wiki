@@ -44,7 +44,7 @@ tight integration with larger facilities data structures or custom tool sets.
 
 ==SYSTEM REQUIREMENTS==
 ----
-Pyp needs a copy of python to work. Any recent (version 2+) should work. We have purposefully only imported commonly distributed modules to maximize compatibility. Pyp has been successfully tested on fedora, centOS, and Mac OSX systems. 
+Pyp needs a copy of python to work. Any recent (version 2.6+) should work. We have purposefully only imported commonly distributed modules to maximize compatibility.  Older versions of python may work if the json package has been installed.  Pyp has been successfully tested on fedora, centOS, and Mac OSX systems. 
 
 
 ==STRING OPERATIONS==
