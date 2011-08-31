@@ -93,14 +93,14 @@ $ pyp --rerun "w[1]"
 
 In Pyed Piper, there are several built-in functions that we can split with.  Here is the list of those other functions:
 
-||` s`  OR  `slash` ||          p split on "/" || 
-|| `d`  OR  `dot`   ||          p split on "."    ||    
-|| `w`  OR  ||   p split on whitespace (on spaces,tabs,etc)||
-|| `u`  OR  ||    p split on '*_'   ||    
-|| `c`  OR  ||     p split on ':'  ||
-|| `mm` OR  ||      p split on ',' || 
-|| `m`  OR  ||       p split on '-'   ||
-|| `a`  OR  ||     p split on `[' '-_=$...]` (on "All" metacharacters)||
+||`s`  OR `slash`||          p split on "/" || 
+|| `d`  OR `dot`  ||          p split on "."    ||    
+||`w`  OR `whitespace`  ||   p split on whitespace (on spaces,tabs,etc)||
+||`u`  OR `underscore` ||    p split on '`_`'   ||    
+||`c`  OR `colon`     ||     p split on ':'  ||
+||`mm` OR `comma`    ||      p split on ',' || 
+||`m`  OR `minus`   ||       p split on '-'   ||
+||`a`  OR `all`       ||     p split on `[' '-_=$...]` (on "All" metacharacters)||
 
 [http://code.google.com/p/pyp/wiki/pyp_manual#SPLIT_OR_JOIN_VARIABLES_BASED_ON_p_BEING_A_STRING_OR_LIST TableLink]
 
