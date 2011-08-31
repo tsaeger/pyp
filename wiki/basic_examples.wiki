@@ -54,8 +54,17 @@ $ pyp --rerun "s"
    [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]mymovie_frames.180.mov]
    [[0]MyDocuments[1]examples[2]movie_directry[3]frames[4]swin_is_the_man[5]tiff[6]swin@work.tiff]
    [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]Cool Movie:swin-flight.mov]
+
+$ pyp --rerun "slash"
+   [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]mymovie_frames.180.mov]
+   [[0]MyDocuments[1]examples[2]movie_directry[3]frames[4]swin_is_the_man[5]tiff[6]swin@work.tiff]
+   [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]Cool Movie:swin-flight.mov]
+
 }}}
 *PYP NOTE: * With Pyed Piper we can split just like python's interpreter. For this example the "s" variable is splitting on all slashes and putting them into a python list. For more information feel free to go to python's documentation: [http://docs.python.org/release/2.5.2/lib/string-methods.html python-docs_string-methods]
+
+*IMPORTANT: * When using pyp's bulit-in functions, we have the ability to use abbreviated version (`slash` vs `s`).  In the second demonstration we used `s` and in the third we used `slash`; however both accomplished the same thing.
+
 {{{
 <"tcsh shell" - text file can be found on downloads page >
 
@@ -75,7 +84,7 @@ $ pyp --rerun "s[2:4]"
    [[0]movie_directory[1]movie]
 }}}
 
-*PYP NOTE:* In these three demonstrations we are taking the list and specifying what we want to print from the list.  In the first demonstration, we  printed the second list item.  For the forth demonstration, we printed the last list item, and finally, the last one  we specified a range in the list to print.  
+*PYP NOTE:* In these three demonstrations we are taking the list and specifying what we want to print from the list.  In the first demonstration, we  printed the second list item.  For the second demonstration, we printed the last list item, and finally, the last one  we specified a range in the list to print. 
 
 *Example 2 * - Splitting on white-spaces
 {{{
@@ -114,7 +123,7 @@ $ cat /location/to/file/exercise_2.txt | pyp --rerun "a"
    [[0]MyDocuments[1]examples[2]movie[3]directory[4]movie[5]2011[6]05[7]20[8]Cool[9]Movie[10]swin[11]flight[12]mov]
 }}}
 
-*PYP NOTE: * In this example pyp is taking each line and looking for any meta-character that may exist and spliting on it.  *IMPORTANT:* It will takes EVERY meta-character and if we want to be specific on the a specific type of meta-character, we will need to split manually. 
+*PYP NOTE: * In this example pyp is taking each line and looking for all meta-characters that exist and spliting on it.  *IMPORTANT:* It will takes EVERY meta-character and if we want to use a specific meta-character, we will need to split manually. 
 
 *Example 4 * - Splitting manually - p.split()
 {{{
@@ -196,14 +205,13 @@ $ pyp --rerun "p.replace('tutorial_','')"
 *PYP NOTE: * String replacements allow for strings from the buffer to be manipulated. In demonstration 2 pyp replaced every string `'swin'` with `'tobyrosen'`.  *(Be careful what string you want to replace because it is very specific with its arguments.)*  When using string replacements, empty strings can also be given.  In demonstration 3, pyp replaced the string `'tutorial_'` with nothing.  See *[http://code.google.com/p/pyp/wiki/basic_examples?ts=1314289680&updated=basic_examples#Using_Kill Using Kill]* as another alternative for this demonstration.
 ----
 ==Using %s==
-Pyed Piper has the ability to use `'%s'` as a representation for strings that will be used to add to the buffer.
+Pyed Piper has the ability to use `'%s'` as a representation for strings that will be used for string formatting.
 
 *Example 1 *- String Addition
 {{{
 <"tcsh shell">
 
-$ echo 'Hello' | pyp; pyp --rerun "'%s World'%p"
-   Hello
+$ echo 'Hello' | pyp "'%s World'%p"
    Hello World
 
 }}}
@@ -243,22 +251,9 @@ Pyed Piper has the ability to take out parts of a string.  This is another built
 
 *Example 1 *- Killing Within a String
 {{{
-<"tcsh shell">
+<"tcsh shell"> - text file can be found on downloads page
 
-$ echo 'Do you like pyp so far? yes/no' | pyp
-   Do you like pyp so far? yes/no
-
-$ pyp --rerun "p.kill('/no')" 
-   Do you like pyp so far? yes
-}}}
-
-*PYP NOTE: * In this example, we tell each line that has `/no` to be taken out of the string.
-
-*Example 2 *- Killing Multiple Lines
-{{{
-<"tcsh shell" - text file can be found on downloads page >
-
-$ cat /location/to/file/exercise_4.txt | pyp
+$ cat /location/to/file/exercise_5.txt | pyp
    In a far far world and very distant land.
    In a land far far away.
    In a world that was distant.   
@@ -272,19 +267,10 @@ $ pyp --rerun "p.kill('far ')"
    In a world and very distant land.
    In a land away.
    In a world that was distant.
-}}}
-*PYP NOTE:*
 
-*Example 3 *- String Specific Killing
-{{{
-<"tcsh shell" - Buffer comes from the last example >
-
-$ pyp --rerun "p.kill('distant ')"
-   In a far far world and very land.
-   In a land far far away.
-   In a world that was distant.
 }}}
-*PYP NOTE: *
+
+*PYP NOTE: * Like all string manipulations in pyp, the string that you specify in your function will be string specific.  In the second demonstration, we specified only removing `'far'` and the output have places where there were two white-spaces.  In the third demonstration, we specified `'far '` and we are able to have single white-spacing in each sentence.  
 
 ----
 ==Using Uppercase and Lowercase==
