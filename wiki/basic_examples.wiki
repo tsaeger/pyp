@@ -323,6 +323,27 @@ $ pyp --rerun "p.kill('far ')"
 ----
 ==Using Uppercase and Lowercase==
 
+*Example 1 *- Uppercase
+{{{
+<"tcsh shell">
+
+$ echo 'I am all uppercase.' | pyp
+   I am all uppercase.
+
+$ pyp --rerun "p.upper()"
+   I AM ALL UPPERCASE.
+
+}}}
+*Example 2 *- Lowercase
+{{{
+<"tcsh shell">
+
+$ echo 'I am all LOWERcase.' | pyp
+   I am all LOWERcase.
+
+$ pyp --rerun "p.lower()"
+   i am all lowercase.
+}}}
 
 ----
 ==String Manipulations (MISC)==
