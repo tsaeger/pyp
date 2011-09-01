@@ -51,14 +51,15 @@ $ cat /location/to/file/exercise_2.txt | pyp
    /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
 
 $ pyp --rerun "s"
-   [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]mymovie_frames.180.mov]
-   [[0]MyDocuments[1]examples[2]movie_directry[3]frames[4]swin_is_the_man[5]tiff[6]swin@work.tiff]
-   [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]Cool Movie:swin-flight.mov]
+   [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]mymovie_frames.180.mov]
+   [[0][1]MyDocuments[2]examples[3]movie_directry[4]frames[5]swin_is_the_man[6]tiff[7]swin@work.tiff]
+   [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]Cool Movie:swin-flight.mov]
+
 
 $ pyp --rerun "slash"
-   [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]mymovie_frames.180.mov]
-   [[0]MyDocuments[1]examples[2]movie_directry[3]frames[4]swin_is_the_man[5]tiff[6]swin@work.tiff]
-   [[0]MyDocuments[1]examples[2]movie_directory[3]movie[4]2011_05_20[5]Cool Movie:swin-flight.mov]
+   [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]mymovie_frames.180.mov]
+   [[0][1]MyDocuments[2]examples[3]movie_directry[4]frames[5]swin_is_the_man[6]tiff[7]swin@work.tiff]
+   [[0][1]MyDocuments[2]examples[3]movie_directory[4]movie[5]2011_05_20[6]Cool Movie:swin-flight.mov]
 
 }}}
 *PYP NOTE: * With Pyed Piper we can split just like python's interpreter. For this example the "s" variable is splitting on all slashes and putting them into a python list. For more information feel free to go to python's documentation: [http://docs.python.org/release/2.5.2/lib/string-methods.html python-docs_string-methods]
@@ -69,9 +70,9 @@ $ pyp --rerun "slash"
 <"tcsh shell" - text file can be found on downloads page >
 
 $ pyp --rerun "slash[1]"
-   examples
-   examples
-   examples
+   MyDocuments
+   MyDocuments   
+   MyDocuments
 
 $ pyp --rerun "s[-1]"
    mymovie_frames.180.mov
@@ -79,9 +80,10 @@ $ pyp --rerun "s[-1]"
    Cool Movie:swin-flight.mov
 
 $ pyp --rerun "s[2:4]"
-   [[0]movie_directory[1]movie]
-   [[0]movie_directry[1]frames]
-   [[0]movie_directory[1]movie]
+   [[0]examples[1]movie_directory]
+   [[0]examples[1]movie_directry]
+   [[0]examples[1]movie_directory]
+
 }}}
 
 *PYP NOTE:* In these three demonstrations we are taking the list and specifying what we want to print from the list.  In the first demonstration, we  printed the second list item.  For the second demonstration, we printed the last list item, and finally, the last one  we specified a range in the list to print. 
@@ -151,8 +153,8 @@ With Pyed Piper you have the ability to split and join a number of ways.
 <"tcsh shell" - text file can be found on downloads page >
 
 $ cat /location/to/file/exercise_3.txt | pyp "s"
-   [[0]MyDocuments[1]swin[2]pyp[3]examples[4]tutorial_for_pyp.jpg]
-   [[0]MyDocuments[1]swin[2]pyp[3]examples[4]pyp_is_awesome.jpg]
+   [[0][1]MyDocuments[2]swin[3]pyp[4]examples[5]tutorial_for_pyp.jpg]
+   [[0][1]MyDocuments[2]swin[3]pyp[4]examples[5]pyp_is_awesome.jpg]
 
 $ cat /location/to/file/exercise_3.txt | pyp "s | s"
    /MyDocuments/swin/pyp/examples/tutorial_for_pyp.jpg
