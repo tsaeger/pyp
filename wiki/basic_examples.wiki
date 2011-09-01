@@ -184,6 +184,52 @@ $ pyp --rerun "'HELLO'.join(p.split('examples'))"
 *PYP NOTE:* In this example, we can manually give Pyed Piper specific string inputs to split/join together.  The first demonstration, we just split on `'/'` and joined on `'_'` (exactly like the example 1:demonstration 3).  In second demonstration, we specified that we wanted to split on the string `'examples'` and join the list with the string `'HELLO'`. For more examples please see the *[http://code.google.com/p/pyp/wiki/basic_examples?ts=1314289680&updated=basic_examples#String_Replacements String Replacements]* section.
 
 ----
+==Advanced Splitting and Joining with pyp==
+
+{{{
+<"tcsh shell" - text file can be found on downloads page >
+
+$ cat /location/to/file/exercise_3.txt | pyp
+   /MyDocuments/swin/pyp/examples/tutorial_for_pyp.jpg
+   /MyDocuments/swin/pyp/examples/pyp_is_awesome.jpg
+
+$ pyp --rerun "s[2:3] + s[1:5]"
+   [[0]swin][[0]MyDocuments[1]swin[2]pyp[3]examples]
+   [[0]swin][[0]MyDocuments[1]swin[2]pyp[3]examples]
+
+$ pyp --rerun "(s[2:3] + s[1:5])"
+   [[0]swin[1]MyDocuments[2]swin[3]pyp[4]examples]
+   [[0]swin[1]MyDocuments[2]swin[3]pyp[4]examples]
+}}}
+*PYP NOTE: *
+
+{{{
+<"tcsh shell" - continued from the same text file
+$ pyp --rerun "(s[2:3] + u[1:5])"
+   [[0]swin[1]for[2]pyp.jpg]
+   [[0]swin[1]is[2]awesome.jpg]
+
+$ pyp --rerun "(s[2:3] + u[1:5])[1]"
+   for
+   is
+
+$ pyp --rerun "(s[2:3] + u[1:5])|p"
+   [[0]swin[1]for[2]pyp.jpg]
+   [[0]swin[1]is[2]awesome.jpg]
+
+$ pyp --rerun "(s[2:3] + u[1:5])|p[1]"
+   for
+   is
+
+$ pyp --rerun "(s[2:3] + u[1:5])|u"
+   swin_for_pyp.jpg
+   swin_is_awesome.jpg
+
+}}}
+
+*PYP NOTE: *
+
+----
 ==String Replacements==
 String replacements allows you to replace one string that is on the line and replace it with something else: 
 
