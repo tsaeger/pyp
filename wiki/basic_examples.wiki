@@ -346,6 +346,9 @@ $ pyp --rerun "p.lower()"
 }}}
 
 ----
+==Using file and path==
+
+----
 ==String Manipulations (MISC)==
 
 So far we have looked at using one builtin function at a time; however, pyp has the ability to build upon one another.
@@ -380,7 +383,12 @@ $ pyp --rerun "'/'.join(s[0:4])+'/'+s[-1].lower().replace(': ','_').replace('fil
    /MyDocuments/examples/pyp/coolfile_version2_2011_04_03.tif
 }}}
 *PYP NOTE: * - This example is a bit more complicated but it still builds upon everything that we've learned so far.  In the first demonstration, we gave it two file paths that are very similar.  What we want to do is change the file names to be slightly similar while still being able to preserve the original file path. To achieve this we split/join on '/' but only up to the directory.  We then add (`+`) '/' a string to the end of the directory names to give us this `'/MyDocuments/examples/pyp/'`.  We then add another another split getting the files.  Because we added a new string, when we specify that we want make everything lowercase, it only effects the string we are working on.  We then add three different replaces to achieve files that look similar.  In the second replace we had to be creative to only affect the first file and not the second file.   
- 
+
+
+----
+==Using History==
+
+
 ----
 ==Using Text Files with pyp==
 
