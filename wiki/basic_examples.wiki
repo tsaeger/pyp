@@ -344,7 +344,8 @@ $ echo 'I am all LOWERcase.' | pyp
 $ pyp --rerun "p.lower()"
    i am all lowercase.
 }}}
-
+*PYP NOTE: * In both examples we specificed that we wanted EVERYTHING in the string to be upper or lowercase.  The function is exactly like how python interprets it lower/upper function.  For more information see: 
+[http://docs.python.org/library/string.html String_Manipulations]
 ----
 ==Using file and path==
 
@@ -362,7 +363,7 @@ $ pyp --rerun "p.file"
    source_file.psd
 }}}
 
-*Example 1 *- directories
+*Example 2 *- directories
 {{{
 <"tcsh shell"
 
