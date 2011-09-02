@@ -348,7 +348,39 @@ $ pyp --rerun "p.lower()"
 ----
 ==String Manipulations (MISC)==
 
+So far we have looked at using one builtin function at a time; however, pyp has the ability to build upon one another.
 
+*Example 1 *
+{{{
+<"tcsh shell" - In this example we are going to copy/paste our strings and then use CTRL-D>
+
+$ pyp
+/MyDocuments/examples/pyp/CoolFile: 2011_04_01.jpg
+   /MyDocuments/examples/pyp/CoolFile: 2011_04_01.jpg
+
+$ pyp --rerun "w|u.lower().replace(':','').replace('.jpg','.tif')
+   /mydocuments/examples/pyp/coolfile_2011_04_01.tif
+}}}
+*PYP NOTE: * In this example we first typed pyp and then copied/pasted the text that we wanted to do.  In this case we only had one line to paste.  In the next demonstration we told pyp that we wanted to split on whitespaces and join with underscores.  We then said we wanted everything to be lowercase.  We then manually replaced `:` with nothing (ie - '') and we finally did another replace with removing '.jpg' with 'tif' 
+
+*NOTE: * When working with multiple functions, its important to know that each function builds upon the previous function given.
+
+*Example 2 *
+{{{
+<"tcsh shell">
+
+$ pyp
+/MyDocuments/examples/pyp/CoolFile: 2011_04_01.jpg
+/MyDocuments/examples/pyp/CoolFile_version2: 2011_04_03.tif
+   /MyDocuments/examples/pyp/CoolFile: 2011_04_01.jpg
+   /MyDocuments/examples/pyp/CoolFile_version2: 2011_04_03.tif
+
+$ pyp --rerun "'/'.join(s[0:4])+'/'+s[-1].lower().replace(': ','_').replace('file_2','file_version1_2').replace('jpg','tif')"
+   /MyDocuments/examples/pyp/coolfile_version1_2011_04_01.tif
+   /MyDocuments/examples/pyp/coolfile_version2_2011_04_03.tif
+}}}
+*PYP NOTE: * - This example is a bit more complicated but it still builds upon everything that we've learned so far.  In the first demonstration, we gave it two file paths that are very similar.  What we want to do is change the file names to be slightly similar while still being able to preserve the original file path. To achieve this we split/join on '/' but only up to the directory.  We then add (`+`) '/' a string to the end of the directory names to give us this `'/MyDocuments/examples/pyp/'`.  We then add another another split getting the files.  Because we added a new string, when we specify that we want make everything lowercase, it only effects the string we are working on.  We then add three different replaces to achieve files that look similar.  In the second replace we had to be creative to only affect the first file and not the second file.   
+ 
 ----
 ==Using Text Files with pyp==
 
