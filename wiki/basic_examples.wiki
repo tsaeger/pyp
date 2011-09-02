@@ -367,7 +367,7 @@ $ pyp --rerun "w|u.lower().replace(':','').replace('.jpg','.tif')
 
 *Example 2 *
 {{{
-<"tcsh shell">
+<"tcsh shell"- In this example we are going to copy/paste our strings and then use CTRL-D >
 
 $ pyp
 /MyDocuments/examples/pyp/CoolFile: 2011_04_01.jpg
