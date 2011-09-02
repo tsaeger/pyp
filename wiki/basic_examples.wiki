@@ -375,8 +375,8 @@ $ pyp
    /MyDocuments/examples/pyp/CoolFile: 2011_04_01.jpg
    /MyDocuments/examples/pyp/CoolFile_version2: 2011_04_03.tif
 
-$ pyp --rerun "'/'.join(s[0:4])+'/'+s[-1].lower().replace(': ','_').replace('file_2','file_version1_2').replace('jpg','tif')"
-   /MyDocuments/examples/pyp/coolfile_version1_2011_04_01.tif
+$ pyp --rerun "'/'.join(s[0:4])+'/'+s[-1].lower().replace(': ','_').replace('file_2','file_version1_2')"
+   /MyDocuments/examples/pyp/coolfile_version1_2011_04_01.jpg
    /MyDocuments/examples/pyp/coolfile_version2_2011_04_03.tif
 }}}
 *PYP NOTE: * - This example is a bit more complicated but it still builds upon everything that we've learned so far.  In the first demonstration, we gave it two file paths that are very similar.  What we want to do is change the file names to be slightly similar while still being able to preserve the original file path. To achieve this we split/join on '/' but only up to the directory.  We then add (`+`) '/' a string to the end of the directory names to give us this `'/MyDocuments/examples/pyp/'`.  We then add another another split getting the files.  Because we added a new string, when we specify that we want make everything lowercase, it only effects the string we are working on.  We then add three different replaces to achieve files that look similar.  In the second replace we had to be creative to only affect the first file and not the second file.   
