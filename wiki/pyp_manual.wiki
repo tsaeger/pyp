@@ -229,7 +229,7 @@ are at a large facility.
     
 ||`paran` ||   a literal '||
 ||`dollar` || a literal $||
-||`n`  ||     line counter (1st line is 1, 2nd line is 2,...use the form "(n+3)" to modify this value. ||
+||`n`  ||     line counter (1st line is 0, 2nd line is 1,...use the form "(n+3)" to modify this value. ||
 ||`nk`   ||   n + 1000|| 
 ||`date` ||     date and time. Returns the current datetime.datetime.now() object.||  
 ||`f`||    list based on file input using --textfile $file||   
