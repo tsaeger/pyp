@@ -31,7 +31,7 @@ line-by-line to facilate picking any particular line or range of lines. In
 both cases, standard python methods `(list[start:end])` can be used to select
 fields or lines of interest. Also, the standard python string and list objects
 have been overloaded with commonly used methods and attributes. For example,
-"pp.uniq" returns all unique members in an array, will `p.kill('foo')` will
+"pp.uniq()" returns all unique members in an array, will `p.kill('foo')` will
 eliminate all  "foo" in the input.
 
 pyp commands can be easily saved to disk and recalled using user-defined macros,
@@ -95,7 +95,7 @@ line of input by using:
 
 You can pipe this back to p to continue modifying this input. There are several methods that have been added to facilitate complex
 operations for these inputs such as keeping unique members or compressing the
-entire list to one line (`pp.uniq`, and `pp.oneline` ...see below).  
+entire list to one line (`pp.uniq()`, and `pp.oneline()` ...see below).  
 ----
 ==MATH OPERATIONS==
 To perform simple math, use the integer or float functions  (`int()` or `float()`)
@@ -265,6 +265,7 @@ Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
 ||`p.trim()` ||            removes last file or directory from path from p||
 || `p.dir`    ||            path  DIRECTORY ||
 ||`p.file`    ||           path  FILE ||
+|| `p.kill(STR1,STR2,..) || removes all `STR*` from p ||
 
 
 
@@ -279,10 +280,10 @@ Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
 ||`pp.before(STRING, N) ` ||searches for STRING, colsolidates N lines BEFORE it to the same line. Default is 1||
 ||`pp.after(STRING, N) ` || searches for STRING, colsolidates N lines AFTER  it to same line. Default is 1.||
 ||`pp.matrix(STRING, N)`  ||returns pp.before(STRING, N) and pp.after(STRING, N). Default is 1. ||
-||`pp.oneliner(DELIM)` ||   combines all list elements to one line with delimiter||
-||`pp.uniq`    ||           returns only unique elements||
-||`pp.unlist`   ||          breaks up ALL arrays up into seperate single lines||
-||`pp.oneline `  ||         combines all list elements to one line with spaces||
+
+||`pp.uniq()`    ||           returns only unique elements||
+||`pp.unlist()`   ||          breaks up ALL arrays up into seperate single lines||
+||`pp.oneline() `  ||         combines all list elements to one line with spaces||
  
 
 ----
