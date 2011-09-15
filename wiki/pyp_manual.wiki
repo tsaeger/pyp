@@ -126,6 +126,8 @@ The pyp functions "`keep(STR)`" and "`lose(STR)`", and their respective shortcut
 "`k(STR)`" and "`i(STR)`", are very useful for proving simple OR style string
 filtering. See Below.
 
+By default False output is eliminated from the final output. If you would like blank lines instead, use the --keep_false flag.
+
 ----
 
 
@@ -235,7 +237,10 @@ are at a large facility.
 || `pwd` ||      present working directory ||    
 || `history` ||  history array of all previous results: so pyp "a|u|s|i|`h[-3]`" shows eval of s ||              
 || `h`  ||      same as history|| 
-    
+|| letters || abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ||
+|| digits || 0123456789 ||
+|| punctuation || `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~` ||
+
 
 
 ----
@@ -262,10 +267,20 @@ Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
 
    
 ===`p` STRING (all `STRING` methods like `p.replace(STRING1,STRING2)` work===
-||`p.trim()` ||            removes last file or directory from path from p||
+
 || `p.dir`    ||            path  DIRECTORY ||
 ||`p.file`    ||           path  FILE ||
-|| `p.kill(STR1,STR2,..) || removes all `STR*` from p ||
+||`p.trim()` ||            removes last file or directory from path from p||
+||p.clean(DELIM)||replaces "bad" metacharacters with underscores or DELIM||
+|| `p.kill(STR1,STR2,..)` || removes all `STR*` from p ||
+|| p.letters()||returns array of contiguous letters in p||
+|| p.digits()||returns array of contiguous numbers in p.||
+||p.punctuation()|| returns array of contiguous punctuation in p||
+
+
+
+
+
 
 
 
