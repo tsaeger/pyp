@@ -17,12 +17,15 @@ After it's in, you can use the standard repertoire of python string and list met
 The key variables                                                                         
 are "p", which represents EACH LINE of the input as a PYTHON STRING.  So to replace FOO with GOO in every line of the input you can use this:
 
-
-*`pyp "p.replace('FOO','GOO')"`*
+{{{
+pyp "p.replace('FOO','GOO')"
+}}}
 
 The other key variable is  "pp", which represents ALL of the                  inputs as a PYTHON LIST...allowing you to, for example, sort the entire input like this:
 
-*`pyp "pp.sort()"`*                             
+{{{
+pyp "pp.sort()"
+}}}                             
 
 All pyp statements should be enclosed in double quotes, with single quotes being used to enclose any strings. 
 ----
@@ -34,12 +37,11 @@ evaluation of the python statement before the "|".  This allows you to write com
             
 
                                                           
-*`echo 'FOO IS AN ' | pyp "p.replace('FOO','THIS')|p+'EXAMPLE'"`*  
+{{{
+echo 'FOO IS AN ' | pyp "p.replace('FOO','THIS')|p+'EXAMPLE'"
 
-
-
-*`>THIS IS AN EXAMPLE`*
-
+>THIS IS AN EXAMPLE
+}}}
 This has the added bonus that all interpipe subresults are available with the "history" variable.
 ----
 =splitting up is easy to do=
@@ -48,23 +50,29 @@ pyed piper knows that splitting up text on particular characters is critical and
 
 First of all, using the split() string method will generate a numbered output, clearly showing how to access your fields of interest.
 
-*`echo /this/is/a/splitting/example | pyp "p.split('/')"`*
+{{{
+echo /this/is/a/splitting/example | pyp "p.split('/')"
 
-*>`[[0]this[1]is[2]a[3]splitting[4]example]`*
+>[[0]this[1]is[2]a[3]splitting[4]example]
+
+}}}
 
 which allows you to easily select whatever field you want using python list methods:
 
-*`echo /this/is/a/splitting/example | pyp "p.split('/')[3]`"*
+{{{
+echo /this/is/a/splitting/example | pyp "p.split('/')[3]`"
 
-*`>splitting`*
-
+>splitting
+}}}
 ----
 =why not auto-split?=
 splitting text on metacharacters is often critical for picking out particular fields of interest,                                                                          
 so common SPLITS and JOINS have been assigned variables. For example, the variable 
 "slash" or "s" will split up the line based on "/", while "slash" or "s" will join ALSO join a split up string with "/"                                                                                
 
-*`echo /this/is/a/splitting/example | pyp "s"`*
+{{{
+echo /this/is/a/splitting/example | pyp "s"
+}}}
 
 *>`[[0]this[1]is[2]a[3]splitting[4]example]`*
 ----
