@@ -15,7 +15,7 @@ After it's in, you can use the standard repertoire of python string and list met
 =p is key=
 
 The key variables                                                                         
-are "p", which represents EACH LINE of the input as a PYTHON STRING.  So to replace FOO with GOO in every line of the input you can use this:
+are "p", which represents EACH LINE of the input as a PYTHON STRING in this example. We'll see how the type of p can change depending on piping later.  In any case, to replace FOO with GOO in every line of the input you can use this:
 
 {{{
 pyp "p.replace('FOO','GOO')"
