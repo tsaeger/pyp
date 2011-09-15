@@ -15,7 +15,7 @@ Standard python relies on whitespace formating such as indentions. Since this
 is not convenient with command line operations, pyp employs an internal piping
 structure ("|") similar to unix pipes.  This allows passing of the output of
 one command to the input of the next command without nested "(())" structures.
-It also allows easy spliting and joining of text using single, commonsense 
+It also allows easy spliting and joining of text using simple, commonsense 
 variables (see below).  The type of p is the same as the type of the evaluation before the the pipe, so if it evaled to a string, it will stay that way. An added bonus is that any subresult between pipes is available, making it easy to refer to the original input if needed.
 
 Filtering output is straight forward using python Logic operations. Any output
