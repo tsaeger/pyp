@@ -97,7 +97,7 @@ echo /this/is/a/splitting/example | pyp "slash|u"
                                                                                         
 
              
-==list operations== 
+== operations that treat the entire input as a list == 
              
 ||print all lines||pyp "pp"||                                                              
 ||sort all input lines||pyp  "pp.sort()"||                                                    
@@ -110,7 +110,7 @@ echo /this/is/a/splitting/example | pyp "slash|u"
                              
                                                                                                                                                                       
 ----
-==string operations==              
+== operations that treat each input line as a string ==              
                                                                                    
 
              
