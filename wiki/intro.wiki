@@ -71,7 +71,7 @@ so common SPLITS and JOINS have been assigned variables. For example, the variab
 "slash" or "s" will split up the line based on "/", while "slash" or "s" will join ALSO join a split up string with "/"                                                                                
 
 {{{
-echo /this/is/a/splitting/example | pyp "s"
+echo /this/is/a/splitting/example | pyp "slash"
 
 >[[0]this[1]is[2]a[3]splitting[4]example]
 
@@ -79,10 +79,10 @@ echo /this/is/a/splitting/example | pyp "s"
 ----
 =auto-joining post auto-split=
 
-to join this array back together, but this time with `underscores`, pipe to u:
+to join this array back together, but this time with underscores, pipe to `u` or `underscore`:
 
 {{{
-echo /this/is/a/splitting/example | pyp "s|u"
+echo /this/is/a/splitting/example | pyp "slash|u"
 
 >this_is_a_splitting_example
 }}}
