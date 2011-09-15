@@ -60,7 +60,7 @@ echo /this/is/a/splitting/example | pyp "p.split('/')"
 which allows you to easily select whatever field you want using python list methods:
 
 {{{
-echo /this/is/a/splitting/example | pyp "p.split('/')[3]`"
+echo /this/is/a/splitting/example | pyp "p.split('/')[3]"
 
 >splitting
 }}}
@@ -72,18 +72,20 @@ so common SPLITS and JOINS have been assigned variables. For example, the variab
 
 {{{
 echo /this/is/a/splitting/example | pyp "s"
-}}}
 
-*>`[[0]this[1]is[2]a[3]splitting[4]example]`*
+>[[0]this[1]is[2]a[3]splitting[4]example]
+
+}}}
 ----
 =auto-joining post auto-split=
 
 to join this array back together, but this time with `underscores`, pipe to u:
 
-*`echo /this/is/a/splitting/example | pyp "s|u"`*
+{{{
+echo /this/is/a/splitting/example | pyp "s|u"
 
-*`>this_is_a_splitting_example`*
-
+>this_is_a_splitting_example
+}}}
 
 ----
 =a patchwork of pyp methods=
