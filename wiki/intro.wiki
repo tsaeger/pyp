@@ -33,7 +33,8 @@ All pyp statements should be enclosed in double quotes, with single quotes being
 
 
 You can pipe data WITHIN a pyp statement using standard unix style pipes ("|"), where "p" now represents the                                                                       
-evaluation of the python statement before the "|".  This allows you to write commands in a human readable, linear fashion without nested parentheses or temporary variables. 
+evaluation of the python statement before the "|".  This allows you to write commands in a human readable, linear fashion without nested parentheses or temporary variables.  The type of p is the same as before the "|", so it can be 
+a string, list, time.date object, etc.
             
 
                                                           
