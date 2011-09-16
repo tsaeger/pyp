@@ -305,6 +305,8 @@ Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
 ||`keep(STR1,STR2,...)`||   keep all lines that have at least one STRING in them||
 ||   `k(STR1,STR2,...)` ||     shortcut for keep(STR1,STR2,...)||
 ||  `lose(STR1,STR2,...) `||  lose all lines that have at least one STRING in them||
+||`l(STR1,STR2,...) `  ||   shortcut for lose(STR1,STR2,...)|| 
+
 
 ||rekeep(REGEX)||keep all lines that match REGEX regular expression||
 ||rek(REGEX)||shortcut for keep(REGEX)||
