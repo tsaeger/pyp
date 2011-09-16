@@ -309,9 +309,9 @@ Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
 
 
 ||rekeep(REGEX)||keep all lines that match REGEX regular expression||
-||rek(REGEX)||shortcut for keep(REGEX)||
+||rek(REGEX)||shortcut for rekeep(REGEX)||
 ||relose(REGEX)||lose all lines that match REGEX regular expression||
-||rel(REGEX)||shortcut for lose(REGEX)||
+||rel(REGEX)||shortcut for relose(REGEX)||
 
 
 
