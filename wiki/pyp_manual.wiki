@@ -315,7 +315,6 @@ Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
 
 
 
-||`l(STR1,STR2,...) `  ||   shortcut for lose(STR1,STR2,...)|| 
 || `shell(SCRIPT)`    ||     shell('stat '+p)   returns output of $script||
 || `shelld(SCRIPT,DELIM)`  shelld('stat '+p) ||  returns output of $script in dictionary key/value seperated on ':' or delimeter||
 ||`env(ENVIROMENT_VAR)`  || returns value of evironment variable using os.environ.get()||
