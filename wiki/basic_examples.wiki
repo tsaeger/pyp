@@ -416,7 +416,7 @@ $ pyp --rerun "'/'.join(s[0:4])+'/'+s[-1].lower().replace(': ','_').replace('fil
 Pyed Piper has the ability to house all the history of what every output will give between each pipe.
 
 {{{
-<"tcsh shell" - In this example we are going to copy/paste our strings and then use CTRL-D>
+<"tcsh shell" 
 
 $ echo '/MyDocuments/examples/pyp/CoolFile: 2011_04_01.jpg'| pyp
    /MyDocuments/examples/pyp/CoolFile: 2011_04_01.jpg
@@ -480,26 +480,160 @@ $ pyp --rerun -t ./exercise_6b.txt "p + ' ' + fp "
 
 ----
 ==Using Digits==
+Pyed Piper has the ability to test each line in the buffer for digits.  It can look through each string to get a list of digits or can test where the string is/isn't digits. 
+
+*Example 1* - Getting Digits in a list 
+
+{{{
+<"tcsh shell" - text files can be found on downloads page 
+
+$ cat /location/to/file/exercise_7.txt | pyp
+   I am 28 with a 6 year old car
+   123456
+   I wonder what it would be like to be eighteen
+   27flavors
+
+$ pyp --rerun "p.digits()"
+   [[0]28[1]6]
+   [[0]123456]
+   [[0]27]
+
+}}}
+*PYP NOTE: *  
 
 
-----
-==Pyed Piper and Math==
+*Example 2* - Testing for digits
 
+{{{
+<"tcsh shell" - Continuation from the last example
+
+$ pyp --rerun "p.isdigit()"
+   123456
+
+$ pyp --rerun "not p.isdigit()"
+   I am 28 with a 6 year old car
+   I wonder what it would be like to be eighteen
+   27flavors
+
+}}}
+
+*PYP NOTE: *   
 
 ----
 ==Pyed Piper and Grep==
+Pyed piper has the ability to search throughout a string or list much like grep with its function `keep` and `lose`.
 
+*Example 1* - Keep 
+
+{{{
+<"tcsh shell" - text files can be found on downloads page 
+
+$ cat /location/to/file/exercise_2.txt | pyp
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
+   /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
+
+$ pyp --rerun "keep('.mov')"
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
+
+$ pyp --rerun "k('tiff','mymovie')"
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/mymovie_frames.180.mov
+   /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
+
+}}}
+
+*PYP NOTE: *
+
+*Example 2* - Loose 
+
+{{{
+<"tcsh shell" - continuation of example 2
+
+$ pyp --rerun "l('mymovie')"
+   /MyDocuments/examples/movie_directry/frames/swin_is_the_man/tiff/swin@work.tiff
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
+
+$ pyp --rerun "loose('tiff','mymovie')"
+   /MyDocuments/examples/movie_directory/movie/2011_05_20/Cool Movie:swin-flight.mov
+
+}}}
+
+*PYP NOTE: *
 
 ----
 ==Pyed Piper and Trim==
+ 
+{{{
+<"tcsh shell" - text files can be found on downloads page 
 
+$ cat /location/to/file/exercise_3.txt | pyp 
+   /MyDocuments/swin/pyp/examples/tutorial_for_pyp.jpg
+   /MyDocuments/swin/pyp/examples/pyp_is_awesome.jpg
+
+$ pyp --rerun "p.trim()"
+   /MyDocuments/swin/pyp/examples
+   /MyDocuments/swin/pyp/examples
+
+$ pyp --rerun "p.trim().trim()"
+   /MyDocuments/swin/pyp
+   /MyDocuments/swin/pyp
+
+}}}
+*PYP NOTE: *
 
 ----
 ==Pyed Piper and Pipes==
 
+{{{
+<"tcsh shell" - text files can be found on downloads page 
+
+$ cat /location/to/file/exercise_5.txt | pyp 
+   In a far far world and very distant land.
+   In a land far far away.
+   In a world that was distant.
+
+$ pyp --rerun "p" | wc
+        3      21      95
+
+$ pyp --rerun "p" | sort -r
+   In a world that was distant.
+   In a land far far away.
+   In a far far world and very distant land.
+
+}}}
+*PYP NOTE: * 
+
 
 ----
 ==Pyed Piper and Xargs==
+In this example we are going to copy/paste our strings and then use CTRL-D >
+
+{{{
+<"tcsh shell" - In this example we are going to copy/paste our strings and then use CTRL-D >
+
+$ pyp
+1
+2
+3
+4
+   1
+   2
+   3
+   4
+
+$ pyp --rerun "pp.oneline()"
+   1 2 3 4
+
+$ pyp --rerun "p" | xargs
+   1 2 3 4 
+
+}}}
+
+*PYP NOTE: *
+
+----
+==Pyed Piper and Math==
 
 
 ----
