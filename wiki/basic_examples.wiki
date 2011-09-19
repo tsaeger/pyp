@@ -458,9 +458,10 @@ $ pyp --rerun -t ./exercise_6b.txt "p+' '+f[1]"
 
 *PYP NOTE: * Using the "`f`" or "`--file`, pyp will take the text file that was designated from the "-t" flag and will make a list for you.  *It is important to note that the "-t" flag needs a path to a text file in order for pyp to use the "`f`" symbol.*  In this example we took the second string from the list and added it to "`p`". 
 
-{{{
+
 *Example 2 * - Using a text file line by line
 
+{{{
 <"tcsh shell" - text files can be found on downloads page 
 
 $ cat /location/to/file/exercise_6.txt | pyp
