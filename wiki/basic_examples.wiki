@@ -428,11 +428,54 @@ $ pyp --rerun "s[0:-1]|s+'/'+p|history[0]"
    /MyDocuments/examples/pyp/CoolFile: 2011_04_01.jpg
 }}}
 
-*PYP NOTE: * 'p' represents the slashes, history is going back to orginal
+*PYP NOTE: * In this example, we are using the history between each pipe.  The first list "`history[0]`" represents the input that originally was used, while the last one "`history[2]`" represents the final output.  Everything in between represents the history that was used to get there (between pipes).
 
 ----
 ==Using Text Files with pyp==
 
+Pyed Piper has the ability to take in text files as an additional add-on to a buffer.
+
+*Example 1 * - Using a text file as a list
+{{{
+<"tcsh shell" - text files can be found on downloads page 
+
+$ cat /location/to/file/exercise_6.txt | pyp
+   hello
+   hello
+   wide world
+
+$ pyp --rerun -t ./exercise_6b.txt "p + ' ' + f"
+   hello [[0]world[1]world[2]wide world]
+   hello [[0]world[1]world[2]wide world]
+   wide [[0]world[1]world[2]wide world]
+
+$ pyp --rerun -t ./exercise_6b.txt "p+' '+f[1]"
+   hello world
+   hello world
+   wide world
+
+}}}
+
+*PYP NOTE: * Using the "`f`" or "`--file`, pyp will take the text file that was designated from the "-t" flag and will make a list for you.  *It is important to note that the "-t" flag needs a path to a text file in order for pyp to use the "`f`" symbol.*  In this example we took the second string from the list and added it to "`p`". 
+
+{{{
+*Example 2 * - Using a text file line by line
+
+<"tcsh shell" - text files can be found on downloads page 
+
+$ cat /location/to/file/exercise_6.txt | pyp
+   hello
+   hello
+   wide world
+
+$ pyp --rerun -t ./exercise_6b.txt "p + ' ' + fp "
+   hello world
+   hello world
+   wide wide world
+
+}}}
+
+*PYP NOTE: * In this example instead of picking from a list in the assigned text, we are telling pyp that we want to add each line with the corresponding line in the buffer. 
 
 ----
 ==Using Digits==
