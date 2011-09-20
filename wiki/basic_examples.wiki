@@ -201,7 +201,7 @@ $ pyp --rerun "(s[2:3] + s[1:5])"
    [[0]swin[1]MyDocuments[2]swin[3]pyp[4]examples]
    [[0]swin[1]MyDocuments[2]swin[3]pyp[4]examples]
 }}}
-*PYP NOTE: *
+*PYP NOTE: * In this example we have two list that we are wanting to become one list.  Demonstration 2 shows that when we add "+" between the two lists, it returns the two separate lists on the same line.  In order to join both list together, we need to add "`()`" around the list. Demonstration 3 shows that by putting `"()"` around the two list we now have one completely new list.  
 
 {{{
 <"tcsh shell" - continued from the same text file
@@ -227,7 +227,7 @@ $ pyp --rerun "(s[2:3] + u[1:5])|u"
 
 }}}
 
-*PYP NOTE: *
+*PYP NOTE: * In this example, we split with two different variables (slashes and underscores).  Once the list is made we can still continue manipulating each list (as shown in the last four demonstrations).
 
 ----
 ==String Replacements==
@@ -499,7 +499,7 @@ $ pyp --rerun "p.digits()"
    [[0]27]
 
 }}}
-*PYP NOTE: *  
+*PYP NOTE: * In this example, we tell pyp that we want a list of all digits found in the buffer.  Even if the numbers are up next to a string (like "27flavors"), it will still pull out the digits.
 
 
 *Example 2* - Testing for digits
@@ -517,7 +517,7 @@ $ pyp --rerun "not p.isdigit()"
 
 }}}
 
-*PYP NOTE: *   
+*PYP NOTE: * In this example, we are asking pyp to test to see if each line is only digits.  In the first demonstration, we are wanting to know which lines are only digits and in the second demonstration, we want to know which ones are not digits.  Notice that the word `"not"` is used in the last demonstration to specify the type of test.  A clear way to explain this principle is "if `p` is a digit; then print `p`"  or "if `p` is not a digit; then print `p`".  
 
 ----
 ==Pyed Piper and Grep==
@@ -543,7 +543,7 @@ $ pyp --rerun "k('tiff','mymovie')"
 
 }}}
 
-*PYP NOTE: *
+*PYP NOTE: * Pyp has the ability to work like grep using a built-in function called "keep" (or its short form "k").  In this example, we are telling pyp that we want to go through the buffer and return any lines that have the given string/s.  In the second demonstration we only asked pyp to look for one string while in the third demonstration we asked pyp to search with two strings.
 
 *Example 2* - Loose 
 
@@ -559,11 +559,12 @@ $ pyp --rerun "loose('tiff','mymovie')"
 
 }}}
 
-*PYP NOTE: *
+*PYP NOTE: * pyp has the ability to return everything that is NOT in the search parameters using its other built-in function called "loose" (or its short form "l").  In demonstration one, we are asking pyp to return everything that doesn't have "mymovie" in the string.  The second demonstration shows that we are looking for two strings ("tiff" and "mymovie") and to return whatever doesn't have it in the string.
 
 ----
 ==Pyed Piper and Trim==
- 
+The built-in fuction trim is used to trim off the tail of a string (based upon slashes).  
+
 {{{
 <"tcsh shell" - text files can be found on downloads page 
 
@@ -580,7 +581,7 @@ $ pyp --rerun "p.trim().trim()"
    /MyDocuments/swin/pyp
 
 }}}
-*PYP NOTE: *
+*PYP NOTE: * In the second demonstration, we told pyp that we wanted to trim off the file (giving us directories); however, in the third demonstration we wanted to trim the file and then trim the last directory.
 
 ----
 ==Pyed Piper and Pipes==
@@ -602,7 +603,7 @@ $ pyp --rerun "p" | sort -r
    In a far far world and very distant land.
 
 }}}
-*PYP NOTE: * 
+*PYP NOTE: * In these demonstrations pyp has the ability to use pipes outside of the double quotes much like any other form of unix command.  In this example we were able to get a word count and a reverse sort by piping out side of double quotes.
 
 
 ----
@@ -625,12 +626,9 @@ $ pyp
 $ pyp --rerun "pp.oneline()"
    1 2 3 4
 
-$ pyp --rerun "p" | xargs
-   1 2 3 4 
-
 }}}
 
-*PYP NOTE: *
+*PYP NOTE: * Pyed Piper has the ability to do something similar to xargs with its built-in function called `"pp.oneline()"`.  In this example we took every line and put it on one line.  NOTE: you can also use pipes and xargs to accomplish the same thing.  For more information see Pyed Piper and Pipes.
 
 ----
 ==Pyed Piper and Math==
