@@ -75,7 +75,7 @@ variable(in this case "u", or "underscore"):
 
 To add text, just enclose it in quotes, and use "`+`" or ",`" just like python: 
 
-    `ls random_frame.jpg | pyp "'mkdir seq.tp_' , d[0]+ '_v1/misc_vd8'`
+    `ls random_frame.jpg | pyp "'mkdir','seq.tp_' + d[0]+ '_v1/misc_vd8'"`
         ==> `mkdir seq.tp_random_frame_v1/misc_vd8`
 
 ----
