@@ -218,8 +218,16 @@ are at a large facility.
 ----
 ==HERE ARE THE BUILT IN VARIABLES:==
     
-||`p` ||      python string of python input line by line ||
-||`pp`  ||     python list of ALL pyped in inputs||
+||`p` ||line-by-line std-in variable. p represents whatever was evaluated to before the previous pipe (|).||
+||`pp`  ||   python list of ALL std-in input. In-place methods like sort() will work as well as list methods like sorted(LIST)||
+
+||`sp` ||    line-by-line input second stream input, like p, but from all  non-flag arguments AFTER pyp command: pyp "p, sp" SP1 SP2 SP3 ...||
+||`spp`  ||     python list of ALL second stream list input. Modifications of this list will be picked up with future references to sp ||
+
+
+||`fp` ||      line-by-line file input using --text_file TEXT_FILE. fp on the first line of output is the first line of the text file||
+||`fpp`  ||  python list of ALL text file input. Modifications of this list will be picked up with future references to fp ||
+
 ||`original` || original line by line input to pyp    ||   
 ||`o` ||      same as original||       
 ||`sp` ||     second steam line input, just like p, but from all non-flag arguments AFTER pyp||
@@ -269,6 +277,8 @@ Also, the ORIGINAL INPUT line is split on delimiters as above, but stored in
 
 || `p.dir`    ||            path  DIRECTORY ||
 ||`p.file`    ||           path  FILE ||
+||`p.ext`    ||           path  EXTENSION ||
+
 ||`p.trim()` ||            removes last file or directory from path from p||
 ||p.clean(DELIM)||replaces "bad" metacharacters with underscores or DELIM||
 || `p.kill(STR1,STR2,..)` || removes all `STR*` from p ||
