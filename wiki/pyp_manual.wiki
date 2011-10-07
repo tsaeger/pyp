@@ -239,8 +239,6 @@ are at a large facility.
 ||`n`  ||     line counter (1st line is 0, 2nd line is 1,...use the form "(n+3)" to modify this value. ||
 ||`nk`   ||   n + 1000|| 
 ||`date` ||     date and time. Returns the current datetime.datetime.now() object.||  
-||`f`||    list based on file input using --textfile $file||   
-||`fp`  ||     line from file input; fp for FIRST st-in line is the FIRST text file line, and so on ||   
 || `pwd` ||      present working directory ||    
 || `history` ||  history array of all previous results: so pyp "a|u|s|i|`h[-3]`" shows eval of s ||              
 || `h`  ||      same as history|| 
