@@ -45,6 +45,8 @@ tight integration with larger facilities data structures or custom tool sets.
 
 ==DESIGN PHILOSOPHY==
 ----
+===Python Linearization===
+
 Pyp was designed to merge common python methods with classic unix piping techniques.  Originally, the primary goal was simply to eliminate nested parentheses necessary to perform a sequence of python string operations on STD-IN.
 The beauty of classic unix tools like cut, sed, and awk, is that each operation performs a singular, comprehensible operation whose output is then piped to the next tool.  Python, on the other hand, was designed as a whitespace-delimited language where it's trivial to make temporary variables, split out functions, and other such housekeeping functions.  It's possible to cleverly devise a series of nested parentheses to get around this, but at the expense of human readability. For example, compare these two equivalent statements which represent a typical command line parsing task:
 
@@ -66,12 +68,17 @@ line.split()  |  p[4:7]  |  '_'.join(p)  |  p.split('.')  |  'X'.join(p)
 
 Hopefully, you'll agree that the second one is easier to write, read, and especially, read in a week!  This basic generalization opened up a number of techniques which are detailed below. 
 
+===Normal and Analysis Output Modes===
+
 In use, pyp is designed to alternate between two modes: a normal output mode as well as an analysis mode used to help make informed decisions. For example, if you use the split() method, pyp knows that you are probably interested in selecting fields or some other intermediate step, so it prints out index numbers to facilitate field selection:
 
 {{{
 ls random_frame.jpg | pyp "p.split('.')" 
 >[[0]random_frame[1]jpg]
 }}}
+
+
+===Simple Object Printing===
 
 With this in mind, pyp, unlike normal python, allows you to print out any type of objects next to each other without converting them to strings. That is, you can use "+" and "," to concatenate objects or join them with spaces.  For example you can print out a string right next to an indexed list:
 
@@ -82,7 +89,7 @@ ls random_frame.jpg | pyp "'hello world', p.split('.')"
 
 ...then select your field of interest, and keep on going with the now canonical string. The overall goal is to keep you thinking in a pythonic way while giving you as much information as possible about what you have.  
 
-That being said, here are tenets of pyp:
+=== Pyp Tenets ===
 
 
  * python experts should be able to do everything with two variables p (line by line objects) and pp (entire input as list)
