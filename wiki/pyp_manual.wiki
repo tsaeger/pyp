@@ -94,7 +94,9 @@ ls random_frame.jpg | pyp "'hello world', p.split('.')"
 
  * python experts should be able to do everything with two variables p (line by line objects) and pp (entire input as list)
 
- * most splitting and joining happens on less than 10 metacharacters. these should have intelligent dedicated variables that are aware of their input type. For example "slash" splits on slashes if the line is a string, but joins on slashes if the line is a list. 
+ * most splitting and joining happens on less than 10 metacharacters. these should have commonsense dedicated variables.
+
+ * These split/join variables should be aware of their input type. ie `slash` splits on slashes if the line is a string, but joins with slashes if the line is a list. 
 
  * python bouleon logic should be hijacked to filter output, True is kept, False is lost.
 
