@@ -52,7 +52,8 @@ The beauty of classic unix tools like cut, sed, and awk, is that each operation 
 
 
 Here is the traditional python implementation:
-{{{join with X's the list that you split up on dots from the string that you obtained by joining with underscores the list that you got by split up a line  on spaces and selected the 4th through seventh fields
+{{{
+join with X's the list that you split up on dots from the string that you obtained by joining with underscores the list that you got by split up a line  on spaces and selected the 4th through seventh fields
 
 'X'.join('_'.join(line.split()[4:7]).split('.'))
 }}}     
