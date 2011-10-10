@@ -45,6 +45,31 @@ tight integration with larger facilities data structures or custom tool sets.
 ----
 Pyp needs a copy of python to work. Any recent (version 2.6+) should work. We have purposefully only imported commonly distributed modules to maximize compatibility.  Older versions of python may work if the json package has been installed.  Pyp has been successfully tested on fedora, centOS, and Mac OSX systems. 
 
+==DESIGN PHILOSOPHY==
+----
+Pyp was designed to merge common python methods with classic unix piping techniques.  Originally, the primary goal was simply to eliminate nested parentheses necessary to perform a sequence of python string operations on STD-IN.
+The beauty of classic unix tools like cut, sed, and awk, is that each operation performs a singular, comprehensible operation whose output is then piped to the next tool.  Python, on the other hand, was designed as whitespace-delimited language where it's trivial to make temporary variables, split out functions, and other such housekeeping functions.  It's possible to cleverly devise a series of nested parentheses to get around this, but the expense of human readability. For example, compare these two equivalent statements:
+
+
+Here is the traditional python implementation:
+{{{join with X's the list that you split up on dots from the string that you obtained by joining with underscores the list that you got by split up a line  on spaces and selected the 4th through seventh fields
+
+'X'.join('_'.join(line.split()[4:7]).split('.'))
+}}}     
+
+Now, consider how you could do things if you could pass the output of one python evaluation to the next linearly using the variable p: 
+
+{{{
+take a line , split it up on spaces. Select the 4th through the 7th fields.  Join these fields with underscores. Then split this up on dots, and join it with 'X'}}}
+
+p.split()  |  p[4:7] | '_'.join(p)  |  p.split('.')  |  'X'.join(p) 
+}}}
+
+
+
+
+
+
 
 ==STRING OPERATIONS==
 ----
