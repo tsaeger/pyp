@@ -48,7 +48,7 @@ Pyp needs a copy of python to work. Any recent (version 2.6+) should work. We ha
 ==DESIGN PHILOSOPHY==
 ----
 Pyp was designed to merge common python methods with classic unix piping techniques.  Originally, the primary goal was simply to eliminate nested parentheses necessary to perform a sequence of python string operations on STD-IN.
-The beauty of classic unix tools like cut, sed, and awk, is that each operation performs a singular, comprehensible operation whose output is then piped to the next tool.  Python, on the other hand, was designed as whitespace-delimited language where it's trivial to make temporary variables, split out functions, and other such housekeeping functions.  It's possible to cleverly devise a series of nested parentheses to get around this, but the expense of human readability. For example, compare these two equivalent statements which represent a typical command line parsing task:
+The beauty of classic unix tools like cut, sed, and awk, is that each operation performs a singular, comprehensible operation whose output is then piped to the next tool.  Python, on the other hand, was designed as a whitespace-delimited language where it's trivial to make temporary variables, split out functions, and other such housekeeping functions.  It's possible to cleverly devise a series of nested parentheses to get around this, but at the expense of human readability. For example, compare these two equivalent statements which represent a typical command line parsing task:
 
 
 Here is the traditional python implementation:
@@ -70,11 +70,12 @@ Hopefully, you'll agree that the second one is easier to write, read, and especi
 
 In use, pyp is designed to alternate between two modes, a normal output mode like all other unix utilities, as well as an analysis mode used to help make informed decisions. For example, if you use the split() method, pyp knows that you are probably interested in selecting fields or some other intermediate step, so it prints out index numbers to facilitate field selection:
 
-`ls random_frame.jpg | pyp "d" ` 
-        ==> `[[0]random_frame[1]jpg]`
+{{{
+ls random_frame.jpg | pyp "p.split('.')" 
+>[[0]random_frame[1]jpg]
+}}}
 
-
-With this in mind, The pyp, unlike normal python, allows you to print out any type of objects next to each other without converting them to strings. That is, you can use "+" and "," to concatenate objects or join them with spaces.  For example you can print out a string right next to an indexed list, then select your field of interest, and keep on going with the now canonical string. The overall goal is to keep you thinking in pythonic way while giving you as much information as possible about what you have.  
+With this in mind, pyp, unlike normal python, allows you to print out any type of objects next to each other without converting them to strings. That is, you can use "+" and "," to concatenate objects or join them with spaces.  For example you can print out a string right next to an indexed list, then select your field of interest, and keep on going with the now canonical string. The overall goal is to keep you thinking in a pythonic way while giving you as much information as possible about what you have.  
 
 That being said, here are tenets of pyp:
 
@@ -85,7 +86,7 @@ That being said, here are tenets of pyp:
 
  *  python bouleon logic should be hijacked to filter output, True is kept, False is lost.
 
- * you should be able to easily refer back to any inter-pipe sub-result, especially the original input into pyp
+ * you should be able to easily refer back to any inter-pipe sub-result, especially the original input that was piped into pyp
 
  * once a process is worked out, you should be able to save it to disk for future use as a macro-- an alternative to quick and dirty scripting.
 
