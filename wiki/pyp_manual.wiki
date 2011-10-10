@@ -58,7 +58,7 @@ Here is the traditional python implementation:
 'X'.join('_'.join(line.split()[4:7]).split('.'))
 }}}     
 
-Now, consider how you could do things if you could pass the output of one python evaluation to the next linearly using the variable p and classic unix pipes: 
+Now, consider how you could do things if you could pass the output of one python evaluation to the next linearly using the variable p: 
 
 {{{
 line.split()  |  p[4:7]  |  '_'.join(p)  |  p.split('.')  |  'X'.join(p) 
@@ -68,7 +68,7 @@ line.split()  |  p[4:7]  |  '_'.join(p)  |  p.split('.')  |  'X'.join(p)
 
 Hopefully, you'll agree that the second one is easier to write, read, and especially, read in a week!  This basic generalization opened up a number of techniques which are detailed below. 
 
-In use, pyp is designed to alternate between two modes, a normal output mode like all other unix utilities, as well as an analysis mode used to help make informed decisions. For example, if you use the split() method, pyp knows that you are probably interested in selecting fields or some other intermediate step, so it prints out index numbers to facilitate field selection:
+In use, pyp is designed to alternate between two modes: a normal output mode as well as an analysis mode used to help make informed decisions. For example, if you use the split() method, pyp knows that you are probably interested in selecting fields or some other intermediate step, so it prints out index numbers to facilitate field selection:
 
 {{{
 ls random_frame.jpg | pyp "p.split('.')" 
@@ -87,17 +87,17 @@ ls random_frame.jpg | pyp "'hello world', p.split('.')"
 That being said, here are tenets of pyp:
 
 
- * python experts should be able to do everything with two variables p (string) and pp (list)
+ * python experts should be able to do everything with two variables p (line by line objects) and pp (entire input as list)
 
- * most splitting and joining happens on less than 10 metacharacters. these should have dedicated variables
+ * most splitting and joining happens on less than 10 metacharacters. these should have intelligent dedicated variables that are aware of their input type. For example "slash" split on slashes if the line is a string, but joins on slashes if the line is a list. 
 
- *  python bouleon logic should be hijacked to filter output, True is kept, False is lost.
+ * python bouleon logic should be hijacked to filter output, True is kept, False is lost.
 
  * you should be able to easily refer back to any inter-pipe sub-result, especially the original input that was piped into pyp
 
  * once a process is worked out, you should be able to save it to disk for future use as a macro-- an alternative to quick and dirty scripting.
 
-
+ * easily extensible string and list objects to add funtionality beyond normal python methods both in main code and user config file. 
 
 
 
