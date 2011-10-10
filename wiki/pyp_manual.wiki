@@ -96,7 +96,7 @@ ls random_frame.jpg | pyp "'hello world', p.split('.')"
 
  * most splitting and joining happens on less than 10 metacharacters. these should have commonsense dedicated variables.
 
- * These split/join variables should be aware of their input type. ie `slash` splits on slashes if the line is a string, but joins with slashes if the line is a list. 
+ * split/join variables should be aware of the input type. ie `slash` splits on slashes if the line is a string, but joins with slashes if the line is a list. 
 
  * python bouleon logic should be hijacked to filter output, True is kept, False is lost.
 
