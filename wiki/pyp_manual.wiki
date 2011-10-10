@@ -75,7 +75,14 @@ ls random_frame.jpg | pyp "p.split('.')"
 >[[0]random_frame[1]jpg]
 }}}
 
-With this in mind, pyp, unlike normal python, allows you to print out any type of objects next to each other without converting them to strings. That is, you can use "+" and "," to concatenate objects or join them with spaces.  For example you can print out a string right next to an indexed list, then select your field of interest, and keep on going with the now canonical string. The overall goal is to keep you thinking in a pythonic way while giving you as much information as possible about what you have.  
+With this in mind, pyp, unlike normal python, allows you to print out any type of objects next to each other without converting them to strings. That is, you can use "+" and "," to concatenate objects or join them with spaces.  For example you can print out a string right next to an indexed list:
+
+{{{
+ls random_frame.jpg | pyp "'hello world', p.split('.')" 
+>hello world [[0]random_frame[1]jpg]
+}}}
+
+...then select your field of interest, and keep on going with the now canonical string. The overall goal is to keep you thinking in a pythonic way while giving you as much information as possible about what you have.  
 
 That being said, here are tenets of pyp:
 
