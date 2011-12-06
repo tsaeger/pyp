@@ -629,10 +629,3 @@ $ pyp --rerun "pp.oneline()"
 }}}
 
 *PYP NOTE: * Pyed Piper has the ability to do something similar to xargs with its built-in function called `"pp.oneline()"`.  In this example we took every line and put it on one line.  NOTE: you can also use pipes and xargs to accomplish the same thing.  For more information see Pyed Piper and Pipes.
-
-----
-==Pyed Piper and Math==
-
-
-----
-==Pyed Piper and Sort==
