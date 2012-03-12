@@ -200,32 +200,89 @@ By default False output is eliminated from the final output. If you would like b
 
 ==SECOND STREAM, TEXT FILE, AND BLANK INPUT==
 
-Normally, pyp receives it's input by piping into it like a standard unix shell
-command...sometimes it's necessary to combine two streams of inputs, such as
-consolidating the output of two shell commands line by line.  pyp provides
-for this with the second stream input. Essentially anything after the pyp
-command that is not associated with an option flag is brought into pyp as
-the second stream, and can be accessed seperately from the primary stream
-by using the variable 'sp'
+==== A Quick Review of File and Second Streams=====
+Typically, data is piped into pyp just like any other unix utility through STD-IN. There are, however, two other completely independent ways to get data into pyp.  These other streams can then be manipulated separately as well as combined in various ways with the main stream. 
 
-To input a second stream of data, just tack on strings or execute (use backticks)
-a command to the end of the pyp command, and then access this array using the
-variable 'sp' 
 
-    `echo random_frame.jpg | pyp "p, sp" `echo "random_string"``
-       ===> `random_frame.jpg random_string`
-       
-In a similar way, text input can be read in from a text file using the 
---text_file flag. You can access the entire file as a list using the variable
-'f', while the variable 'fp' reads in one line at a time. This text file
-capability is very useful for lining up info piped into pyp normally with
-data in a text file like this:
+File inputs can be specified using the --text_file flag, and are referred to on a line-by line-basis using the variable 'fp'. For example, to print out the std-in line-by-line next to each line in a file use this:
 
-    `echo normal_input | pyp -text_file example.txt "p, fp"` 
+{{{
+
+pyp "p + fp" --text_file example.txt  
+
+}}}
 
 This setup is geared mostly towards combining data from std-in with that in
 a text file...if the text file is your only data, you should cat it, and pipe
 this into pyp.
+
+
+Second stream inputs, on the other hand, are anything after the pyp command that is not associated with an option flag.  This can then be accessed separately from the primary stream by using the variable 'sp'. To print out the std-in line-by-line next to each sp_example, use this:
+
+{{{
+
+pyp "p + sp" sp_example1 sp_example2 sp_example3
+
+}}}
+
+====  File and Second Stream List Variables ====
+List operations can  be performed on file inputs and second stream inputs using the variables spp and fpp, respectively.  These essentially treat each input as a list, so you can use standard python list methods as well as any of the specialized pyp list methods.  Once modified, these changes will "stick", so future references to the list will use the new list.
+
+For example to sort a file input use:
+{{{       
+
+fpp.sort()                                                                                
+
+}}}                                                                                   
+Once this operation takes place, the sorted fpp will be used for all future operations, such as referring to the file input line-by-line using fp.                                                                                    
+
+If you need arbitrary strings added to your list, you can just use simple python list additions:
+
+{{{
+
+fpp + ['last list']
+
+}}}
+
+
+You can also add these inputs to the std-in stream using like this:                                                               
+
+{{{
+
+pp+fpp
+
+}}}                                                                           
+                                                                                       
+If pp is 10 lines, and fpp is 10 line, this will result in a new pp stream of 20 lines, with the first 10 being from pp and the last 10 being from fpp.  fpp will remain untouched; only pp will change with this operation.                                                                                                                                                            
+
+Of course, you can trim these to your needs using standard python list selection techniques:                                                                                                                                            
+{{{
+pp[0:5]+ fpp[0:5]
+}}}                                                                                                                                                       
+                                                                                                                                                                                 
+This will result in a new composite input stream of 10 lines.
+
+Keep in mind that the length of fpp and spp is trimmed to reflect that of std-in.  If you need to see more of your file second stream input, you can extend your std-in stream simply:                                                                         
+
+{{{
+
+pp+['']*10
+
+}}}
+
+will add 10 blank lines to std-in, and thus reveal another 10 lines of fpp if available.     
+
+
+Also, there are a few useful python math functions that work on lists of integers or floats like sum, min, and max. For example, to add up all of the integers in the last column input:
+{{{
+
+whitespace[-1] | int(p) | sum(pp)                                        
+
+}}}
+
+
+
+
 
 If you need to generate output from pyp with no input, use --blank_inputs.
 This is useful for generating text based on line number using the 'n'
