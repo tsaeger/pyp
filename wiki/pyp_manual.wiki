@@ -196,6 +196,9 @@ if you are using a math expression, be sure to enclose this in parentheses like 
 
 (x > 5) 
 
+In fact, any expression that returns a numeric result (ie float or int) should be enclosed with parentheses. This is one of the rare cases where pyp syntax deviates slightly from normal python.
+
+
 see the math section for more info.
 
 By default False output is eliminated from the final output. If you would like blank lines instead, use the --keep_false flag.
