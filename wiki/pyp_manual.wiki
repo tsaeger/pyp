@@ -192,6 +192,12 @@ The pyp functions "`keep(STR)`" and "`lose(STR)`", and their respective shortcut
 "`k(STR)`" and "`i(STR)`", are very useful for proving simple OR style string
 filtering. See Below.
 
+if you are using a math expression, be sure to enclose this in parentheses like this:
+
+(x > 5) 
+
+see the math section for more info.
+
 By default False output is eliminated from the final output. If you would like blank lines instead, use the --keep_false flag.
 
 ----
