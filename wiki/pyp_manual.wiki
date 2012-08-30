@@ -111,7 +111,31 @@ ls random_frame.jpg | pyp "'hello world', p.split('.')"
 ----
 Pyp needs a copy of python to work. Any recent (version 2.6+) should work. We have purposefully only imported commonly distributed modules to maximize compatibility.  Older versions of python may work if the json package has been installed.  Pyp has been successfully tested on fedora, centOS, and Mac OSX systems. 
 
+==INSTALLATION==
+The simplest installation method is to simply download pyp from our "Downloads" page. Keep in mind that pyp is a SINGLE text file, not a complex package, so can be simply downloaded and run, although you may need to change permissions. 
 
+To download it via the command line use this:
+{{{
+svn checkout http://pyp.googlecode.com/svn/trunk/ pyp-read-only
+}}}
+
+Otherwise, you can download it from the "Downloads" page here:
+
+[http://code.google.com/p/pyp/downloads/list Downloads]
+
+there is a beta version that typically has expanded features and bug fixes here as well.
+
+In either case, you may need to change the permission on the file to be 777 (read/write/execute). This is easily done with the following command:
+{{{
+chmod 777 pyp*
+}}}
+
+If installing into a directory outside of your scripts path on Mac OSX, you must give path information to execute pyp, for example, you can call pyp like this:
+{{{
+>ls | ./pyp "p"
+}}}  
+
+pyp is available from other sources like pypy, but the beta version is only available from the "Downloads" page. 
 
 ==STRING OPERATIONS==
 ----
